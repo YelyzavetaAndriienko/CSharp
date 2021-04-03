@@ -1,43 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using LI.CSharp.Lab.GUI.WPF.Navigation;
 using Prism.Mvvm;
 
 namespace LI.CSharp.Lab.GUI.WPF.Authentication
 {
-    public class AuthViewModel : BindableBase, IMainNavigatable
+    public class AuthViewModel : NavigationBase<AuthNavigatableTypes>, INavigatable<MainNavigatableTypes>
     {
-        private List<IAuthNavigatable> _viewModels = new List<IAuthNavigatable>();
         private Action _signInSuccess;
-
-        public IAuthNavigatable CurrentViewModel
-        {
-            get;
-            private set;
-        }
+        
         public AuthViewModel(Action signInSuccess)
         {
             _signInSuccess = signInSuccess;
             Navigate(AuthNavigatableTypes.SignIn);
         }
-
-        public void Navigate(AuthNavigatableTypes type)
-        {
-            if (CurrentViewModel != null && CurrentViewModel.Type == type)
-                return;
-            IAuthNavigatable viewModel = _viewModels.FirstOrDefault(authNavigatable => authNavigatable.Type == type);
-
-            if (viewModel == null)
-            {
-                viewModel = CreateViewModel(type);
-                _viewModels.Add(viewModel);
-            }
-            viewModel.ClearSensitiveData();
-            CurrentViewModel = viewModel;
-            RaisePropertyChanged(nameof(CurrentViewModel));
-        }
-
-        private IAuthNavigatable CreateViewModel(AuthNavigatableTypes type)
+        
+        protected override INavigatable<AuthNavigatableTypes> CreateViewModel(AuthNavigatableTypes type)
         {
             if (type == AuthNavigatableTypes.SignIn)
             {

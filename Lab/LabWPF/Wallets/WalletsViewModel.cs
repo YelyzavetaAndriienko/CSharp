@@ -4,19 +4,20 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LI.CSharp.Lab.GUI.WPF.Navigation;
 using LI.CSharp.Lab.Models.Wallets;
 using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
 
 namespace LI.CSharp.Lab.GUI.WPF.Wallets
 {
-    public class WalletsViewModel : BindableBase, IMainNavigatable
+    public class WalletsViewModel : BindableBase, INavigatable<MainNavigatableTypes>
     {
         private WalletService _service;
-        private Wallet _currentWallet;
-        public ObservableCollection<Wallet> Wallets { get; set; }
+        private WalletDetailsViewModel _currentWallet;
+        public ObservableCollection<WalletDetailsViewModel> Wallets { get; set; }
 
-        public Wallet CurrentWallet
+        public WalletDetailsViewModel CurrentWallet
         {
             get
             {
@@ -32,11 +33,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
         public WalletsViewModel()
         {
             _service = new WalletService();
-            Wallets = new ObservableCollection<Wallet>(_service.GetWallets());
+            Wallets = new ObservableCollection<WalletDetailsViewModel>();
+            foreach (var wallet in _service.GetWallets())
+            {
+                Wallets.Add(new WalletDetailsViewModel(wallet));
+            }
         }
 
 
-        public MainNavigatableTypes Type
+        public MainNavigatableTypes Type 
         {
             get
             {
@@ -45,7 +50,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
         }
         public void ClearSensitiveData()
         {
-
+            
         }
     }
 }

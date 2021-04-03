@@ -12,6 +12,7 @@ namespace LI.CSharp.Lab.GUI.WPF
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }

@@ -11,6 +11,16 @@
         "runtime": {
           "bin/placeholder/Lab.dll": {}
         }
+      },
+      "LI.CSharp.Lab.DataStorage/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/LI.CSharp.Lab.DataStorage.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LI.CSharp.Lab.DataStorage.dll": {}
+        }
       }
     }
   },
@@ -19,10 +29,16 @@
       "type": "project",
       "path": "../Lab/Lab.csproj",
       "msbuildProject": "../Lab/Lab.csproj"
+    },
+    "LI.CSharp.Lab.DataStorage/1.0.0": {
+      "type": "project",
+      "path": "../DataStorage/DataStorage.csproj",
+      "msbuildProject": "../DataStorage/DataStorage.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "LI.CSharp.Lab.DataStorage >= 1.0.0",
       "Lab >= 1.0.0"
     ]
   },
@@ -51,6 +67,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\DataStorage\\DataStorage.csproj": {
+              "projectPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\DataStorage\\DataStorage.csproj"
+            },
             "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Lab\\Lab.csproj": {
               "projectPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Lab\\Lab.csproj"
             }

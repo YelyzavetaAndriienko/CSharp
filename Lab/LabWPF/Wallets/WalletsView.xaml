@@ -5,9 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:LI.CSharp.Lab.GUI.WPF.Wallets"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800">
+        d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate DataType="{ x:Type local:WalletDetailsViewModel}">
+            <local:WalletDetailsView></local:WalletDetailsView>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
-        <ListView ItemsSource="{Binding Wallets}">
-        </ListView>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="100"></ColumnDefinition>
+            <ColumnDefinition Width="2"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Menu-->
+        <ListView Grid.RowSpan="2" ItemsSource="{Binding Wallets}" 
+                  DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentWallet}"></ListView>
+
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"></GridSplitter>
+        <!--Content-->
+        <ContentControl Grid.Column="2" Content="{Binding CurrentWallet}"></ContentControl>
     </Grid>
 </UserControl>

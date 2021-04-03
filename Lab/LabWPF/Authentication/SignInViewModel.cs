@@ -3,13 +3,14 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
+using LI.CSharp.Lab.GUI.WPF.Navigation;
 using LI.CSharp.Lab.Models.Users;
 using LI.CSharp.Lab.Services;
 using Prism.Commands;
 
 namespace LI.CSharp.Lab.GUI.WPF.Authentication
 {
-    public class SignInViewModel : INotifyPropertyChanged, IAuthNavigatable
+    public class SignInViewModel : INotifyPropertyChanged, INavigatable<AuthNavigatableTypes>
     {
         private AuthenticationUser _authUser = new AuthenticationUser();
         private Action _gotoSignUp;
@@ -94,7 +95,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
                 try
                 {
                     IsEnabled = false;
-                    user = await Task.Run(() => authService.Authenticate(_authUser));
+                    user = await authService.AuthenticateAsync(_authUser);
                 }
                 catch (Exception ex)
                 {
@@ -128,6 +129,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-
+        
     }
 }

@@ -2,17 +2,18 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using LI.CSharp.Lab.GUI.WPF.Navigation;
 using LI.CSharp.Lab.Models.Users;
 using LI.CSharp.Lab.Services;
 using Prism.Commands;
 
 namespace LI.CSharp.Lab.GUI.WPF.Authentication
 {
-    public class SignUpViewModel : INotifyPropertyChanged, IAuthNavigatable
+    public class SignUpViewModel : INotifyPropertyChanged, INavigatable<AuthNavigatableTypes>
     {
         private RegistrationUser _regUser = new RegistrationUser();
         private Action _gotoSignIn;
-
+        
         public AuthNavigatableTypes Type
         {
             get
@@ -84,13 +85,13 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
             SignInCommand = new DelegateCommand(_gotoSignIn);
         }
 
-        private void SignUp()
+        private async void SignUp()
         {
 
             var authService = new AuthenticationService();
             try
             {
-                authService.RegisterUser(_regUser);
+                await authService.RegisterUserAsync(_regUser);
             }
             catch (Exception ex)
             {

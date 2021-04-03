@@ -63,3 +63,7 @@ C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CShar
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\ref\LI.CSharp.Lab.LabWPF.dll
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF.pdb
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.genruntimeconfig.cache
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.DataStorage.dll
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.DataStorage.pdb
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletDetailsView.g.cs
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletDetailsView.baml

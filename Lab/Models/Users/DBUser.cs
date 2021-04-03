@@ -1,8 +1,9 @@
 ﻿using System;
+using LI.CSharp.Lab.DataStorage;
 
 namespace LI.CSharp.Lab.Models.Users
 {
-    public class DBUser
+    public class DBUser : IStorable
     {
         public Guid Guid { get; }
         public string FirstName { get; }
