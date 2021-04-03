@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "LI.CSharp.Lab.Models/1.0.0": {
+        "dependencies": {
+          "LI.CSharp.Lab.DataStorage": "1.0.0",
+          "Lab": "1.0.0"
+        },
+        "runtime": {
+          "LI.CSharp.Lab.Models.dll": {}
+        }
+      },
+      "Lab/1.0.0": {
+        "runtime": {
+          "Lab.dll": {}
+        }
+      },
+      "LI.CSharp.Lab.DataStorage/1.0.0": {
+        "runtime": {
+          "LI.CSharp.Lab.DataStorage.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LI.CSharp.Lab.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Lab/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LI.CSharp.Lab.DataStorage/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
