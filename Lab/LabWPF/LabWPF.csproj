@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>LI.CSharp.Lab.GUI.WPF</RootNamespace>
+    <AssemblyName>Lab</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\image1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lab\Lab.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Services\Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\image1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Authentication\AuthViewModel.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+    <Compile Update="Authentication\IAuthNavigatable.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+    <Compile Update="Authentication\SignInViewModel.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+    <Compile Update="Authentication\SignUpViewModel.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+    <Compile Update="Wallets\WalletsViewModel.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+  </ItemGroup>
+
+</Project>

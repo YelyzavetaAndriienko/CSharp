@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="LI.CSharp.Lab.GUI.WPF.NewViews.WalletView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Margin="10" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20">Wallet</TextBlock>
+        <StackPanel Grid.Row="1" >
+            <TextBlock Margin="10, 10, 10, 0">Name</TextBlock>
+            <TextBox Name="TbName" Width="300" Margin="10" HorizontalAlignment="Stretch" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" >
+            <TextBlock Margin="10, 10, 10, 0">Description</TextBlock>
+            <TextBox Name="TbDescription" Width="300" Margin="10" HorizontalAlignment="Stretch"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3" >
+            <TextBlock Margin="10, 10, 10, 0">Initial balance</TextBlock>
+            <TextBox Name="TbInitialBalance" Width="50" Margin="10" HorizontalAlignment="Left" Text="0"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" >
+            <TextBlock Margin="10, 10, 10, 0">Main currency</TextBlock>
+            <!--<TextBox Name="TbMainCurrency" Width="80" Margin="10" HorizontalAlignment="Left" Text="UAH"></TextBox>-->
+            <ComboBox Name="TbMainCurrency" Height="20" Width="50" Margin="10" HorizontalAlignment="Left">
+                <ComboBoxItem IsSelected="True">
+                    <TextBlock>UAH</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>EUR</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>USD</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>GBP</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>PLN</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>RUB</TextBlock>
+                </ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <Button Grid.Row="5"  Margin="10,10,10,10" Command="{Binding SaveCommand}" >Save changes</Button>
+    </Grid>
+    </UserControl>

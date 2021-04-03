@@ -1,0 +1,15 @@
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.csprojAssemblyReference.cache
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\CategoryView.baml
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\WalletView.baml
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Authentication\AuthView.g.cs
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Authentication\SignInView.g.cs
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Authentication\SignUpView.g.cs
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Header.g.cs
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\CategoryView.g.cs
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\WalletView.g.cs
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletsView.g.cs
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Lab_MarkupCompile.cache
+C:\Users\Liza\source\reposCSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Lab_MarkupCompile.lref

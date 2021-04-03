@@ -1,0 +1,16 @@
+C:\Users\Liza\source\reposCSharp\Lab\Lab\bin\Debug\net5.0\Lab.exe
+C:\Users\Liza\source\reposCSharp\Lab\Lab\bin\Debug\net5.0\Lab.deps.json
+C:\Users\Liza\source\reposCSharp\Lab\Lab\bin\Debug\net5.0\Lab.runtimeconfig.json
+C:\Users\Liza\source\reposCSharp\Lab\Lab\bin\Debug\net5.0\Lab.runtimeconfig.dev.json
+C:\Users\Liza\source\reposCSharp\Lab\Lab\bin\Debug\net5.0\Lab.dll
+C:\Users\Liza\source\reposCSharp\Lab\Lab\bin\Debug\net5.0\ref\Lab.dll
+C:\Users\Liza\source\reposCSharp\Lab\Lab\bin\Debug\net5.0\Lab.pdb
+C:\Users\Liza\source\reposCSharp\Lab\Lab\obj\Debug\net5.0\Lab.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Liza\source\reposCSharp\Lab\Lab\obj\Debug\net5.0\Lab.AssemblyInfoInputs.cache
+C:\Users\Liza\source\reposCSharp\Lab\Lab\obj\Debug\net5.0\Lab.AssemblyInfo.cs
+C:\Users\Liza\source\reposCSharp\Lab\Lab\obj\Debug\net5.0\Lab.csproj.CoreCompileInputs.cache
+C:\Users\Liza\source\reposCSharp\Lab\Lab\obj\Debug\net5.0\Lab.dll
+C:\Users\Liza\source\reposCSharp\Lab\Lab\obj\Debug\net5.0\ref\Lab.dll
+C:\Users\Liza\source\reposCSharp\Lab\Lab\obj\Debug\net5.0\Lab.pdb
+C:\Users\Liza\source\reposCSharp\Lab\Lab\obj\Debug\net5.0\Lab.genruntimeconfig.cache
+C:\Users\Liza\source\reposCSharp\Lab\Lab\obj\Debug\net5.0\Lab.csprojAssemblyReference.cache
