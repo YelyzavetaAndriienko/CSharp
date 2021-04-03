@@ -8,4 +8,8 @@
         <Product>LI.CSharp.Lab.DataStorage</Product>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Remove="FillDataStorage.cs" />
+    </ItemGroup>
+
 </Project>
