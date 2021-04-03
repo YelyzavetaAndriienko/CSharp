@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "LabTests/1.0.0": {
         "dependencies": {
+          "LI.CSharp.Lab.Models": "1.0.0",
           "Lab": "1.0.0",
           "Microsoft.NET.Test.Sdk": "16.7.1",
           "coverlet.collector": "1.3.0",
@@ -1092,6 +1093,20 @@
         "runtime": {
           "Lab.dll": {}
         }
+      },
+      "LI.CSharp.Lab.DataStorage/1.0.0": {
+        "runtime": {
+          "LI.CSharp.Lab.DataStorage.dll": {}
+        }
+      },
+      "LI.CSharp.Lab.Models/1.0.0": {
+        "dependencies": {
+          "LI.CSharp.Lab.DataStorage": "1.0.0",
+          "Lab": "1.0.0"
+        },
+        "runtime": {
+          "LI.CSharp.Lab.Models.dll": {}
+        }
       }
     }
   },
@@ -1739,6 +1754,16 @@
       "hashPath": "xunit.runner.visualstudio.2.4.3.nupkg.sha512"
     },
     "Lab/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LI.CSharp.Lab.DataStorage/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LI.CSharp.Lab.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

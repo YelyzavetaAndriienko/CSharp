@@ -64,7 +64,6 @@ namespace LI.CSharp.Lab.Models.Wallets
         public decimal CurrentBalance
         {
             get { return _currentBalance; }
-            set { _currentBalance = value; }
         }
 
         public string Description

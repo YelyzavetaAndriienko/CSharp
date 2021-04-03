@@ -19,16 +19,50 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
                 RaisePropertyChanged(nameof(DisplayName));
             }
         }
+        
+        public string Description
+        {
+            get
+            {
+                return _wallet.Description;
+            }
+            set
+            {
+                _wallet.Description = value;
+            }
+        }
+        
+        public decimal InitialBalance
+        {
+            get
+            {
+                return _wallet.InitialBalance;
+            }
+            set
+            {
+                _wallet.InitialBalance = value;
+                RaisePropertyChanged(nameof(DisplayName));
+                //CurrentBalance = _wallet.CurrentBalance;
+            }
+        }
 
-        public decimal Balance
+        public decimal CurrentBalance
         {
             get
             {
                 return _wallet.CurrentBalance;
             }
+        }
+        
+        public Currencies? MainCurrency
+        {
+            get
+            {
+                return _wallet.MainCurrency;
+            }
             set
             {
-                _wallet.CurrentBalance = value;
+                _wallet.MainCurrency = value;
                 RaisePropertyChanged(nameof(DisplayName));
             }
         }
@@ -37,7 +71,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
         {
             get
             {
-                return $"{_wallet.Name} (${_wallet.CurrentBalance})";
+                return $"{_wallet.Name} {_wallet.CurrentBalance} {_wallet.MainCurrency}";       
             }
         }
 

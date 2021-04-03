@@ -9,6 +9,8 @@ C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\bin\Debug\net5.0\LI.CSharp.Lab.Mo
 C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\bin\Debug\net5.0\ref\LI.CSharp.Lab.Models.dll
 C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\bin\Debug\net5.0\LI.CSharp.Lab.Models.pdb
 C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\bin\Debug\net5.0\Lab.dll
+C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\bin\Debug\net5.0\LI.CSharp.Lab.DataStorage.dll
+C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\bin\Debug\net5.0\LI.CSharp.Lab.DataStorage.pdb
 C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\bin\Debug\net5.0\Lab.pdb
 C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\obj\Debug\net5.0\Models.csprojAssemblyReference.cache
 C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\obj\Debug\net5.0\Models.GeneratedMSBuildEditorConfig.editorconfig
@@ -19,5 +21,3 @@ C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\obj\Debug\net5.0\Models.csproj.Co
 C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\obj\Debug\net5.0\LI.CSharp.Lab.Models.dll
 C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\obj\Debug\net5.0\ref\LI.CSharp.Lab.Models.dll
 C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\obj\Debug\net5.0\LI.CSharp.Lab.Models.pdb
-C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\bin\Debug\net5.0\LI.CSharp.Lab.DataStorage.dll
-C:\Users\Iryna\RiderProjects\CSharp\Lab\Models\bin\Debug\net5.0\LI.CSharp.Lab.DataStorage.pdb

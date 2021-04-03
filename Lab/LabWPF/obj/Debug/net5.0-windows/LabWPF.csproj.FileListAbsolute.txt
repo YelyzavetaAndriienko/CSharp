@@ -25,11 +25,13 @@ C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\Microsof
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\Prism.dll
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\Prism.Wpf.dll
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\Lab.dll
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.DataStorage.dll
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.Models.dll
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.Services.dll
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\Lab.pdb
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.Models.pdb
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.Services.pdb
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.DataStorage.pdb
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.csprojAssemblyReference.cache
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\CategoryView.baml
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\WalletView.baml
@@ -41,6 +43,7 @@ C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainView
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\CategoryView.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\WalletView.g.cs
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletDetailsView.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletsView.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -52,6 +55,7 @@ C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Authenti
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Header.baml
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainView.baml
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletDetailsView.baml
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletsView.baml
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF.g.resources
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.GeneratedMSBuildEditorConfig.editorconfig
@@ -63,7 +67,3 @@ C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CShar
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\ref\LI.CSharp.Lab.LabWPF.dll
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF.pdb
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.genruntimeconfig.cache
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.DataStorage.dll
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.DataStorage.pdb
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletDetailsView.g.cs
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletDetailsView.baml

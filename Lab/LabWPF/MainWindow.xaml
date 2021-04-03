@@ -6,7 +6,7 @@
         xmlns:wpf="clr-namespace:LI.CSharp.Lab.GUI.WPF"
         xmlns:authentication="clr-namespace:LI.CSharp.Lab.GUI.WPF.Authentication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MinWidth="600" FontSize="18">
+        Title="MainWindow" Height="680" Width="800" MinWidth="600" FontSize="18">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" MinHeight="100"></RowDefinition>
@@ -14,9 +14,9 @@
         </Grid.RowDefinitions>
 
         <!--Header-->
-        <wpf:Header></wpf:Header>
+        <wpf:Header Background="LightCoral"></wpf:Header>
 
         <!--Main Control-->
-        <wpf:MainView Grid.Row="1"></wpf:MainView>
+        <wpf:MainView Grid.Row="1" Background="Linen"></wpf:MainView>
     </Grid>
 </Window>
