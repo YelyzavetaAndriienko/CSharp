@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LI.CSharp.Lab.GUI.WPF"
              mc:Ignorable="d">
-    <Border Background="Orange">
+    <Border>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Image Source="Images/Logo.png" MinHeight="90" Stretch="Uniform" Margin="5"></Image>
-            <TextBlock Text="NAUKMA Budgets Application" FontSize="30" VerticalAlignment="Center"></TextBlock>
+            <Image Source="Images/money.png" MinHeight="50" MaxHeight="70" Stretch="Uniform" Margin="5"></Image>
+            <TextBlock Text="Costs Control Application" Width="350" FontSize="30" FontStyle="Italic" VerticalAlignment="Center"></TextBlock>
         </StackPanel>
     </Border>
 </UserControl>

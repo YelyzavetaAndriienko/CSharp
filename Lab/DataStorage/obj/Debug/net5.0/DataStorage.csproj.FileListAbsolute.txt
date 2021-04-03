@@ -1,0 +1,11 @@
+D:\Liza\Documents\CSharp\Lab\DataStorage\bin\Debug\net5.0\LI.CSharp.Lab.DataStorage.deps.json
+D:\Liza\Documents\CSharp\Lab\DataStorage\bin\Debug\net5.0\LI.CSharp.Lab.DataStorage.dll
+D:\Liza\Documents\CSharp\Lab\DataStorage\bin\Debug\net5.0\ref\LI.CSharp.Lab.DataStorage.dll
+D:\Liza\Documents\CSharp\Lab\DataStorage\bin\Debug\net5.0\LI.CSharp.Lab.DataStorage.pdb
+D:\Liza\Documents\CSharp\Lab\DataStorage\obj\Debug\net5.0\DataStorage.GeneratedMSBuildEditorConfig.editorconfig
+D:\Liza\Documents\CSharp\Lab\DataStorage\obj\Debug\net5.0\DataStorage.AssemblyInfoInputs.cache
+D:\Liza\Documents\CSharp\Lab\DataStorage\obj\Debug\net5.0\DataStorage.AssemblyInfo.cs
+D:\Liza\Documents\CSharp\Lab\DataStorage\obj\Debug\net5.0\DataStorage.csproj.CoreCompileInputs.cache
+D:\Liza\Documents\CSharp\Lab\DataStorage\obj\Debug\net5.0\LI.CSharp.Lab.DataStorage.dll
+D:\Liza\Documents\CSharp\Lab\DataStorage\obj\Debug\net5.0\ref\LI.CSharp.Lab.DataStorage.dll
+D:\Liza\Documents\CSharp\Lab\DataStorage\obj\Debug\net5.0\LI.CSharp.Lab.DataStorage.pdb

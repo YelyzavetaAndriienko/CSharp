@@ -22,6 +22,57 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
             }
         }
 
+        public string Name
+        {
+            get
+            {
+                return _regUser.Name;
+            }
+            set
+            {
+                if (_regUser.Name != value)
+                {
+                    _regUser.Name = value;
+                    OnPropertyChanged();
+                    SignUpCommand.RaiseCanExecuteChanged();
+                }
+            }
+        }
+
+        public string LastName
+        {
+            get
+            {
+                return _regUser.LastName;
+            }
+            set
+            {
+                if (_regUser.LastName != value)
+                {
+                    _regUser.LastName = value;
+                    OnPropertyChanged();
+                    SignUpCommand.RaiseCanExecuteChanged();
+                }
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return _regUser.Email;
+            }
+            set
+            {
+                if (_regUser.Email != value)
+                {
+                    _regUser.Email = value;
+                    OnPropertyChanged();
+                    SignUpCommand.RaiseCanExecuteChanged();
+                }
+            }
+        }
+
         public string Login
         {
             get
@@ -50,23 +101,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
                 if (_regUser.Password != value)
                 {
                     _regUser.Password = value;
-                    OnPropertyChanged();
-                    SignUpCommand.RaiseCanExecuteChanged();
-                }
-            }
-        }
-
-        public string LastName
-        {
-            get
-            {
-                return _regUser.LastName;
-            }
-            set
-            {
-                if (_regUser.LastName != value)
-                {
-                    _regUser.LastName = value;
                     OnPropertyChanged();
                     SignUpCommand.RaiseCanExecuteChanged();
                 }
@@ -105,7 +139,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
 
         private bool IsSignUpEnabled()
         {
-            return !String.IsNullOrWhiteSpace(Login) && !String.IsNullOrWhiteSpace(Password) && !String.IsNullOrWhiteSpace(LastName);
+            return !String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(LastName) && !String.IsNullOrWhiteSpace(Email) && 
+                   !String.IsNullOrWhiteSpace(Login) && !String.IsNullOrWhiteSpace(Password);
         }
 
         public void ClearSensitiveData()

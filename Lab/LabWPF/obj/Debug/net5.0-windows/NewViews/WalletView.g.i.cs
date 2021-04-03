@@ -84,7 +84,7 @@ namespace LI.CSharp.Lab.GUI.WPF.NewViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Lab;component/newviews/walletview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;component/newviews/walletview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\NewViews\WalletView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

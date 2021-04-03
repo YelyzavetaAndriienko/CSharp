@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>LI.CSharp.Lab.DataStorage</RootNamespace>
+    <AssemblyName>LI.CSharp.Lab.DataStorage</AssemblyName>
+  </PropertyGroup>
+
+</Project>

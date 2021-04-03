@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{B8D19AD7
 		..\Irama03\ControlSpending\Files\money_exchange.txt = ..\Irama03\ControlSpending\Files\money_exchange.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorage", "DataStorage\DataStorage.csproj", "{5E6483E1-9EBB-4052-A4F7-9D745BD71827}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorage", "DataStorage\DataStorage.csproj", "{72FAA74B-7C22-45DE-B2E9-7CA2F044EBE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,10 @@ Global
 		{03402AC6-9391-4540-A7B9-200743129C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03402AC6-9391-4540-A7B9-200743129C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03402AC6-9391-4540-A7B9-200743129C6A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E6483E1-9EBB-4052-A4F7-9D745BD71827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E6483E1-9EBB-4052-A4F7-9D745BD71827}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E6483E1-9EBB-4052-A4F7-9D745BD71827}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E6483E1-9EBB-4052-A4F7-9D745BD71827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72FAA74B-7C22-45DE-B2E9-7CA2F044EBE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72FAA74B-7C22-45DE-B2E9-7CA2F044EBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72FAA74B-7C22-45DE-B2E9-7CA2F044EBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72FAA74B-7C22-45DE-B2E9-7CA2F044EBE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
