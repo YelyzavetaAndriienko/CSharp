@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using LI.CSharp.Lab.Users;
+using LI.CSharp.Lab.Models.Users;
+using LI.CSharp.Lab;
+using LI.CSharp.Lab.Models.Wallets;
 using Xunit;
 
 namespace LI.CSharp.Lab.LabTests
@@ -27,7 +29,7 @@ namespace LI.CSharp.Lab.LabTests
                 Color = "red",
                 Icon = new FileInfo("apple")
             };
-            WalletOld wallet = new Wallet(user1)
+            Wallet wallet = new Wallet(user1)
             {
                 Id = id,
                 InitialBalance = 505.3m,

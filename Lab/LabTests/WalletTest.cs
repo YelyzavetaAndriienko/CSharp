@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using LI.CSharp.Lab.Users;
+using LI.CSharp.Lab.Models.Users;
+using LI.CSharp.Lab.Models.Wallets;
 using Xunit;
 
 namespace LI.CSharp.Lab.LabTests
@@ -168,7 +169,7 @@ namespace LI.CSharp.Lab.LabTests
             List<Category> categories = new List<Category>();
             categories.Add(category);
             owner.Categories = categories;
-            WalletOld wallet = new Wallet(owner)
+            Wallet wallet = new Wallet(owner)
             {
                 InitialBalance = 505.3m,
                 Description = "new wallet",

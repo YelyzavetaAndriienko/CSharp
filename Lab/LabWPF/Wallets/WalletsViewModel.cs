@@ -32,7 +32,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
         public WalletsViewModel()
         {
             _service = new WalletService();
-            Wallets = new ObservableCollection<WalletOld>(_service.GetWallets());
+            Wallets = new ObservableCollection<Wallet>(_service.GetWallets());
         }
 
 

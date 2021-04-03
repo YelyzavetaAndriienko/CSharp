@@ -6,4 +6,9 @@
     <RootNamespace>LI.CSharp.Lab</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Wallet0.cs" />
+    <Compile Remove="WalletOld.cs" />
+  </ItemGroup>
+
 </Project>

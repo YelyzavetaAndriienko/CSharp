@@ -18,7 +18,8 @@ namespace LI.CSharp.Lab.Services
             var dbUser = Users.FirstOrDefault(user => user.Login == authUser.Login && user.Password == authUser.Password);
             if (dbUser == null)
                 throw new Exception("Wrong Login or Password");
-            return new User(dbUser.Guid, dbUser.FirstName, dbUser.LastName, dbUser.Email, dbUser.Login);
+            //return new User(dbUser.Guid, dbUser.FirstName, dbUser.LastName, dbUser.Email, dbUser.Login);
+            return new User(dbUser.Guid, dbUser.FirstName, dbUser.LastName, dbUser.Login);
         }
 
         public bool RegisterUser(RegistrationUser regUser)

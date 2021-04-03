@@ -5,11 +5,14 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <RootNamespace>LI.CSharp.Lab.GUI.WPF</RootNamespace>
-    <AssemblyName>Lab</AssemblyName>
+    <AssemblyName>LI.CSharp.Lab.LabWPF</AssemblyName>
+    <Company>LI.CSharp.Lab.LabWPF</Company>
+    <Product>LI.CSharp.Lab.LabWPF</Product>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Images\image1.jpg" />
+    <None Remove="MainView.xaml~" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +41,13 @@
     <Compile Update="Wallets\WalletsViewModel.cs">
       <Generator>MSBuild:Compile</Generator>
     </Compile>
+    <Compile Remove="Authentication\SignInViewModel.xaml.cs" />
+    <Compile Remove="Authentication\SignUpViewModel.xaml.cs" />
+    <Compile Remove="Authentication\AuthViewModel.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
   </ItemGroup>
 
 </Project>

@@ -17,9 +17,9 @@ namespace LI.CSharp.Lab.GUI.WPF.NewViews
     /// <summary>
     /// Interaction logic for WalletViewxaml.xaml
     /// </summary>
-    public partial class WalletViewxaml : Window
+    public partial class WalletView : UserControl
     {
-        public WalletViewxaml()
+        public WalletView()
         {
             InitializeComponent();
         }

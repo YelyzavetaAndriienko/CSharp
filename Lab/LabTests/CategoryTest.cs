@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using Xunit;
 
-namespace LI.CSharp.Lab.Tests
+namespace LI.CSharp.Lab.LabTests
 {
     public class CategoryTest
     {

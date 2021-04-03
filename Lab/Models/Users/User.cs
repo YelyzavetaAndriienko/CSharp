@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using LI.CSharp.Lab;
+using LI.CSharp.Lab.Models.Wallets;
 
 namespace LI.CSharp.Lab.Models.Users
 {
@@ -11,14 +12,14 @@ namespace LI.CSharp.Lab.Models.Users
         private string _name;
         private string _surname;
         private string _email;
-        private List<WalletOld> _myWallets;
-        private List<WalletOld> _otherWallets;
+        private List<Wallet> _myWallets;
+        private List<Wallet> _otherWallets;
         private List<Category> _categories;
 
         public User()
         {
-            _myWallets = new List<WalletOld>();
-            _otherWallets = new List<WalletOld>();
+            _myWallets = new List<Wallet>();
+            _otherWallets = new List<Wallet>();
             _categories = new List<Category>();
         }
 
@@ -28,8 +29,8 @@ namespace LI.CSharp.Lab.Models.Users
             _name = name;
             _surname = surname;
             _email = email;
-            _myWallets = new List<WalletOld>();
-            _otherWallets = new List<WalletOld>();
+            _myWallets = new List<Wallet>();
+            _otherWallets = new List<Wallet>();
             _categories = new List<Category>();
             if (!Validate())
             {
@@ -91,12 +92,12 @@ namespace LI.CSharp.Lab.Models.Users
             }
         }
 
-        public List<WalletOld> MyWallets
+        public List<Wallet> MyWallets
         {
             get { return _myWallets; }
         }
 
-        public List<WalletOld> OtherWallets
+        public List<Wallet> OtherWallets
         {
             get { return _otherWallets; }
         }
@@ -117,7 +118,7 @@ namespace LI.CSharp.Lab.Models.Users
             return _myWallets.Count;
         }
 
-        public WalletOld GetWallet(Guid walletId)
+        public Wallet GetWallet(Guid walletId)
         {
             foreach (var wallet in MyWallets)
             {
@@ -130,7 +131,7 @@ namespace LI.CSharp.Lab.Models.Users
             return null;
         }
 
-        public WalletOld GetOtherWallet(Guid walletId)
+        public Wallet GetOtherWallet(Guid walletId)
         {
             foreach (var wallet in OtherWallets)
             {
@@ -143,7 +144,7 @@ namespace LI.CSharp.Lab.Models.Users
             return null;
         }
 
-        public void ShareWallet(User user, WalletOld wallet)
+        public void ShareWallet(User user, Wallet wallet)
         {
             user.OtherWallets.Add(wallet);
             wallet.UsersId.Add(user.Id);
