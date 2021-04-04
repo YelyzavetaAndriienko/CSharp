@@ -10,8 +10,8 @@ namespace LI.CSharp.Lab.Services
 {
     public class WalletService
     {
-        private static User u = new User();
-        private static List<Wallet> Users = new List<Wallet>()
+        public static User u = new User();
+        private static List<Wallet> Wallets = new List<Wallet>()
         {
             new Wallet(u) {Name = "wal1", InitialBalance = 57.06m, MainCurrency = Currencies.UAH},
             new Wallet(u) {Name = "wal2", InitialBalance = 157.06m, MainCurrency = Currencies.EUR},
@@ -22,7 +22,7 @@ namespace LI.CSharp.Lab.Services
 
         public List<Wallet> GetWallets()
         {
-            return Users.ToList();
+            return Wallets;
         }
     }
 }

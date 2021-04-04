@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using LI.CSharp.Lab.Models.Wallets;
 using Prism.Mvvm;
@@ -8,6 +9,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
     public class WalletDetailsViewModel : BindableBase
     {
         private Wallet _wallet;
+        private WalletsViewModel _wvm;
+
+        public Wallet Wallet
+        {
+            get
+            {
+                return _wallet;
+            }
+        }
 
         public string Name
         {
@@ -17,8 +27,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
             }
             set
             {
-                _wallet.Name = value;
-                RaisePropertyChanged(nameof(DisplayName));
+                try
+                {
+                    _wallet.Name = value;
+                    RaisePropertyChanged(nameof(DisplayName));
+                }
+                catch (ArgumentException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
         }
         
@@ -38,7 +55,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
         {
             get
             {
-                return _wallet.InitialBalance;
+                return Math.Round(_wallet.InitialBalance, 2);
             }
             set
             {
@@ -52,7 +69,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
         {
             get
             {
-                return _wallet.CurrentBalance;
+                return Math.Round(_wallet.CurrentBalance, 2);
             }
         }
         
@@ -69,6 +86,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
                 RaisePropertyChanged(nameof(DisplayName));
                 RaisePropertyChanged(nameof(CurrentBalance));
                 RaisePropertyChanged(nameof(InitialBalance));
+                //((WalletDetailsView) DataContext)
             }
         }
 
@@ -76,14 +94,21 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
         {
             get
             {
-                return $"{_wallet.Name} {_wallet.CurrentBalance} {_wallet.MainCurrency}";       
+                return $"{_wallet.Name} {Math.Round(_wallet.CurrentBalance, 2)} {_wallet.MainCurrency}";       
             }
         }
 
-        public WalletDetailsViewModel(Wallet wallet)
+        public WalletDetailsViewModel(Wallet wallet, WalletsViewModel wvm = null)
         {
             _wallet = wallet;
+            _wvm = wvm;
             //ComboBox0
         }
+
+        public void DeleteWallet()
+        {
+            _wvm.DeleteWallet();
+        }
+        
     }
 }

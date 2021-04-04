@@ -41,6 +41,10 @@ namespace LI.CSharp.Lab.Models.Wallets
             {
                 if (!String.IsNullOrWhiteSpace(value))
                 {
+                    if (Owner.MyWallets.Any(wallet => wallet.Name == value))
+                    {
+                        throw new ArgumentException("Wallet with this name already exists!");
+                    }
                     _name = value;
                 }
                 else
@@ -74,7 +78,14 @@ namespace LI.CSharp.Lab.Models.Wallets
 
         public Currencies? MainCurrency
         {
-            get { return _mainCurrency; }
+            get
+            {
+                if (_mainCurrency == null)
+                {
+                    _mainCurrency = Currencies.UAH;
+                }
+                return _mainCurrency;
+            }
             set
             {
                 if (_mainCurrency != null)

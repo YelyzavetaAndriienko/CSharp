@@ -21,6 +21,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            
         </Grid.RowDefinitions>
 
 
@@ -29,10 +31,17 @@
         
                 
         <!--Menu-->
-        <ListView Grid.Column="1" Grid.RowSpan="2" ItemsSource="{Binding Wallets}" 
-                  DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentWallet}"></ListView>
+        <ListView Grid.Column="1" ItemsSource="{Binding Wallets}" 
+                  DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentWallet}" MaxHeight="400"></ListView>
 
         <GridSplitter Grid.Column="2" HorizontalAlignment="Stretch"></GridSplitter>
+        
+        <Button Grid.Column="1" Grid.Row="1" Margin="10,10,10,10" 
+                Click="Button_Click" HorizontalAlignment="Center" Width="40" Height="40">
+            <!--Command="{Binding AddWallet}">-->
+            <!--<Image Source="Images/Plus.png" />-->
+            +
+        </Button>
         
         <!--Content-->
         <ContentControl Grid.Column="3" Content="{Binding CurrentWallet}"></ContentControl>
