@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 D:\Liza\Documents\CSharp\Lab\LabWPF\App.xaml
-12-212258307
+13-175567261
 
-271117440725
+301756711231
 200-803362054
-Authentication\AuthView.xaml;Authentication\SignInView.xaml;Authentication\SignUpView.xaml;Categories\CategoriesView.xaml;Categories\CategoryDetailsView.xaml;Header.xaml;MainView.xaml;MainWindow.xaml;NewViews\CategoryView.xaml;NewViews\WalletView.xaml;Wallets\WalletDetailsView.xaml;Wallets\WalletsView.xaml;
+Authentication\AuthView.xaml;Authentication\SignInView.xaml;Authentication\SignUpView.xaml;Checking\CategoriesView.xaml;Checking\CategoryDetailsView.xaml;Checking\CheckView.xaml;Checking\WalletDetailsView.xaml;Checking\WalletsView.xaml;Header.xaml;MainView.xaml;MainWindow.xaml;NewViews\CategoryView.xaml;NewViews\WalletView.xaml;
 
 False
 

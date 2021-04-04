@@ -97,8 +97,6 @@ D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainView.g.cs
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainWindow.g.cs
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\CategoryView.g.cs
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\WalletView.g.cs
-D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletDetailsView.g.cs
-D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletsView.g.cs
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\App.g.cs
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF_MarkupCompile.cache
@@ -109,8 +107,6 @@ D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Authentication\Sign
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Header.baml
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainView.baml
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainWindow.baml
-D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletDetailsView.baml
-D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletsView.baml
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF.g.resources
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.GeneratedMSBuildEditorConfig.editorconfig
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.AssemblyInfoInputs.cache
@@ -121,7 +117,13 @@ D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWP
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\ref\LI.CSharp.Lab.LabWPF.dll
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF.pdb
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.genruntimeconfig.cache
-D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoriesView.g.cs
-D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoryDetailsView.g.cs
-D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoriesView.baml
-D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoryDetailsView.baml
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CheckView.g.cs
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CategoriesView.g.cs
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CategoryDetailsView.g.cs
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\WalletDetailsView.g.cs
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\WalletsView.g.cs
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CheckView.baml
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CategoryDetailsView.baml
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\WalletDetailsView.baml
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\WalletsView.baml
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CategoriesView.baml

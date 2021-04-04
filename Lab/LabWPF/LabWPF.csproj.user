@@ -31,7 +31,7 @@
     <Compile Update="NewViews\WalletView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Wallets\WalletsView.xaml.cs">
+    <Compile Update="Checking\WalletsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -45,10 +45,13 @@
     <Page Update="Authentication\SignUpView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Categories\CategoriesView.xaml">
+    <Page Update="Checking\CategoriesView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Categories\CategoryDetailsView.xaml">
+    <Page Update="Checking\CategoryDetailsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Checking\CheckView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Header.xaml">
@@ -63,7 +66,7 @@
     <Page Update="NewViews\WalletView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Wallets\WalletsView.xaml">
+    <Page Update="Checking\WalletsView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
