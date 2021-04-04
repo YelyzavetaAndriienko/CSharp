@@ -18,11 +18,11 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Login</TextBlock>
-            <TextBox Name="TbLogin" Width="300" Margin="10" HorizontalAlignment="Stretch" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Name="TbLogin" MaxLength="50" Width="300" Margin="10" HorizontalAlignment="Stretch" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" >
             <TextBlock Margin="10, 10, 10, 0">Password</TextBlock>
-            <PasswordBox Name="TbPassword" Width="300" Margin="10" HorizontalAlignment="Stretch" PasswordChanged="TbPassword_OnPasswordChanged"></PasswordBox>
+            <PasswordBox Name="TbPassword" MaxLength="100" Width="300" Margin="10" HorizontalAlignment="Stretch" PasswordChanged="TbPassword_OnPasswordChanged"></PasswordBox>
         </StackPanel>
         <Button Name="BSignIn" Grid.Column="0" Margin="10,10,10,10" Command="{Binding SignInCommand}" Grid.Row="2">Sign In</Button>
         <Button Name="BClose" Grid.Row="2" Grid.Column="1" Margin="10" Command="{Binding CloseCommand}">Close</Button>

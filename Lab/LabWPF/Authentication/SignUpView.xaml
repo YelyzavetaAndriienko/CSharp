@@ -21,23 +21,23 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Name</TextBlock>
-            <TextBox Width="300" Margin="10" HorizontalAlignment="Stretch" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Name="TbName" MaxLength="15" Width="300" Margin="10" HorizontalAlignment="Stretch" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Surname</TextBlock>
-            <TextBox Width="300" Margin="10" HorizontalAlignment="Stretch" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Name="TbLastName" MaxLength="15" Width="300" Margin="10" HorizontalAlignment="Stretch" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">E-mail</TextBlock>
-            <TextBox Width="300" Margin="10" HorizontalAlignment="Stretch" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Name="TbEmail" MaxLength="100" Width="300" Margin="10" HorizontalAlignment="Stretch" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0">
             <TextBlock Margin="10, 10, 10, 0">Login</TextBlock>
-            <TextBox Width="300" Margin="10" HorizontalAlignment="Stretch" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Name="TbLogin" MaxLength="50" Width="300" Margin="10" HorizontalAlignment="Stretch" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" >
             <TextBlock Margin="10, 10, 10, 0">Password</TextBlock>
-            <PasswordBox Name="TbPassword" Width="300" Margin="10" HorizontalAlignment="Stretch" PasswordChanged="TbPassword_OnPasswordChanged" ></PasswordBox>
+            <PasswordBox Name="TbPassword" MaxLength="100" Width="300" Margin="10" HorizontalAlignment="Stretch" PasswordChanged="TbPassword_OnPasswordChanged" ></PasswordBox>
         </StackPanel>
         <Button Name="BSignIn" Grid.Row="5" Grid.Column="0" Margin="10,10,10,10" Command="{Binding SignUpCommand}">Sign Up</Button>
         <Button Name="BClose" Grid.Row="5" Grid.Column="1" Margin="10" Command="{Binding CloseCommand}">Close</Button>
