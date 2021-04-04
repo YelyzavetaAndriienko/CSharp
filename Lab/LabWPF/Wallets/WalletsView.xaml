@@ -13,16 +13,28 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition MinWidth="100"></ColumnDefinition>
             <ColumnDefinition Width="2"></ColumnDefinition>
             <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Button Name="Wallets" Grid.Column="0" Margin="10,10,10,10" Command="{Binding ShowWalletsCommand}" Grid.Row="0">Wallets</Button>
+        <Button Name="Categories" Grid.Column="0" Margin="10,10,10,10" Command="{Binding ShowCategoriesCommand}" Grid.Row="1">Categories</Button>
+        
+                
         <!--Menu-->
-        <ListView Grid.RowSpan="2" ItemsSource="{Binding Wallets}" 
+        <ListView Grid.Column="1" Grid.RowSpan="2" ItemsSource="{Binding Wallets}" 
                   DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentWallet}"></ListView>
 
-        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"></GridSplitter>
+        <GridSplitter Grid.Column="2" HorizontalAlignment="Stretch"></GridSplitter>
+        
         <!--Content-->
-        <ContentControl Grid.Column="2" Content="{Binding CurrentWallet}"></ContentControl>
+        <ContentControl Grid.Column="3" Content="{Binding CurrentWallet}"></ContentControl>
     </Grid>
 </UserControl>

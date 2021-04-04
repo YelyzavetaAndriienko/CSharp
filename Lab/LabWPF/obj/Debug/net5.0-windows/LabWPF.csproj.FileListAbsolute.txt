@@ -121,3 +121,7 @@ D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWP
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\ref\LI.CSharp.Lab.LabWPF.dll
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF.pdb
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.genruntimeconfig.cache
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoriesView.g.cs
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoryDetailsView.g.cs
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoriesView.baml
+D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoryDetailsView.baml

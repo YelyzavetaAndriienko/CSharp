@@ -10,6 +10,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" >
             <TextBlock Margin="10, 10, 10, 0">Name</TextBlock>
@@ -17,9 +20,44 @@
                      Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" >
-            <TextBlock Margin="10, 10, 10, 0">Balance</TextBlock>
+            <TextBlock Margin="10, 10, 10, 0">Description</TextBlock>
+            <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch"
+                     Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" >
+            <TextBlock Margin="10, 10, 10, 0">Initial balance</TextBlock>
             <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                     Text="{Binding InitialBalance, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3" >
+            <TextBlock Margin="10, 10, 10, 0">Current balance</TextBlock>
+            <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+                     Text="{Binding CurrentBalance, Mode=OneWay}" IsReadOnly="True"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" >
+            <TextBlock Margin="10, 10, 10, 0">Main currency</TextBlock>
+            <!--<TextBox Name="TbMainCurrency" Width="80" Margin="10" HorizontalAlignment="Left" Text="UAH"></TextBox>-->
+            <ComboBox Height="30" Width="60" Margin="10" HorizontalAlignment="Left" 
+                      SelectedItem="{Binding MainCurrency, UpdateSourceTrigger=PropertyChanged}">
+                <ComboBoxItem>
+                    <TextBlock>UAH</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>EUR</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>USD</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>GBP</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>PLN</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>RUB</TextBlock>
+                </ComboBoxItem>
+            </ComboBox>
         </StackPanel>
     </Grid>
 </UserControl>
