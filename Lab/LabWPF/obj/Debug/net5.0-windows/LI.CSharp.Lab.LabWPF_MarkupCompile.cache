@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\App.xaml
-10-1030707267
+101886405404
 
-231576154948
-200-1845431853
+23-1608757178
+200-895702022
 Authentication\AuthView.xaml;Authentication\SignInView.xaml;Authentication\SignUpView.xaml;Header.xaml;MainView.xaml;MainWindow.xaml;NewViews\CategoryView.xaml;NewViews\WalletView.xaml;Wallets\WalletDetailsView.xaml;Wallets\WalletsView.xaml;
 
-False
+True
 
