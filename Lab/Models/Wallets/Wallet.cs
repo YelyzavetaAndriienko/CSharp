@@ -75,7 +75,15 @@ namespace LI.CSharp.Lab.Models.Wallets
         public Currencies? MainCurrency
         {
             get { return _mainCurrency; }
-            set { _mainCurrency = value; }
+            set
+            {
+                if (_mainCurrency != null)
+                {
+                    _initialBalance = TransformCurrency(_mainCurrency, value, _initialBalance);
+                    _currentBalance = TransformCurrency(_mainCurrency, value, _currentBalance);
+                }
+                _mainCurrency = value;
+            }
         }
 
         public List<Transaction> Transactions

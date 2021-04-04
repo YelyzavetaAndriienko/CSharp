@@ -1,4 +1,6 @@
-﻿using LI.CSharp.Lab.Models.Wallets;
+﻿using System.Windows;
+using System.Windows.Controls;
+using LI.CSharp.Lab.Models.Wallets;
 using Prism.Mvvm;
 
 namespace LI.CSharp.Lab.GUI.WPF.Wallets
@@ -42,7 +44,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
             {
                 _wallet.InitialBalance = value;
                 RaisePropertyChanged(nameof(DisplayName));
-                //CurrentBalance = _wallet.CurrentBalance;
+                RaisePropertyChanged(nameof(CurrentBalance));
             }
         }
 
@@ -63,7 +65,10 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
             set
             {
                 _wallet.MainCurrency = value;
+                //MessageBox.Show(value.ToString());
                 RaisePropertyChanged(nameof(DisplayName));
+                RaisePropertyChanged(nameof(CurrentBalance));
+                RaisePropertyChanged(nameof(InitialBalance));
             }
         }
 
@@ -78,6 +83,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
         public WalletDetailsViewModel(Wallet wallet)
         {
             _wallet = wallet;
+            //ComboBox0
         }
     }
 }

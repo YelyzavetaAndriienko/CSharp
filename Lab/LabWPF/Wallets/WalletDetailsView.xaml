@@ -37,26 +37,8 @@
         <StackPanel Grid.Row="4" >
             <TextBlock Margin="10, 10, 10, 0">Main currency</TextBlock>
             <!--<TextBox Name="TbMainCurrency" Width="80" Margin="10" HorizontalAlignment="Left" Text="UAH"></TextBox>-->
-            <ComboBox Height="30" Width="60" Margin="10" HorizontalAlignment="Left" 
+            <ComboBox Name="ComboBox0" Height="30" Width="60" Margin="10" HorizontalAlignment="Left" 
                       SelectedItem="{Binding MainCurrency, UpdateSourceTrigger=PropertyChanged}">
-                <ComboBoxItem>
-                    <TextBlock>UAH</TextBlock>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <TextBlock>EUR</TextBlock>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <TextBlock>USD</TextBlock>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <TextBlock>GBP</TextBlock>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <TextBlock>PLN</TextBlock>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <TextBlock>RUB</TextBlock>
-                </ComboBoxItem>
             </ComboBox>
         </StackPanel>
     </Grid>
