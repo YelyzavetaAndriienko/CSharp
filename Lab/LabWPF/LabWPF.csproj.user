@@ -45,6 +45,12 @@
     <Page Update="Authentication\SignUpView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Categories\CategoriesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Categories\CategoryDetailsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Header.xaml">
       <SubType>Designer</SubType>
     </Page>

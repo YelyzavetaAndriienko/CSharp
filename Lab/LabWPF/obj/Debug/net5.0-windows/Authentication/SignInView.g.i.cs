@@ -85,7 +85,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Lab;component/authentication/signinview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;V1.0.0.0;component/authentication/signinview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Authentication\SignInView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

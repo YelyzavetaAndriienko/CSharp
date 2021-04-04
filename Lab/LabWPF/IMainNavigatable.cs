@@ -3,7 +3,8 @@
     public enum MainNavigatableTypes
     {
         Auth,
-        Wallets
+        Wallets, 
+        Categories
     }
 
     public interface IMainNavigatable

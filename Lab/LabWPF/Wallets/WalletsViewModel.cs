@@ -8,6 +8,7 @@ using LI.CSharp.Lab.GUI.WPF.Navigation;
 using LI.CSharp.Lab.Models.Wallets;
 using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
+using Prism.Commands;
 
 namespace LI.CSharp.Lab.GUI.WPF.Wallets
 {
@@ -40,7 +41,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
             }
         }
 
-
         public MainNavigatableTypes Type 
         {
             get
@@ -48,9 +48,11 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
                 return MainNavigatableTypes.Wallets;
             }
         }
+
         public void ClearSensitiveData()
         {
             
         }
+
     }
 }
