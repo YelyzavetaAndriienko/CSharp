@@ -69,7 +69,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;component/wallets/walletsview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;V1.0.0.0;component/wallets/walletsview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Wallets\WalletsView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

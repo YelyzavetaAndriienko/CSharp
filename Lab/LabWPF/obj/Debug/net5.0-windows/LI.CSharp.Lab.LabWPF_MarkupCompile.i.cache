@@ -16,5 +16,5 @@ D:\Liza\Documents\CSharp\Lab\LabWPF\App.xaml
 200-803362054
 Authentication\AuthView.xaml;Authentication\SignInView.xaml;Authentication\SignUpView.xaml;Categories\CategoriesView.xaml;Categories\CategoryDetailsView.xaml;Header.xaml;MainView.xaml;MainWindow.xaml;NewViews\CategoryView.xaml;NewViews\WalletView.xaml;Wallets\WalletDetailsView.xaml;Wallets\WalletsView.xaml;
 
-False
+True
 

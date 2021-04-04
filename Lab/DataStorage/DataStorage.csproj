@@ -1,9 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>LI.CSharp.Lab.DataStorage</RootNamespace>
-    <AssemblyName>LI.CSharp.Lab.DataStorage</AssemblyName>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <AssemblyName>LI.CSharp.Lab.DataStorage</AssemblyName>
+        <RootNamespace>LI.CSharp.Lab.DataStorage</RootNamespace>
+        <Company>LI.CSharp.Lab.DataStorage</Company>
+        <Product>LI.CSharp.Lab.DataStorage</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="FillDataStorage.cs" />
+    </ItemGroup>
 
 </Project>

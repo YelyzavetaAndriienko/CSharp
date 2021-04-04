@@ -53,7 +53,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Categories {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;component/categories/categorydetailsview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;V1.0.0.0;component/categories/categorydetailsview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Categories\CategoryDetailsView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -12,9 +12,8 @@
 
   <ItemGroup>
     <None Remove="Images\image1.jpg" />
-    <None Remove="Images\logo.png" />
-    <None Remove="Images\money.png" />
     <None Remove="MainView.xaml~" />
+    <None Remove="Images\Cat0.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,8 +24,10 @@
 
   <ItemGroup>
     <Resource Include="Images\image1.jpg" />
-    <Resource Include="Images\logo.png" />
+    <None Remove="Images\money.png" />
     <Resource Include="Images\money.png" />
+    <None Remove="Images\logo.png" />
+    <Resource Include="Images\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
