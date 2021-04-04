@@ -47,5 +47,17 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
             MessageBox.Show(selectedItem.Content.ToString());
         }*/
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this wallet?",  "Delete", MessageBoxButton.YesNo);
+            switch(result)
+            {
+                case MessageBoxResult.Yes:
+                    ((WalletDetailsViewModel) DataContext).DeleteWallet();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
     }
 }

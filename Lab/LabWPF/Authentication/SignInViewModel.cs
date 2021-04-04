@@ -113,8 +113,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
 
         private bool IsSignInEnabled()
         {
-            return !String.IsNullOrWhiteSpace(Login) && !String.IsNullOrWhiteSpace(Password) && 
-                (Login.Length > 2) && (Password.Length > 3);
+            return !String.IsNullOrWhiteSpace(Login) && !String.IsNullOrWhiteSpace(Password);
+                                                    // && (Login.Length > 2) && (Password.Length > 3);
         }
 
         public void ClearSensitiveData()

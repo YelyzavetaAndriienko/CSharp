@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using LI.CSharp.Lab.GUI.WPF.Checking;
 using LI.CSharp.Lab.Models.Wallets;
 
 namespace LI.CSharp.Lab.GUI.WPF.Wallets
