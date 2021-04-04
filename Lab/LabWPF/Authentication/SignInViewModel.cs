@@ -14,7 +14,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
     {
         private AuthenticationUser _authUser = new AuthenticationUser();
         private Action _gotoSignUp;
-        private Action _gotoWallets;
+        private Action _gotoChecking;
         private bool _isEnabled = true;
 
 
@@ -75,13 +75,13 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
         public DelegateCommand CloseCommand { get; }
         public DelegateCommand SignUpCommand { get; }
 
-        public SignInViewModel(Action gotoSignUp, Action gotoWallets)
+        public SignInViewModel(Action gotoSignUp, Action gotoChecking)
         {
             SignInCommand = new DelegateCommand(SignIn, IsSignInEnabled);
             CloseCommand = new DelegateCommand(() => Environment.Exit(0));
             _gotoSignUp = gotoSignUp;
             SignUpCommand = new DelegateCommand(_gotoSignUp);
-            _gotoWallets = gotoWallets;
+            _gotoChecking = gotoChecking;
         }
 
         private async void SignIn()
@@ -107,13 +107,14 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
                     IsEnabled = true;
                 }
                 MessageBox.Show($"Sign In was successful for user {user.Name} {user.Surname}");
-                _gotoWallets.Invoke();
+                _gotoChecking.Invoke();
             }
         }
 
         private bool IsSignInEnabled()
         {
-            return !String.IsNullOrWhiteSpace(Login) && !String.IsNullOrWhiteSpace(Password);
+            return !String.IsNullOrWhiteSpace(Login) && !String.IsNullOrWhiteSpace(Password) && 
+                (Login.Length > 2) && (Password.Length > 3);
         }
 
         public void ClearSensitiveData()

@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using LI.CSharp.Lab.Models.Wallets;
 using LI.CSharp.Lab.Services;
 
-namespace LI.CSharp.Lab.GUI.WPF.Wallets
+namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
     /// <summary>
     /// Interaction logic for WalletsView.xaml

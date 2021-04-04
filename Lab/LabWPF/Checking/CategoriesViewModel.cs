@@ -10,13 +10,13 @@ using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
 using Prism.Commands;
 
-namespace LI.CSharp.Lab.GUI.WPF.Categories
+namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
-    public class CategoriesViewModel : BindableBase, INavigatable<MainNavigatableTypes>
+    public class CategoriesViewModel : BindableBase, INavigatable<CheckNavigatableTypes>
     {
         private CategoryService _service;
         private CategoryDetailsViewModel _currentCategory;
-        private Action _showCategories;
+        private Action _gotoWallets;
         public ObservableCollection<CategoryDetailsViewModel> Categories { get; set; }
 
         public CategoryDetailsViewModel CurrentCategory
@@ -32,7 +32,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Categories
             }
         }
 
-        public CategoriesViewModel(Action showCategories)
+        public CategoriesViewModel(Action gotoWallets)
         {
             _service = new CategoryService();
             Categories = new ObservableCollection<CategoryDetailsViewModel>();
@@ -40,13 +40,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Categories
             {
                 Categories.Add(new CategoryDetailsViewModel(category));
             }
+            _gotoWallets = gotoWallets;
+            WalletsCommand = new DelegateCommand(_gotoWallets);
         }
 
-        public MainNavigatableTypes Type
+        public CheckNavigatableTypes Type
         {
             get
             {
-                return MainNavigatableTypes.Categories;
+                return CheckNavigatableTypes.ShowCategories;
             }
         }
 
@@ -54,6 +56,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Categories
         {
 
         }
+
+        public DelegateCommand WalletsCommand { get; }
 
     }
 }

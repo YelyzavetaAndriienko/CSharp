@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using LI.CSharp.Lab.GUI.WPF.Authentication;
+using LI.CSharp.Lab.GUI.WPF.Checking;
 using LI.CSharp.Lab.GUI.WPF.Navigation;
-using LI.CSharp.Lab.GUI.WPF.Wallets;
 using Prism.Mvvm;
 
 namespace LI.CSharp.Lab.GUI.WPF
@@ -19,11 +19,11 @@ namespace LI.CSharp.Lab.GUI.WPF
         {
             if (type == MainNavigatableTypes.Auth)
             {
-                return new AuthViewModel(() => Navigate(MainNavigatableTypes.Wallets));
+                return new AuthViewModel(() => Navigate(MainNavigatableTypes.Check));
             }
             else
             {
-                return new WalletsViewModel();
+                return new CheckViewModel();
             }
         }
     }

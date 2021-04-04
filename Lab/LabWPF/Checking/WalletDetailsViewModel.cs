@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using LI.CSharp.Lab.Models.Wallets;
 using Prism.Mvvm;
 
-namespace LI.CSharp.Lab.GUI.WPF.Wallets
+namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
     public class WalletDetailsViewModel : BindableBase
     {
@@ -38,7 +38,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
                 }
             }
         }
-        
+
         public string Description
         {
             get
@@ -50,7 +50,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
                 _wallet.Description = value;
             }
         }
-        
+
         public decimal InitialBalance
         {
             get
@@ -72,7 +72,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
                 return Math.Round(_wallet.CurrentBalance, 2);
             }
         }
-        
+
         public Currencies? MainCurrency
         {
             get

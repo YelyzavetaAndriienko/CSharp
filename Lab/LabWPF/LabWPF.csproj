@@ -43,7 +43,7 @@
     <Compile Update="Authentication\SignUpViewModel.cs">
       <Generator>MSBuild:Compile</Generator>
     </Compile>
-    <Compile Update="Wallets\WalletsViewModel.cs">
+    <Compile Update="Checking\WalletsViewModel.cs">
       <Generator>MSBuild:Compile</Generator>
     </Compile>
     <Compile Remove="Authentication\SignInViewModel.xaml.cs" />
@@ -53,6 +53,11 @@
 
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Checking\Categories\" />
+    <Folder Include="Checking\Wallets\" />
   </ItemGroup>
 
 </Project>

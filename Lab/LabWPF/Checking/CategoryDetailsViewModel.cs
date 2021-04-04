@@ -2,7 +2,7 @@
 using Prism.Mvvm;
 using System.IO;
 
-namespace LI.CSharp.Lab.GUI.WPF.Categories
+namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
     public class CategoryDetailsViewModel : BindableBase
     {

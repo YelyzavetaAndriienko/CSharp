@@ -11,32 +11,32 @@ namespace LI.CSharp.Lab.Services
 {
     public class CategoryService
     {
-        private static User u;
+      //  private static User u;
         private static List<Category> c = new List<Category>()
         {
             new Category() {
-                Name = "food",
+                Name = "food1",
                 Description = "new category food",
                 Color = "red",
                 Icon = new FileInfo("apple")
             },
             new Category() {
-                Name = "food",
+                Name = "food2",
                 Description = "new category food",
-                Color = "red",
+                Color = "green",
                 Icon = new FileInfo("apple")
             },
             new Category() {
-                Name = "food",
+                Name = "food3",
                 Description = "new category food",
-                Color = "red",
+                Color = "yellow",
                 Icon = new FileInfo("apple")
             },
         };
 
         public List<Category> GetCategories()
         {
-            u.Categories = c;
+            //u.Categories = c;
             return c.ToList();
         }
     }

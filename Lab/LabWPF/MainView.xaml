@@ -5,16 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:LI.CSharp.Lab.GUI.WPF"
              xmlns:wallets="clr-namespace:LI.CSharp.Lab.Models.Wallets;assembly=LI.CSharp.Lab.Models"
-             xmlns:wallets1="clr-namespace:LI.CSharp.Lab.GUI.WPF.Wallets"
              xmlns:authentication="clr-namespace:LI.CSharp.Lab.GUI.WPF.Authentication"
+             xmlns:checking="clr-namespace:LI.CSharp.Lab.GUI.WPF.Checking"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <DataTemplate DataType="{ x:Type authentication:AuthViewModel}">
             <authentication:AuthView></authentication:AuthView>
         </DataTemplate>
-        <DataTemplate DataType="{ x:Type wallets1:WalletsViewModel}">
-            <wallets1:WalletsView></wallets1:WalletsView>
+        <DataTemplate DataType="{ x:Type checking:CheckViewModel}">
+            <checking:CheckView></checking:CheckView>
         </DataTemplate>
     </UserControl.Resources>
     <ContentControl Content="{Binding CurrentViewModel}"></ContentControl>

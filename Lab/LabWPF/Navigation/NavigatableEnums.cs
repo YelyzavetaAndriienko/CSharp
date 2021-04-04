@@ -6,9 +6,15 @@
         SignUp
     }
 
+    public enum CheckNavigatableTypes
+    {
+        ShowWallets,
+        ShowCategories
+    }
+
     public enum MainNavigatableTypes
     {
         Auth,
-        Wallets
+        Check
     }
 }

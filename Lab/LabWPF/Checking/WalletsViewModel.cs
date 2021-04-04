@@ -11,12 +11,13 @@ using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
 using Prism.Commands;
 
-namespace LI.CSharp.Lab.GUI.WPF.Wallets
+namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
-    public class WalletsViewModel : BindableBase, INavigatable<MainNavigatableTypes>
+    public class WalletsViewModel : BindableBase, INavigatable<CheckNavigatableTypes>
     {
         private WalletService _service { get; }
         private WalletDetailsViewModel _currentWallet;
+        private Action _gotoCategories;
         public ObservableCollection<WalletDetailsViewModel> Wallets { get; }
 
         public WalletDetailsViewModel CurrentWallet
@@ -33,7 +34,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
             }
         }
 
-        public WalletsViewModel()
+        public WalletsViewModel(Action gotoCategories)
         {
             _service = new WalletService();
             Wallets = new ObservableCollection<WalletDetailsViewModel>();
@@ -41,15 +42,17 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
             {
                 Wallets.Add(new WalletDetailsViewModel(wallet, this));
             }
+            _gotoCategories = gotoCategories;
+            CategoriesCommand = new DelegateCommand(_gotoCategories);
         }
         
         //public DelegateCommand AddWallet { get; }
 
-        public MainNavigatableTypes Type 
+        public CheckNavigatableTypes Type
         {
             get
             {
-                return MainNavigatableTypes.Wallets;
+                return CheckNavigatableTypes.ShowWallets;
             }
         }
 
@@ -74,5 +77,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Wallets
             Wallets.Remove(CurrentWallet);
             CurrentWallet = null;
         }
+        public DelegateCommand CategoriesCommand { get; }
+
     }
 }
