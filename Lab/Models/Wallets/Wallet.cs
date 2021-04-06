@@ -111,6 +111,7 @@ namespace LI.CSharp.Lab.Models.Wallets
 
         public Wallet(User user)
         {
+            _id = Guid.NewGuid();
             _owner = user;
             _transactions = new List<Transaction>();
             _availabilityOfCategories = new List<bool>();

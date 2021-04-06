@@ -16,7 +16,7 @@ namespace LI.CSharp.Lab.Services
         {
             if (String.IsNullOrWhiteSpace(authUser.Login) || String.IsNullOrWhiteSpace(authUser.Password))
                 throw new ArgumentException("Login or Password is Empty");
-            var users = await _storage.GetAllAsync();
+            var users = await _storage.GetAllAsync(DBUser.FOLDER);
             var dbUser = users.FirstOrDefault(user => user.Login == authUser.Login && user.Password == authUser.Password);
             if (dbUser == null)
                 throw new Exception("Wrong Login or Password");
@@ -27,7 +27,7 @@ namespace LI.CSharp.Lab.Services
         public async Task<bool> RegisterUserAsync(RegistrationUser regUser)
         {
             Thread.Sleep(2000);
-            var users = await _storage.GetAllAsync();
+            var users = await _storage.GetAllAsync(DBUser.FOLDER);
             var dbUser = users.FirstOrDefault(user => user.Login == regUser.Login);
             if (dbUser != null)
                 throw new Exception("User already exists");

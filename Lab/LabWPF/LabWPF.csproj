@@ -49,6 +49,7 @@
     <Compile Remove="Authentication\SignInViewModel.xaml.cs" />
     <Compile Remove="Authentication\SignUpViewModel.xaml.cs" />
     <Compile Remove="Authentication\AuthViewModel.xaml.cs" />
+    <Compile Remove="Wallets\WalletDetailsView.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,6 +59,7 @@
   <ItemGroup>
     <Folder Include="Checking\Categories\" />
     <Folder Include="Checking\Wallets\" />
+    <Folder Include="Wallets" />
   </ItemGroup>
 
 </Project>

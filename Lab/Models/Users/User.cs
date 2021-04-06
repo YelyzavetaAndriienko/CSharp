@@ -103,6 +103,14 @@ namespace LI.CSharp.Lab.Models.Users
             get { return _otherWallets; }
         }
 
+        public void Copy(User other)
+        {
+            Id = other.Id;
+            Name = other.Name;
+            Surname = other.Surname;
+            Email = other.Email;
+        }
+
         public List<Category> Categories
         {
             get { return _categories; }

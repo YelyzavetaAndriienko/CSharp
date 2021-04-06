@@ -7,7 +7,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Navigation
 {
     public abstract class NavigationBase<TObject> : BindableBase where TObject : Enum
     {
-        private List<INavigatable<TObject>> _viewModels = new();
+        protected List<INavigatable<TObject>> _viewModels = new();
 
         public INavigatable<TObject> CurrentViewModel
         {
@@ -19,7 +19,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Navigation
         {
         }
 
-        protected void Navigate(TObject type)
+        protected void Navigate(TObject type, Object obj = null)
         {
             if (CurrentViewModel!=null && CurrentViewModel.Type.Equals(type))
                 return;
@@ -27,7 +27,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Navigation
 
             if (viewModel == null)
             {
-                viewModel = CreateViewModel(type);
+                viewModel = CreateViewModel(type, obj);
                 _viewModels.Add(viewModel);
             }
             viewModel.ClearSensitiveData();
@@ -35,6 +35,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Navigation
             RaisePropertyChanged(nameof(CurrentViewModel));
         }
 
-        protected abstract INavigatable<TObject> CreateViewModel(TObject type);
+        protected abstract INavigatable<TObject> CreateViewModel(TObject type, Object obj = null);
     }
 }

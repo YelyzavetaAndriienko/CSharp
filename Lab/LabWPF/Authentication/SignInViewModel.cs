@@ -16,8 +16,16 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
         private Action _gotoSignUp;
         private Action _gotoChecking;
         private bool _isEnabled = true;
+        private User _user;
 
-
+        public User User
+        {
+            get
+            {
+                return _user;
+            }
+        }
+        
         public bool IsEnabled
         {
             get
@@ -77,6 +85,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
 
         public SignInViewModel(Action gotoSignUp, Action gotoChecking)
         {
+            _user = new User();
             SignInCommand = new DelegateCommand(SignIn, IsSignInEnabled);
             CloseCommand = new DelegateCommand(() => Environment.Exit(0));
             _gotoSignUp = gotoSignUp;
@@ -91,11 +100,11 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
             else
             {
                 var authService = new AuthenticationService();
-                User user = null;
                 try
                 {
                     IsEnabled = false;
-                    user = await authService.AuthenticateAsync(_authUser);
+                    //_user = await authService.AuthenticateAsync(_authUser);
+                    _user.Copy(await authService.AuthenticateAsync(_authUser));
                 }
                 catch (Exception ex)
                 {
@@ -106,7 +115,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
                 {
                     IsEnabled = true;
                 }
-                MessageBox.Show($"Sign In was successful for user {user.Name} {user.Surname}");
+                MessageBox.Show($"Sign In was successful for user {_user.Name} {_user.Surname}");
                 _gotoChecking.Invoke();
             }
         }

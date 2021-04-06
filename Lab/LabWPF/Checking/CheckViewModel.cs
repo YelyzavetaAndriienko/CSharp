@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using LI.CSharp.Lab.GUI.WPF.Navigation;
+using LI.CSharp.Lab.Models.Users;
+using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
@@ -9,16 +11,16 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
     public class CheckViewModel : NavigationBase<CheckNavigatableTypes>, INavigatable<MainNavigatableTypes>
     {
 
-        public CheckViewModel()
+        public CheckViewModel(Object obj)
         {
-            Navigate(CheckNavigatableTypes.ShowWallets);
+            Navigate(CheckNavigatableTypes.ShowWallets, obj);
         }
 
-        protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type)
+        protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type, Object obj)
         {
             if (type == CheckNavigatableTypes.ShowWallets)
             {
-                return new WalletsViewModel(() => Navigate(CheckNavigatableTypes.ShowCategories));
+                return new WalletsViewModel(() => Navigate(CheckNavigatableTypes.ShowCategories, obj), (WalletService)obj);
             }
             else
             {

@@ -43,8 +43,6 @@ C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainView
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\CategoryView.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\WalletView.g.cs
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletDetailsView.g.cs
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletsView.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF_MarkupCompile.cache
@@ -55,8 +53,6 @@ C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Authenti
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Header.baml
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainView.baml
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainWindow.baml
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletDetailsView.baml
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Wallets\WalletsView.baml
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF.g.resources
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.AssemblyInfoInputs.cache
@@ -67,7 +63,13 @@ C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CShar
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\ref\LI.CSharp.Lab.LabWPF.dll
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF.pdb
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.genruntimeconfig.cache
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoriesView.g.cs
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoryDetailsView.g.cs
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoriesView.baml
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Categories\CategoryDetailsView.baml
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CategoriesView.g.cs
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CategoryDetailsView.g.cs
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CheckView.g.cs
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\WalletDetailsView.g.cs
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\WalletsView.g.cs
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CategoriesView.baml
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CategoryDetailsView.baml
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\CheckView.baml
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\WalletDetailsView.baml
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\WalletsView.baml

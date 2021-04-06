@@ -18,18 +18,21 @@ namespace LI.CSharp.Lab.DataStorage
 
         public async Task AddOrUpdateAsync(TObject obj)
         {
+            if (!Directory.Exists(Path.Combine(BaseFolder, obj.OwnerGuid)))
+                Directory.CreateDirectory(Path.Combine(BaseFolder, obj.OwnerGuid));
             var stringObj = JsonSerializer.Serialize(obj);
-
-            using (StreamWriter sw = new StreamWriter(Path.Combine(BaseFolder, obj.Guid.ToString("N")), false))
+            using (StreamWriter sw = new StreamWriter(Path.Combine(BaseFolder, obj.OwnerGuid, obj.Guid.ToString("N")), false))
             {
                 await sw.WriteAsync(stringObj);
             }
         }
 
-        public async Task<TObject> GetAsync(Guid guid)
+        public async Task<TObject> GetAsync(Guid guid, string ownerGuid)
         {
+            if (!Directory.Exists(Path.Combine(BaseFolder, ownerGuid)))
+                Directory.CreateDirectory(Path.Combine(BaseFolder, ownerGuid));
             string stringObj = null;
-            string filePath = Path.Combine(BaseFolder, guid.ToString("N"));
+            string filePath = Path.Combine(BaseFolder, ownerGuid, guid.ToString("N"));
 
             if (!File.Exists(filePath))
                 return null;
@@ -42,10 +45,12 @@ namespace LI.CSharp.Lab.DataStorage
             return JsonSerializer.Deserialize<TObject>(stringObj);
         }
 
-        public async Task<List<TObject>> GetAllAsync()
+        public async Task<List<TObject>> GetAllAsync(string ownerGuid)
         {
+            if (!Directory.Exists(Path.Combine(BaseFolder, ownerGuid)))
+                Directory.CreateDirectory(Path.Combine(BaseFolder, ownerGuid));
             var res = new List<TObject>();
-            foreach (var file in Directory.EnumerateFiles(BaseFolder))
+            foreach (var file in Directory.EnumerateFiles(Path.Combine(BaseFolder, ownerGuid)))
             {
                 string stringObj = null;
 
@@ -60,5 +65,11 @@ namespace LI.CSharp.Lab.DataStorage
             return res;
         }
 
+        public async Task DeleteAllFiles(string ownerGuid)
+        {
+            string[] files = Directory.GetFiles(Path.Combine(BaseFolder, ownerGuid));
+            foreach (string file in files)
+                File.Delete(file);
+        }
     }
 }
