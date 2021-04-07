@@ -33,7 +33,7 @@ namespace LI.CSharp.Lab.Services
                 throw new Exception("User already exists");
             if (String.IsNullOrWhiteSpace(regUser.Login) || String.IsNullOrWhiteSpace(regUser.Password) || String.IsNullOrWhiteSpace(regUser.LastName))
                 throw new ArgumentException("Login, Password or Last Name is Empty");
-            dbUser = new DBUser(regUser.LastName + "First", regUser.LastName, regUser.Login + "@gmail.com",
+            dbUser = new DBUser(regUser.Name, regUser.LastName, regUser.Login + "@gmail.com",
                 regUser.Login, regUser.Password);
             await _storage.AddOrUpdateAsync(dbUser);
             return true;

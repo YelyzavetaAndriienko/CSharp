@@ -21,11 +21,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
 
-        <Button Name="Wallets" Grid.Column="0" Margin="10,10,10,10" Command="{Binding ShowWalletsCommand}" Grid.Row="0">Wallets</Button>
-        <Button Name="Categories" Grid.Column="0" Margin="10,10,10,10" Command="{Binding ShowCategoriesCommand}" Grid.Row="1">Categories</Button>
+        <Button Name="Wallets" Grid.Column="0" Margin="10,10,10,10" Height="20" Command="{Binding ShowWalletsCommand}" Grid.Row="0">Wallets</Button>
+        <Button Name="Categories" Grid.Column="0" Margin="10,10,10,10" Height="20" Command="{Binding ShowCategoriesCommand}" Grid.Row="1">Categories</Button>
 
 
         <!--Menu-->
@@ -33,6 +35,13 @@
                   DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentCategory}"></ListView>
 
         <GridSplitter Grid.Column="2" HorizontalAlignment="Stretch"></GridSplitter>
+
+        <Button Grid.Column="1" Grid.Row="3" Margin="10,300,10,10" 
+            HorizontalAlignment="Center" Width="40" Height="40">
+            <!--Command="{Binding AddWallet}">-->
+            <!--<Image Source="Images/Plus.png" />-->
+            +
+        </Button>
 
         <!--Content-->
         <ContentControl Grid.Column="3" Content="{Binding CurrentCategory}"></ContentControl>

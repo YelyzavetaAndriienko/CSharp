@@ -16,25 +16,61 @@
 
         <StackPanel Grid.Row="0" >
             <TextBlock Margin="10, 10, 10, 0">Name</TextBlock>
-            <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+            <TextBox MaxLength="50" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1" >
             <TextBlock Margin="10, 10, 10, 0">Description</TextBlock>
-            <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+                     Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="2" >
             <TextBlock Margin="10, 10, 10, 0">Color</TextBlock>
-            <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <ComboBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" Background="LightGray">
+                <ComboBox.Resources>
+                    <!-- color of ComboBoxItem -->
+                    <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="LightGray" />
+                    <!-- Mouse over color of ComboBoxItem -->
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Gray" />
+                </ComboBox.Resources>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="Red" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}">Red</TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="LawnGreen" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}">Green</TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="Cyan" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}">Blue</TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="Yellow" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}">Yellow</TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="Fuchsia" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}">Pink</TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="Orange">Orange</TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+            </ComboBox>
         </StackPanel>
 
         <StackPanel Grid.Row="3" >
             <TextBlock Margin="10, 10, 10, 0">Icon</TextBlock>
-            <TextBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+            <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
 

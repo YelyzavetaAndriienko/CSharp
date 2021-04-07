@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wBLxO60jTLnKrP2gK8Yy9RpsUajeGV+GA2HBSb2JrBbh63I8O/MtF9umRlE34vh+Qo+wA5Nb+V4fEpBhltL1AA==",
+  "dgSpecHash": "jrw9Z6DUbfnnV8j8KgqNvVBKTkcHSZ9crtSaU1aNGzsu4Uw/y3x9wStm5C/TnDgPO6srrn+b2On0jAJgMSZEKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\LabWPF\\LabWPF.csproj",
+  "projectFilePath": "D:\\Liza\\Documents\\CSharp\\Lab\\LabWPF\\LabWPF.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Iryna\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
-    "C:\\Users\\Iryna\\.nuget\\packages\\prism.core\\8.0.0.1909\\prism.core.8.0.0.1909.nupkg.sha512",
-    "C:\\Users\\Iryna\\.nuget\\packages\\prism.wpf\\8.0.0.1909\\prism.wpf.8.0.0.1909.nupkg.sha512"
+    "C:\\Users\\Liza\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\Liza\\.nuget\\packages\\prism.core\\8.0.0.1909\\prism.core.8.0.0.1909.nupkg.sha512",
+    "C:\\Users\\Liza\\.nuget\\packages\\prism.wpf\\8.0.0.1909\\prism.wpf.8.0.0.1909.nupkg.sha512"
   ],
   "logs": []
 }

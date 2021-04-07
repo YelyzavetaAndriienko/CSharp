@@ -105,6 +105,12 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             //ComboBox0
         }
 
+        private bool IsWalletEnabled()
+        {
+            return !String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(Description) && !String.IsNullOrWhiteSpace(InitialBalance.ToString()) &&
+                   !String.IsNullOrWhiteSpace(CurrentBalance.ToString()) && (Name.Length > 2);
+        }
+
         public void DeleteWallet()
         {
             _wvm.DeleteWallet();

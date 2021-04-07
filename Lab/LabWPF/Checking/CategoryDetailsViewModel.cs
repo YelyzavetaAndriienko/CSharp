@@ -1,4 +1,7 @@
-﻿using LI.CSharp.Lab.Models.Categories;//
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+using LI.CSharp.Lab.Models.Categories;
 using Prism.Mvvm;
 using System.IO;
 
@@ -30,6 +33,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             set
             {
                 _category.Description = value;
+                RaisePropertyChanged(nameof(DisplayName));
             }
         }
 
@@ -55,6 +59,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             set
             {
                 _category.Icon = value;
+                RaisePropertyChanged(nameof(DisplayName));
             }
         }
 
@@ -69,6 +74,12 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public CategoryDetailsViewModel(Category category)
         {
             _category = category;
+        }
+
+        private bool IsCategoryEnabled()
+        {
+            return !String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(Description) && !String.IsNullOrWhiteSpace(Icon.ToString()) &&
+                (Name.Length > 2);
         }
     }
 }
