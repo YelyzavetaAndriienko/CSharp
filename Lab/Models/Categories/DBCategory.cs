@@ -18,11 +18,11 @@ namespace LI.CSharp.Lab.Models.Categories
         {
             //Guid = Guid.NewGuid();
             Name = name;
-            OwnerGuid = ownerGuid;
             Description = description;
             Color = color;
             Icon = icon;
             Guid = guid;
+            OwnerGuid = ownerGuid;
         }
     }
 }

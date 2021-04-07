@@ -33,11 +33,11 @@
                   DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentCategory}" MaxHeight="300" Margin="0,0,0,110"></ListView>
 
         <GridSplitter Grid.Column="2" HorizontalAlignment="Stretch"></GridSplitter>
-
+        
         <Button Grid.Column="1" Grid.Row="1" Margin="10,180,10,10" 
-                 HorizontalAlignment="Center" Width="40" Height="40" Background="White">
-            <!--Click="Button_Click"-->
-            <Image Source="Images/plus2.png"/>
+                Click="Button_Click" HorizontalAlignment="Center" Width="40" Height="40">
+            <!--Command="{Binding AddWallet}">-->
+            <Image Source="Images/plus3.png" Margin="5,5,5,5"/>
         </Button>
 
         <!--Content-->

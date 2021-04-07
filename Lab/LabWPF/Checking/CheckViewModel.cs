@@ -24,7 +24,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
             else
             {
-                return new CategoriesViewModel(() => Navigate(CheckNavigatableTypes.ShowWallets));
+                return new CategoriesViewModel(() => Navigate(CheckNavigatableTypes.ShowWallets, obj), (CategoryService)obj);
             }
         }
 

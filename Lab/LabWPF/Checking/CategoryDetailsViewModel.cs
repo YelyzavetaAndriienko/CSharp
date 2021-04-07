@@ -10,6 +10,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
     public class CategoryDetailsViewModel : BindableBase
     {
         private Category _category;
+        private CategoriesViewModel _wvm;
 
         public Category Category
         {
@@ -79,15 +80,21 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public CategoryDetailsViewModel(Category category)
+        public CategoryDetailsViewModel(Category category, CategoriesViewModel wvm = null)
         {
             _category = category;
+            _wvm = wvm;
         }
 
         private bool IsCategoryEnabled()
         {
             return !String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(Description) && !String.IsNullOrWhiteSpace(Icon.ToString()) &&
                 (Name.Length > 2);
+        }
+
+        public void DeleteCategory()
+        {
+            _wvm.DeleteCategory();
         }
     }
 }

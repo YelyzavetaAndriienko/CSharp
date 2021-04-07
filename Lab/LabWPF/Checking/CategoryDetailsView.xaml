@@ -39,5 +39,8 @@
                      Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
 
+        <Button Grid.Row="3" Margin="10,100,0,10" 
+                Click="Delete_Click" HorizontalAlignment="Center" Width="80" Height="30">Delete</Button>
+
     </Grid>
 </UserControl>

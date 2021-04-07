@@ -14,10 +14,24 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
     public class CategoriesViewModel : BindableBase, INavigatable<CheckNavigatableTypes>
     {
-        private CategoryService _service;
+        private CategoryService _service { get; }
         private CategoryDetailsViewModel _currentCategory;
         private Action _gotoWallets;
-        public ObservableCollection<CategoryDetailsViewModel> Categories { get; set; }
+        public ObservableCollection<CategoryDetailsViewModel> _categories;
+
+        public ObservableCollection<CategoryDetailsViewModel> Categories
+        {
+            get
+            {
+                return _categories;
+            }
+            private set
+            {
+                _categories = value;
+                RaisePropertyChanged();
+            }
+        }
+
 
         public CategoryDetailsViewModel CurrentCategory
         {
@@ -32,14 +46,25 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public CategoriesViewModel(Action gotoWallets)
+        private async void WaitForCategoriesAsync()
         {
-            _service = new CategoryService();
-            Categories = new ObservableCollection<CategoryDetailsViewModel>();
-            foreach (var category in _service.GetCategories())
+            if (!_service.CategoriesLoaded)
             {
-                Categories.Add(new CategoryDetailsViewModel(category));
+                await _service.GetCategoriesAsync();
+                _service.CategoriesLoaded = true;
             }
+            var ws = new ObservableCollection<CategoryDetailsViewModel>();
+            foreach (var category in _service.Categories)
+            {
+                ws.Add(new CategoryDetailsViewModel(category, this));
+            }
+            Categories = ws;
+        }
+
+        public CategoriesViewModel(Action gotoWallets, CategoryService service)
+        {
+            _service = service;
+            WaitForCategoriesAsync();
             _gotoWallets = gotoWallets;
             WalletsCommand = new DelegateCommand(_gotoWallets);
         }
@@ -55,6 +80,32 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public void ClearSensitiveData()
         {
 
+        }
+
+        public void CreateCategory()
+        {
+            Category category = new Category(_service.User);
+            var goodName = false;
+            while (!goodName)
+            {
+                try
+                {
+                    category.Name = "new_category" + _service.User.WalletNextNumber;
+                    goodName = true;
+                }
+                catch (ArgumentException e) { }
+            }
+            _service.Categories.Add(category);
+            CategoryDetailsViewModel wdvm = new CategoryDetailsViewModel(category, this);
+            Categories.Add(wdvm);
+            CurrentCategory = wdvm;
+        }
+
+        public void DeleteCategory()
+        {
+            _service.Categories.Remove(CurrentCategory.Category);
+            Categories.Remove(CurrentCategory);
+            CurrentCategory = null;
         }
 
         public DelegateCommand WalletsCommand { get; }

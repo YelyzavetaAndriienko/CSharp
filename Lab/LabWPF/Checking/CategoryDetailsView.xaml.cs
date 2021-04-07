@@ -40,17 +40,17 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
             MessageBox.Show(selectedItem.Content.ToString());
         }*/
-        //private void Delete_Click(object sender, RoutedEventArgs e)
-        //{
-        //    MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this category?", "Delete", MessageBoxButton.YesNo);
-        //    switch (result)
-        //    {
-        //        case MessageBoxResult.Yes:
-        //            ((CategoryDetailsViewModel)DataContext).DeleteCategory();
-        //            break;
-        //        case MessageBoxResult.No:
-        //            break;
-        //    }
-        //}
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this category?", "Delete", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    ((CategoryDetailsViewModel)DataContext).DeleteCategory();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
     }
 }
