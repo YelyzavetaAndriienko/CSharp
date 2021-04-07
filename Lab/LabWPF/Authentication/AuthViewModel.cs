@@ -29,7 +29,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
             _user = ((SignInViewModel) CurrentViewModel).User;
         }
         
-        protected override INavigatable<AuthNavigatableTypes> CreateViewModel(AuthNavigatableTypes type, Object obj)
+        protected override INavigatable<AuthNavigatableTypes> CreateViewModel(AuthNavigatableTypes type, AllServices allServices)
         {
             if (type == AuthNavigatableTypes.SignIn)
             {

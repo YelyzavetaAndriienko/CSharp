@@ -122,7 +122,7 @@ namespace LI.CSharp.Lab.LabTests
                 Email = "liza123.sa@gmail.com"
             };
             List<Category> categories = new List<Category>();
-            var category = new Category("Food", Colors.Red, "coins.txt");
+            var category = new Category(owner, "Food", Colors.Red, new FileInfo("coins.txt"), Guid.NewGuid());
             categories.Add(category);
             owner.Categories = categories;
             var wallet = new Wallet(owner)
@@ -223,8 +223,8 @@ namespace LI.CSharp.Lab.LabTests
                 Email = "liza123.sa@gmail.com"
             };
             List<Category> categories = new List<Category>();
-            var category0 = new Category("Food", Colors.Red, "coins.txt");
-            var category1 = new Category("Restaurants", Colors.Blue, "coins.txt");
+            var category0 = new Category(owner, "Food", Colors.Red, new FileInfo("coins.txt"), Guid.NewGuid());
+            var category1 = new Category(owner, "Restaurants", Colors.Blue, new FileInfo("coins.txt"), Guid.NewGuid());
             categories.Add(category0);
             categories.Add(category1);
             owner.Categories = categories;
@@ -279,8 +279,8 @@ namespace LI.CSharp.Lab.LabTests
                 Email = "liza123.sa@gmail.com"
             };
             List<Category> categories = new List<Category>();
-            var category0 = new Category("Food", Colors.Red, "coins.txt");
-            var category1 = new Category("Restaurants", Colors.Blue, "coins.txt");
+            var category0 = new Category(owner, "Food", Colors.Red, new FileInfo("coins.txt"), Guid.NewGuid());
+            var category1 = new Category(owner, "Restaurants", Colors.Blue, new FileInfo("coins.txt"), Guid.NewGuid());
             categories.Add(category0);
             categories.Add(category1);
             owner.Categories = categories;

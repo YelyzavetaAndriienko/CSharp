@@ -17,6 +17,7 @@ namespace LI.CSharp.Lab.Models.Users
         private List<Wallet> _otherWallets;
         private List<Category> _categories;
         private static int _walletNextNumber = 0;
+        private static int _categoryNextNumber = 0;
 
         public User()
         {
@@ -134,6 +135,16 @@ namespace LI.CSharp.Lab.Models.Users
             {
                 var res = _walletNextNumber;
                 _walletNextNumber++;
+                return res;
+            }
+        }
+        
+        public int CategoryNextNumber
+        {
+            get
+            {
+                var res = _categoryNextNumber;
+                _categoryNextNumber++;
                 return res;
             }
         }

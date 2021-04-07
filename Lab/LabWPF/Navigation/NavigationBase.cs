@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
 
 namespace LI.CSharp.Lab.GUI.WPF.Navigation
@@ -19,7 +20,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Navigation
         {
         }
 
-        protected void Navigate(TObject type, Object obj = null)
+        protected void Navigate(TObject type, AllServices allServices = null)
         {
             if (CurrentViewModel!=null && CurrentViewModel.Type.Equals(type))
                 return;
@@ -27,7 +28,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Navigation
 
             if (viewModel == null)
             {
-                viewModel = CreateViewModel(type, obj);
+                viewModel = CreateViewModel(type, allServices);
                 _viewModels.Add(viewModel);
             }
             viewModel.ClearSensitiveData();
@@ -35,6 +36,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Navigation
             RaisePropertyChanged(nameof(CurrentViewModel));
         }
 
-        protected abstract INavigatable<TObject> CreateViewModel(TObject type, Object obj = null);
+        protected abstract INavigatable<TObject> CreateViewModel(TObject type, AllServices allServices = null);
     }
 }

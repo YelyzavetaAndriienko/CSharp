@@ -1,11 +1,12 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using LI.CSharp.Lab.Models.Users;
 
 namespace LI.CSharp.Lab.Models.Categories
 {
     // Class Category keeps the name, description, color and icon.
-    public class Category : Entity
+    public class Category : Entity, IComparable<Category>
     {
         private User _owner;
         private string _name;
@@ -26,10 +27,10 @@ namespace LI.CSharp.Lab.Models.Categories
             {
                 if (!String.IsNullOrWhiteSpace(value))
                 {
-                    //if (Owner.Categories.Any(category => category.Name == value))
-                    //{
-                    //    throw new ArgumentException("Category with this name already exists!");
-                    //}
+                    if (Owner.Categories.Any(category => category.Name == value))
+                    {
+                        throw new ArgumentException("Category with this name already exists!");
+                    }
                     _name = value;
                 }
                 else
@@ -110,12 +111,19 @@ namespace LI.CSharp.Lab.Models.Categories
 
             if (String.IsNullOrWhiteSpace(Name))
                 result = false;
-            if (Icon == null)
-                result = false;
+            //if (Icon == null)
+                //result = false;
             if (Owner == null)
                 result = false;
 
             return result;
+        }
+        
+        public int CompareTo(Category? other)
+        {
+            if (other == null)
+                return -1;
+            return String.Compare(Name, other.Name, StringComparison.Ordinal);
         }
 
         public override string ToString()

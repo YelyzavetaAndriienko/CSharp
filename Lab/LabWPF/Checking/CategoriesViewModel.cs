@@ -93,12 +93,13 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             {
                 try
                 {
-                    category.Name = "new_category" + _service.User.WalletNextNumber;
+                    category.Name = "new_category" + _service.User.CategoryNextNumber;
                     goodName = true;
                 }
                 catch (ArgumentException e) { }
             }
             _service.Categories.Add(category);
+            _service.User.Categories.Add(category);
             CategoryDetailsViewModel wdvm = new CategoryDetailsViewModel(category, this);
             Categories.Add(wdvm);
             CurrentCategory = wdvm;
@@ -107,6 +108,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public void DeleteCategory()
         {
             _service.Categories.Remove(CurrentCategory.Category);
+            _service.User.Categories.Remove(CurrentCategory.Category);
             Categories.Remove(CurrentCategory);
             CurrentCategory = null;
         }

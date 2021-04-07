@@ -106,6 +106,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 catch (ArgumentException e) { }
             }
             _service.Wallets.Add(wallet);
+            _service.User.MyWallets.Add(wallet);
             WalletDetailsViewModel wdvm = new WalletDetailsViewModel(wallet, this);
             Wallets.Add(wdvm);
             CurrentWallet = wdvm;
@@ -114,6 +115,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public void DeleteWallet()
         {
             _service.Wallets.Remove(CurrentWallet.Wallet);
+            _service.User.MyWallets.Remove(CurrentWallet.Wallet);
             Wallets.Remove(CurrentWallet);
             CurrentWallet = null;
         }

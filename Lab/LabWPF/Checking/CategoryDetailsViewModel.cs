@@ -28,8 +28,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
             set
             {
-                _category.Name = value;
-                RaisePropertyChanged(nameof(DisplayName));
+                try
+                {
+                    _category.Name = value;
+                    RaisePropertyChanged(nameof(DisplayName));
+                }
+                catch (ArgumentException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
         }
 

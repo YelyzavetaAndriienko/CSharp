@@ -11,20 +11,20 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
     public class CheckViewModel : NavigationBase<CheckNavigatableTypes>, INavigatable<MainNavigatableTypes>
     {
 
-        public CheckViewModel(Object obj)
+        public CheckViewModel(AllServices allServices)
         {
-            Navigate(CheckNavigatableTypes.ShowWallets, obj);
+            Navigate(CheckNavigatableTypes.ShowWallets, allServices);
         }
 
-        protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type, Object obj)
+        protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type, AllServices allServices)
         {
             if (type == CheckNavigatableTypes.ShowWallets)
             {
-                return new WalletsViewModel(() => Navigate(CheckNavigatableTypes.ShowCategories, obj), (WalletService)obj);
+                return new WalletsViewModel(() => Navigate(CheckNavigatableTypes.ShowCategories, allServices), allServices.WalletService);
             }
             else
             {
-                return new CategoriesViewModel(() => Navigate(CheckNavigatableTypes.ShowWallets, obj), (CategoryService)obj);
+                return new CategoriesViewModel(() => Navigate(CheckNavigatableTypes.ShowWallets, allServices), allServices.CategoryService);
             }
         }
 
