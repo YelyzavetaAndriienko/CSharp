@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using LI.CSharp.Lab.GUI.WPF.Navigation;
@@ -43,6 +45,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             {
                 _currentCategory = value;
                 RaisePropertyChanged();
+                //OnPropertyChanged();
             }
         }
 
@@ -109,6 +112,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         }
 
         public DelegateCommand WalletsCommand { get; }
-
+        
     }
 }

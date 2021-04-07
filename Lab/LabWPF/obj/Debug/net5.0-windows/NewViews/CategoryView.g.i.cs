@@ -52,7 +52,7 @@ namespace LI.CSharp.Lab.GUI.WPF.NewViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;component/newviews/categoryview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;V1.0.0.0;component/newviews/categoryview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\NewViews\CategoryView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using LI.CSharp.Lab.Models.Wallets;
@@ -73,20 +74,18 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public Currencies? MainCurrency
+        public string MainCurrency
         {
             get
             {
-                return _wallet.MainCurrency;
+                return _wallet.MainCurrency.ToString();
             }
             set
             {
-                _wallet.MainCurrency = value;
-                //MessageBox.Show(value.ToString());
+                _wallet.MainCurrency = (Currencies?) Array.IndexOf(WalletDetailsView.CURRENCIES, value);
                 RaisePropertyChanged(nameof(DisplayName));
                 RaisePropertyChanged(nameof(CurrentBalance));
                 RaisePropertyChanged(nameof(InitialBalance));
-                //((WalletDetailsView) DataContext)
             }
         }
 

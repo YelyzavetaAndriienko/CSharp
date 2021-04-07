@@ -8,45 +8,21 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
     /// </summary>
     public partial class WalletDetailsView : UserControl
     {
+        public static string[] CURRENCIES = 
+        { 
+            Currencies.UAH.ToString(), 
+            Currencies.EUR.ToString(),
+            Currencies.USD.ToString(),
+            Currencies.GBP.ToString(),
+            Currencies.PLN.ToString(),
+            Currencies.RUB.ToString()
+        };
         public WalletDetailsView()
         {
-
             InitializeComponent();
-            ComboBox0.ItemsSource = LoadComboBoxData();
-            //string str = "ua";
-            //ComboBox0.SelectedIndex = ComboBox0.FindString(str);
-            // ComboBox0.SelectedItem = "liza";
-            //ComboBox0.SelectedItem = ;
-
-
-            //DataContext = new WalletDetailsViewModel();
+            ComboBox0.ItemsSource = CURRENCIES;
         }
-
-        private string[] LoadComboBoxData()
-        {
-            string[] strArray =
-            {
-                Currencies.UAH.ToString(),
-                Currencies.EUR.ToString(),
-                Currencies.USD.ToString(),
-                Currencies.GBP.ToString(),
-                Currencies.PLN.ToString(),
-                Currencies.RUB.ToString()
-            };
-            return strArray;
-        }
-
-        //private void ComboBox_Selected(object sender, SelectionChangedEventArgs e)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
-
-        /*private void ComboBox_Selected(object sender, RoutedEventArgs e)
-        {
-            ComboBox comboBox = (ComboBox)sender;
-            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            MessageBox.Show(selectedItem.Content.ToString());
-        }*/
+        
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this wallet?",  "Delete", MessageBoxButton.YesNo);

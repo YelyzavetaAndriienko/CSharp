@@ -53,7 +53,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;component/authentication/authview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;V1.0.0.0;component/authentication/authview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Authentication\AuthView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
