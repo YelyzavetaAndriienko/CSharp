@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using LI.CSharp.Lab;
 using LI.CSharp.Lab.Models.Wallets;
+using LI.CSharp.Lab.Models.Categories;
 
 namespace LI.CSharp.Lab.Models.Users
 {

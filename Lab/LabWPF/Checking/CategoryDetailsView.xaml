@@ -28,43 +28,8 @@
 
         <StackPanel Grid.Row="2" >
             <TextBlock Margin="10, 10, 10, 0">Color</TextBlock>
-            <ComboBox MinWidth="300" Margin="10" HorizontalAlignment="Stretch" Background="LightGray">
-                <ComboBox.Resources>
-                    <!-- color of ComboBoxItem -->
-                    <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="LightGray" />
-                    <!-- Mouse over color of ComboBoxItem -->
-                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Gray" />
-                </ComboBox.Resources>
-                <ComboBoxItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="Red" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}">Red</TextBlock>
-                    </StackPanel>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="LawnGreen" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}">Green</TextBlock>
-                    </StackPanel>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="Cyan" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}">Blue</TextBlock>
-                    </StackPanel>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="Yellow" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}">Yellow</TextBlock>
-                    </StackPanel>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="Fuchsia" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}">Pink</TextBlock>
-                    </StackPanel>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="Orange">Orange</TextBlock>
-                    </StackPanel>
-                </ComboBoxItem>
+            <ComboBox Name="ComboBox0" MinWidth="100" Margin="10" HorizontalAlignment="Left" 
+                      SelectedItem="{Binding Color, UpdateSourceTrigger=PropertyChanged}">
             </ComboBox>
         </StackPanel>
 

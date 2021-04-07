@@ -13,7 +13,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         public CheckViewModel(Object obj)
         {
-            Navigate(CheckNavigatableTypes.ShowWallets, obj);
+            Navigate(CheckNavigatableTypes.ShowCategories, obj);
         }
 
         protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type, Object obj)

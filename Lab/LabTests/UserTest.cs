@@ -4,6 +4,8 @@ using System.IO;
 using LI.CSharp.Lab.Models.Users;
 using LI.CSharp.Lab;
 using LI.CSharp.Lab.Models.Wallets;
+using LI.CSharp.Lab.Models.Categories;
+using LI.CSharp.Lab.Models.Transactions;
 using Xunit;
 
 namespace LI.CSharp.Lab.LabTests
@@ -26,7 +28,7 @@ namespace LI.CSharp.Lab.LabTests
             {
                 Name = "food",
                 Description = "new category food",
-                Color = "red",
+                Color = Colors.Red,
                 Icon = new FileInfo("apple")
             };
             Wallet wallet = new Wallet(user1)

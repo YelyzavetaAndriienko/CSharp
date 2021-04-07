@@ -11,6 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Checking\Images\plus2.png" />
+    <None Remove="Checking\Images\plus3.png" />
     <None Remove="Images\image1.jpg" />
     <None Remove="Images\Plus.png" />
     <None Remove="MainView.xaml~" />
@@ -24,6 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Checking\Images\plus2.png" />
+    <Resource Include="Checking\Images\plus3.png" />
     <Resource Include="Images\image1.jpg" />
     <None Remove="Images\money.png" />
     <Resource Include="Images\money.png" />

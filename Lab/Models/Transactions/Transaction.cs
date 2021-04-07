@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using LI.CSharp.Lab.Models.Categories;
 
-namespace LI.CSharp.Lab
+namespace LI.CSharp.Lab.Models.Transactions
 {
     // Class Transaction keeps an amount, currency, category, description, date.
     //You can also attach files (images or text) to the transaction.

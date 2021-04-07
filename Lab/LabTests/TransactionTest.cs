@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using Xunit;
+using LI.CSharp.Lab.Models.Categories;
+using LI.CSharp.Lab.Models.Transactions;
 
 namespace LI.CSharp.Lab.LabTests
 {
@@ -15,7 +17,7 @@ namespace LI.CSharp.Lab.LabTests
             {
                 Name = "food",
                 Description = "new category food",
-                Color = "red",
+                Color = Colors.Red,
                 Icon = new FileInfo("apple")
             };
             var transaction = new Transaction()
@@ -43,7 +45,7 @@ namespace LI.CSharp.Lab.LabTests
             {
                 Name = "food",
                 Description = "new category food",
-                Color = "red",
+                Color = Colors.Red,
                 Icon = new FileInfo("apple")
             };
             var transaction = new Transaction()
@@ -70,7 +72,7 @@ namespace LI.CSharp.Lab.LabTests
             {
                 Name = "food",
                 Description = "new category food",
-                Color = "red",
+                Color = Colors.Red,
                 Icon = new FileInfo("apple")
             };
             var transaction = new Transaction()
@@ -97,7 +99,7 @@ namespace LI.CSharp.Lab.LabTests
             {
                 Name = "food",
                 Description = "new category food",
-                Color = "red",
+                Color = Colors.Red,
                 Icon = new FileInfo("apple")
             };
             var transaction = new Transaction()
