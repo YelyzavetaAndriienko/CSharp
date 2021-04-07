@@ -61,7 +61,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;V1.0.0.0;component/checking/categorydetailsview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LI.CSharp.Lab.LabWPF;component/checking/categorydetailsview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Checking\CategoryDetailsView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

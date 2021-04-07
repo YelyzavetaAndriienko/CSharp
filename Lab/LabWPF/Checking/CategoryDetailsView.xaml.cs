@@ -14,7 +14,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             InitializeComponent();
             ComboBox0.ItemsSource = LoadComboBoxData();
         }
-
+        public static string[] COLORS =
+              {
+             Colors.Blue.ToString(),
+                Colors.Green.ToString(),
+                Colors.Orange.ToString(),
+                Colors.Pink.ToString(),
+                Colors.Red.ToString(),
+                Colors.Yellow.ToString()
+        };
         private string[] LoadComboBoxData()
         {
             string[] strArray =
