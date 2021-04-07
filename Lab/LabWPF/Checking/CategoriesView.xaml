@@ -19,31 +19,28 @@
             <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
 
-        <Button Name="Wallets" Grid.Column="0" Margin="10,10,10,10" Height="20" Command="{Binding WalletsCommand}" Grid.Row="0">Wallets</Button>
-        <Button Name="Categories" Grid.Column="0" Margin="10,10,10,10" Height="20" Grid.Row="1">Categories</Button>
+        <Button Name="Wallets" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10,-370,10,10" Height="30" Command="{Binding WalletsCommand}">Wallets</Button>
+        <Button Name="Categories" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10,-220,10,70" Height="30">Categories</Button>
 
 
         <!--Menu-->
-        <ListView Grid.Column="1" Grid.RowSpan="2" ItemsSource="{Binding Categories}" 
-                  DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentCategory}"></ListView>
+        <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" ItemsSource="{Binding Categories}" 
+                  DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentCategory}" MaxHeight="300" Margin="0,0,0,110"></ListView>
 
         <GridSplitter Grid.Column="2" HorizontalAlignment="Stretch"></GridSplitter>
 
-        <Button Grid.Column="1" Grid.Row="3" Margin="10,300,10,10" 
-            HorizontalAlignment="Center" Width="40" Height="40">
-            <!--Command="{Binding AddWallet}">-->
-            <!--<Image Source="Images/Plus.png" />-->
-            +
+        <Button Grid.Column="1" Grid.Row="1" Margin="10,180,10,10" 
+                 HorizontalAlignment="Center" Width="40" Height="40" Background="White">
+            <!--Click="Button_Click"-->
+            <Image Source="Images/plus2.png"/>
         </Button>
 
         <!--Content-->
-        <ContentControl Grid.Column="3" Content="{Binding CurrentCategory}"></ContentControl>
+        <ContentControl Grid.Column="3" Grid.RowSpan="2" Content="{Binding CurrentCategory}"></ContentControl>
     </Grid>
 </UserControl>

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LI.CSharp.Lab.Models.Users;
+using LI.CSharp.Lab.Models.Categories;
+using LI.CSharp.Lab.Models.Transactions;
 
 namespace LI.CSharp.Lab.Models.Wallets
 {

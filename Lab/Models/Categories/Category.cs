@@ -8,7 +8,7 @@ namespace LI.CSharp.Lab.Models.Categories
     {
         private string _name;
         private string _description;
-        private string _color;
+        private Colors? _color;
         private FileInfo _icon;
 
         public string Name
@@ -33,19 +33,19 @@ namespace LI.CSharp.Lab.Models.Categories
             set { _description = value; }
         }
 
-        public string Color
+        public Colors? Color
         {
-            get { return _color; }
+            get
+            {
+                if (_color == null)
+                {
+                    _color = Colors.Red;
+                }
+                return _color;
+            }
             set
             {
-                if (!String.IsNullOrWhiteSpace(value))
-                {
-                    _color = value;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid value of Color!");
-                }
+                _color = value;
             }
         }
 
@@ -67,7 +67,7 @@ namespace LI.CSharp.Lab.Models.Categories
 
         public Category() { }
 
-        public Category(string name, string color, string iconPath)
+        public Category(string name, Colors? color, string iconPath)
         {
             _name = name;
             _color = color;
@@ -83,8 +83,6 @@ namespace LI.CSharp.Lab.Models.Categories
             var result = true;
 
             if (String.IsNullOrWhiteSpace(Name))
-                result = false;
-            if (String.IsNullOrWhiteSpace(Color))
                 result = false;
             if (Icon == null)
                 result = false;

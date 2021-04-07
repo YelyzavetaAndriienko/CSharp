@@ -149,7 +149,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
         {
             _regUser = new RegistrationUser();
         }
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

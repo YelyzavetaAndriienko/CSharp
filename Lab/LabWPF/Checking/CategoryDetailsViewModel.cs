@@ -11,6 +11,14 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
     {
         private Category _category;
 
+        public Category Category
+        {
+            get
+            {
+                return _category;
+            }
+        }
+
         public string Name
         {
             get
@@ -37,7 +45,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public string Color
+        public Colors? Color
         {
             get
             {
@@ -67,7 +75,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
             get
             {
-                return $"{_category.Name} (${_category.Color})";
+                return $"{_category.Name} {_category.Color}";
             }
         }
 

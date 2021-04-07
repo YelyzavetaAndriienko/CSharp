@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Xunit;
+using LI.CSharp.Lab.Models.Categories;
 
 namespace LI.CSharp.Lab.LabTests
 {
@@ -14,7 +15,7 @@ namespace LI.CSharp.Lab.LabTests
             {
                 Name = "food",
                 Description = "new category food",
-                Color = "red",
+                Color = Colors.Red,
                 Icon = new FileInfo("apple")
             };
 
@@ -32,7 +33,7 @@ namespace LI.CSharp.Lab.LabTests
             var category = new Category()
             {
                 Description = "new category food",
-                Color = "red",
+                Color = Colors.Red,
                 Icon = new FileInfo("apple")
             };
 
@@ -69,7 +70,7 @@ namespace LI.CSharp.Lab.LabTests
             {
                 Name = "food",
                 Description = "new category food",
-                Color = "red",
+                Color = Colors.Red,
             };
 
             //Act

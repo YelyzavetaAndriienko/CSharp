@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using LI.CSharp.Lab.Models.Users;
 using LI.CSharp.Lab.Models.Wallets;
+using LI.CSharp.Lab.Models.Categories;
+using LI.CSharp.Lab.Models.Transactions;
 using Xunit;
 
 namespace LI.CSharp.Lab.LabTests
@@ -120,7 +122,7 @@ namespace LI.CSharp.Lab.LabTests
                 Email = "liza123.sa@gmail.com"
             };
             List<Category> categories = new List<Category>();
-            var category = new Category("Food", "red", "coins.txt");
+            var category = new Category("Food", Colors.Red, "coins.txt");
             categories.Add(category);
             owner.Categories = categories;
             var wallet = new Wallet(owner)
@@ -163,7 +165,7 @@ namespace LI.CSharp.Lab.LabTests
             {
                 Name = "food",
                 Description = "new category food",
-                Color = "red",
+                Color = Colors.Red,
                 Icon = new FileInfo("apple")
             };
             List<Category> categories = new List<Category>();
@@ -221,8 +223,8 @@ namespace LI.CSharp.Lab.LabTests
                 Email = "liza123.sa@gmail.com"
             };
             List<Category> categories = new List<Category>();
-            var category0 = new Category("Food", "red", "coins.txt");
-            var category1 = new Category("Restaurants", "blue", "coins.txt");
+            var category0 = new Category("Food", Colors.Red, "coins.txt");
+            var category1 = new Category("Restaurants", Colors.Blue, "coins.txt");
             categories.Add(category0);
             categories.Add(category1);
             owner.Categories = categories;
@@ -277,8 +279,8 @@ namespace LI.CSharp.Lab.LabTests
                 Email = "liza123.sa@gmail.com"
             };
             List<Category> categories = new List<Category>();
-            var category0 = new Category("Food", "red", "coins.txt");
-            var category1 = new Category("Restaurants", "blue", "coins.txt");
+            var category0 = new Category("Food", Colors.Red, "coins.txt");
+            var category1 = new Category("Restaurants", Colors.Blue, "coins.txt");
             categories.Add(category0);
             categories.Add(category1);
             owner.Categories = categories;

@@ -10,11 +10,11 @@ namespace LI.CSharp.Lab.Models.Categories
         public string OwnerGuid { get; }
         public string Name { get; }
         public string Description { get; }
-        public string Color { get; }
+        public Colors? Color { get; }
         public FileInfo Icon { get; }
         
-        public DBCategory(string name, string ownerGuid, string description, 
-            string color, FileInfo icon, Guid guid)
+        public DBCategory(string name, string ownerGuid, string description,
+            Colors? color, FileInfo icon, Guid guid)
         {
             //Guid = Guid.NewGuid();
             Name = name;
