@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -33,6 +35,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             {
                 _wallets = value;
                 RaisePropertyChanged();
+                //OnPropertyChanged();
             }
         }
 
@@ -47,6 +50,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 _currentWallet = value;
                 //RaisePropertyChanged(nameof(_currentWallet.MainCurrency));
                 RaisePropertyChanged();
+                //OnPropertyChanged();
             }
         }
 
@@ -114,6 +118,5 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             CurrentWallet = null;
         }
         public DelegateCommand CategoriesCommand { get; }
-
     }
 }

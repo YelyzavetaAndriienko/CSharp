@@ -27,7 +27,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
             _signInSuccess = signInSuccess;
             Navigate(AuthNavigatableTypes.SignIn);
             _user = ((SignInViewModel) CurrentViewModel).User;
-            //MessageBox.Show(_user.ToString());
         }
         
         protected override INavigatable<AuthNavigatableTypes> CreateViewModel(AuthNavigatableTypes type, Object obj)

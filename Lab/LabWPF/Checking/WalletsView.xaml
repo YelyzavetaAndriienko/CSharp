@@ -24,8 +24,8 @@
         </Grid.RowDefinitions>
 
 
-        <Button Name="Wallets" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10,-370,10,10" Height="30" Command="{Binding ShowWalletsCommand}">Wallets</Button>
-        <Button Name="Categories" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10,-220,10,70" Height="30" Command="{Binding ShowCategoriesCommand}">Categories</Button>
+        <Button Name="Wallets" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10,-370,10,10" Height="30">Wallets</Button>
+        <Button Name="Categories" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10,-220,10,70" Height="30" Command="{Binding CategoriesCommand}">Categories</Button>
 
 
         <!--Menu-->
