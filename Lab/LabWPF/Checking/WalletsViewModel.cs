@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
@@ -49,7 +50,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        private async void WaitForWallets()
+        private async void WaitForWalletsAsync()
         {
             if (!_service.WalletsLoaded)
             {
@@ -67,22 +68,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public WalletsViewModel(Action gotoCategories, WalletService service)
         {
             _service = service;
-            WaitForWallets();
-            /*if (!_service.WalletsLoaded)
-            {
-                //Thread.Sleep(1000);
-                //WaitForWallets();
-                //_service.GetWalletsAsync();
-                //Task.Run(async () => await _service.GetWalletsAsync());
-                //Thread.CurrentThread.Join();
-                _service.GetWalletsAsync();
-                _service.WalletsLoaded = true;
-            }
-            Wallets = new ObservableCollection<WalletDetailsViewModel>();
-            foreach (var wallet in _service.Wallets)
-            {
-                Wallets.Add(new WalletDetailsViewModel(wallet, this));
-            }*/
+            WaitForWalletsAsync();
             _gotoCategories = gotoCategories;
             CategoriesCommand = new DelegateCommand(_gotoCategories);
         }
@@ -105,7 +91,16 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public void CreateWallet()
         {
             Wallet wallet = new Wallet(_service.User);
-            wallet.Name = "new_wallet" + _service.User.WalletNextNumber;
+            var goodName = false;
+            while (!goodName)
+            {
+                try  
+                { 
+                    wallet.Name = "new_wallet" + _service.User.WalletNextNumber;
+                    goodName = true;
+                }
+                catch (ArgumentException e) { }
+            }
             _service.Wallets.Add(wallet);
             WalletDetailsViewModel wdvm = new WalletDetailsViewModel(wallet, this);
             Wallets.Add(wdvm);

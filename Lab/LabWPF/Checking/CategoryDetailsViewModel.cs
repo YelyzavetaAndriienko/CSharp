@@ -30,7 +30,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             set
             {
                 _category.Description = value;
-                RaisePropertyChanged(nameof(DisplayName));
             }
         }
 
@@ -56,7 +55,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             set
             {
                 _category.Icon = value;
-                RaisePropertyChanged(nameof(DisplayName));
             }
         }
 

@@ -10,7 +10,7 @@ namespace LI.CSharp.Lab.Models.Wallets
 {
     // Class Wallet keeps the name, initial wallet balance, description and base currency. 
     // Transactions are added to it. For each wallet, you can specify a list of categories that are available in it for transactions.
-    public class Wallet : Entity
+    public class Wallet : Entity, IComparable<Wallet>
     {
         private User _owner;
         private Guid _id;
@@ -476,6 +476,13 @@ namespace LI.CSharp.Lab.Models.Wallets
             if (MainCurrency == null)
                 result = false;
             return result;
+        }
+
+        public int CompareTo(Wallet? other)
+        {
+            if (other == null)
+                return -1;
+            return String.Compare(Name, other.Name, StringComparison.Ordinal);
         }
 
         public override string ToString()

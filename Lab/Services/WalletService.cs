@@ -18,7 +18,11 @@ namespace LI.CSharp.Lab.Services
 
         public List<Wallet> Wallets
         {
-            get { return _wallets; }
+            get
+            {
+                _wallets.Sort();
+                return _wallets;
+            }
         }
 
         /*public static User u = new User();
