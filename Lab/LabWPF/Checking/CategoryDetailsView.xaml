@@ -36,7 +36,7 @@
         <StackPanel Grid.Row="3" >
             <TextBlock Margin="10, 10, 10, 0">Icon</TextBlock>
             <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                     Text="{Binding Icon, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
 
     </Grid>

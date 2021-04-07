@@ -2,11 +2,11 @@
 {
     public enum Colors
     {
-        Red,
-        Green,
         Blue,
-        Yellow,
+        Green,
+        Orange,
         Pink,
-        Orange
+        Red,
+        Yellow
     }
 }

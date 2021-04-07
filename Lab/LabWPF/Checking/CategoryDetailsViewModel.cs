@@ -45,15 +45,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public Colors? Color
+        public string Color
         {
             get
             {
-                return _category.Color;
+                return _category.Color.ToString();
             }
             set
             {
-                _category.Color = value;
+                _category.Color = (Colors?) Array.IndexOf(CategoryDetailsView.COLORS, value);
                 RaisePropertyChanged(nameof(DisplayName));
             }
         }
