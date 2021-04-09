@@ -101,7 +101,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
             _wallet = wallet;
             _wvm = wvm;
-            //ComboBox0
         }
 
         private bool IsWalletEnabled()

@@ -63,7 +63,7 @@ namespace LI.CSharp.Lab.Services
             {
                 var category = new Category(User, dbCategory.Name, dbCategory.Color, dbCategory.Icon, dbCategory.Guid);
                 _categories.Add(category);
-                User.Categories.Add(category);
+                User.AddCategory(category);
             }
 
             //return true;

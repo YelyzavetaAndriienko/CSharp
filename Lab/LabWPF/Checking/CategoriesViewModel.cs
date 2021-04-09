@@ -99,7 +99,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 catch (ArgumentException e) { }
             }
             _service.Categories.Add(category);
-            _service.User.Categories.Add(category);
+            _service.User.AddCategory(category);
             CategoryDetailsViewModel wdvm = new CategoryDetailsViewModel(category, this);
             Categories.Add(wdvm);
             CurrentCategory = wdvm;
@@ -108,7 +108,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public void DeleteCategory()
         {
             _service.Categories.Remove(CurrentCategory.Category);
-            _service.User.Categories.Remove(CurrentCategory.Category);
+            _service.User.RemoveCategory(CurrentCategory.Category);
             Categories.Remove(CurrentCategory);
             CurrentCategory = null;
         }

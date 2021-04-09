@@ -13,6 +13,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -45,7 +46,13 @@
                       SelectedItem="{Binding MainCurrency, UpdateSourceTrigger=PropertyChanged}">
             </ComboBox>
         </StackPanel>
-        <Button Grid.Row="4" Grid.Column="2" Margin="150,120,0,10" 
+        <Expander Grid.Row="5" Grid.ColumnSpan="2" Header="Categories" Margin="10, 10, 10, 0" Expanded="Expander_OnExpanded">
+            <StackPanel x:Name="stackPanel">
+               <!--<CheckBox x:Name="checkBox1" IsChecked="True" Height="20" Content="Отмечено" />
+            <CheckBox x:Name="checkBox2" IsChecked="True" Height="20" Content="Тоже отмечено"/>-->
+            </StackPanel>
+        </Expander>
+        <Button Grid.Row="5" Grid.Column="1" Margin="150,120,0,10" 
                 Click="Delete_Click" HorizontalAlignment="Center" Width="80" Height="30">Delete</Button>
 
     </Grid>

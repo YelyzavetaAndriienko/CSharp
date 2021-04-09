@@ -41,7 +41,7 @@ namespace LI.CSharp.Lab.Services
             foreach (var dbWallet in dbWallets)
             {
                 var wallet = new Wallet(User, dbWallet.Guid, dbWallet.Name, dbWallet.InitialBalance,
-                    dbWallet.MainCurrency);
+                    dbWallet.MainCurrency, dbWallet.AvailabilityOfCategories);
                 _wallets.Add(wallet);
                 User.MyWallets.Add(wallet);
             }
@@ -56,7 +56,8 @@ namespace LI.CSharp.Lab.Services
             {
                 var dbWallet = new DBWallet(wallet.Name, wallet.Owner.Id.ToString("N"), 
                     wallet.Description, wallet.InitialBalance, 
-                    wallet.CurrentBalance, wallet.MainCurrency, wallet.Id);
+                    wallet.CurrentBalance, wallet.MainCurrency, 
+                    wallet.Id, wallet.AvailabilityOfCategories);
                 await _storage.AddOrUpdateAsync(dbWallet);
             }
         }
