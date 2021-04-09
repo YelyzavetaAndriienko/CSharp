@@ -32,6 +32,14 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 {
                     _category.Name = value;
                     RaisePropertyChanged(nameof(DisplayName));
+                    //if (!String.IsNullOrWhiteSpace(Name) && (Name.Length < 2))
+                    //{
+                    //    MessageBox.Show("Please enter name of the category (more than 2 characters)!");
+                    //}
+                    //else
+                    //{
+                    //    RaisePropertyChanged(nameof(DisplayName));
+                    //}
                 }
                 catch (ArgumentException e)
                 {
@@ -89,14 +97,17 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         public CategoryDetailsViewModel(Category category, CategoriesViewModel wvm = null)
         {
-            _category = category;
-            _wvm = wvm;
+            //if (IsCategoryEnabled())
+            //{
+                _category = category;
+                _wvm = wvm;
+            //}
         }
 
         private bool IsCategoryEnabled()
         {
-            return !String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(Description) && !String.IsNullOrWhiteSpace(Icon.ToString()) &&
-                (Name.Length > 2);
+            return !String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(Icon.ToString()) &&
+                (Name.Length >= 2);
         }
 
         public void DeleteCategory()

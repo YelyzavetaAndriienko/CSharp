@@ -24,6 +24,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         private WalletDetailsViewModel _currentWallet;
         private Action _gotoCategories;
         public ObservableCollection<WalletDetailsViewModel> _wallets;
+        private Wallet wallet;
 
         public ObservableCollection<WalletDetailsViewModel> Wallets
         {
@@ -94,7 +95,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         public void CreateWallet()
         {
-            Wallet wallet = new Wallet(_service.User);
+            wallet = new Wallet(_service.User);
             var goodName = false;
             while (!goodName)
             {
@@ -105,11 +106,18 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 }
                 catch (ArgumentException e) { }
             }
+            if (IsWalletEnabled())
+            {
             _service.Wallets.Add(wallet);
             _service.User.MyWallets.Add(wallet);
             WalletDetailsViewModel wdvm = new WalletDetailsViewModel(wallet, this);
             Wallets.Add(wdvm);
             CurrentWallet = wdvm;
+            }
+            else
+            {
+                MessageBox.Show("Please enter name of the category (more than 2 characters)!");
+            }
         }
         
         public void DeleteWallet()
@@ -120,5 +128,11 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             CurrentWallet = null;
         }
         public DelegateCommand CategoriesCommand { get; }
+
+        private bool IsWalletEnabled()
+        {
+            return !String.IsNullOrWhiteSpace(wallet.Name) && !String.IsNullOrWhiteSpace(wallet.InitialBalance.ToString()) &&
+                   !String.IsNullOrWhiteSpace(wallet.CurrentBalance.ToString()) && (wallet.Name.Length >= 2);
+        }
     }
 }

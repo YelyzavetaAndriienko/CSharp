@@ -8,39 +8,46 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="110"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" >
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Name</TextBlock>
             <TextBox MaxLength="50" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" >
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Description</TextBlock>
             <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" >
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Color</TextBlock>
             <ComboBox Name="ComboBox0" MinWidth="100" Margin="10" HorizontalAlignment="Left" 
                       SelectedItem="{Binding Color, UpdateSourceTrigger=PropertyChanged}">
             </ComboBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" >
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Icon</TextBlock>
             <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Icon, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
 
-        <Button Grid.Row="3" Margin="10,100,0,10" 
-                Click="Delete_Click" HorizontalAlignment="Center" Width="80" Height="30">Delete</Button>
+        <Button Grid.Row="5" Grid.Column="2" Click="Delete_Click" 
+                 VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="80" Height="30">Delete</Button>
 
     </Grid>
 </UserControl>
