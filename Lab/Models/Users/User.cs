@@ -162,7 +162,7 @@ namespace LI.CSharp.Lab.Models.Users
         {
             foreach (var wallet in _myWallets)
             {
-                wallet.AvailabilityOfCategories.Remove(wallet.AvailabilityOfCategories[Categories.IndexOf(category)]);
+                wallet.AvailabilityOfCategories.RemoveAt(Categories.IndexOf(category));
             }
             Categories.Remove(category);
         }

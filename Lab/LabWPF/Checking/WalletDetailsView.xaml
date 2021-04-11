@@ -14,6 +14,9 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -37,7 +40,7 @@
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Current balance</TextBlock>
             <TextBox MaxLength="20" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding CurrentBalance, Mode=OneWay}" IsReadOnly="True"></TextBox>
+                     Text="{Binding CurrentBalance, Mode=OneWay}" IsReadOnly="True" Background="LightGray"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Main currency</TextBlock>
@@ -52,7 +55,17 @@
             <CheckBox x:Name="checkBox2" IsChecked="True" Height="20" Content="Тоже отмечено"/>-->
             </StackPanel>
         </Expander>
-        <Button Grid.Row="5" Grid.Column="1" Margin="150,120,0,10" 
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="2">
+            <TextBlock Margin="10, 10, 10, 0">General sum of income for current month</TextBlock>
+            <TextBox MaxLength="20" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+                     Text="{Binding GeneralSumOfIncomeForMonth, Mode=OneWay}" IsReadOnly="True" Background="LightGray"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.ColumnSpan="2">
+            <TextBlock Margin="10, 10, 10, 0">General sum of spending for current month</TextBlock>
+            <TextBox MaxLength="20" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+                     Text="{Binding GeneralSumOfSpendingForMonth, Mode=OneWay}" IsReadOnly="True" Background="LightGray"></TextBox>
+        </StackPanel>
+        <Button Grid.Row="8" Grid.Column="1" Margin="150,120,0,10" 
                 Click="Delete_Click" HorizontalAlignment="Center" Width="80" Height="30">Delete</Button>
 
     </Grid>

@@ -39,7 +39,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
             CheckBox chBox = (CheckBox)sender;
             ((WalletDetailsViewModel) DataContext).Wallet.ChangeAvailabilityOfCategory(
-                chBox.Content.ToString(), false, 
+                chBox.Content.ToString(), true, 
                 ((WalletDetailsViewModel) DataContext).Wallet.Owner.Id);
             MessageBox.Show("Category " + chBox.Content.ToString() + " is now available in this wallet");
         }

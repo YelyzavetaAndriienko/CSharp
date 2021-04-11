@@ -89,6 +89,22 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
+        public decimal GeneralSumOfIncomeForMonth
+        {
+            get
+            {
+                return Math.Round(_wallet.GeneralSumOfIncomeForMonth(), 2);
+            }
+        }
+        
+        public decimal GeneralSumOfSpendingForMonth
+        {
+            get
+            {
+                return Math.Round(_wallet.GeneralSumOfSpendingsForMonth(), 2);
+            }
+        }
+
         public string DisplayName
         {
             get
