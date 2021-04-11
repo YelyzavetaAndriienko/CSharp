@@ -8,20 +8,22 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Name</TextBlock>
             <TextBox MaxLength="50" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
@@ -49,9 +51,10 @@
                       SelectedItem="{Binding MainCurrency, UpdateSourceTrigger=PropertyChanged}">
             </ComboBox>
         </StackPanel>
+        
         <Expander Grid.Row="5" Grid.ColumnSpan="2" Header="Categories" Margin="10, 10, 10, 0" Expanded="Expander_OnExpanded">
             <StackPanel x:Name="stackPanel">
-               <!--<CheckBox x:Name="checkBox1" IsChecked="True" Height="20" Content="Отмечено" />
+                <!--<CheckBox x:Name="checkBox1" IsChecked="True" Height="20" Content="Отмечено" />
             <CheckBox x:Name="checkBox2" IsChecked="True" Height="20" Content="Тоже отмечено"/>-->
             </StackPanel>
         </Expander>
@@ -65,8 +68,10 @@
             <TextBox MaxLength="20" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding GeneralSumOfSpendingForMonth, Mode=OneWay}" IsReadOnly="True" Background="LightGray"></TextBox>
         </StackPanel>
-        <Button Grid.Row="8" Grid.Column="1" Margin="150,120,0,10" 
-                Click="Delete_Click" HorizontalAlignment="Center" Width="80" Height="30">Delete</Button>
+        <Button Name="Transactions" Grid.Column="1" Grid.Row="8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="30" Command="{Binding TransactionsCommand}">Transactions</Button>
+
+        <Button Grid.Row="8" Grid.Column="2" Click="Delete_Click" 
+                 VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="80" Height="30">Delete</Button>
 
     </Grid>
 </UserControl>

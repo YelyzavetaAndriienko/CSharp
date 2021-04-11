@@ -3,7 +3,19 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using LI.CSharp.Lab.Models.Wallets;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using LI.CSharp.Lab.GUI.WPF.Navigation;
+using LI.CSharp.Lab.Models.Users;
+using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
+using Prism.Commands;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
@@ -11,6 +23,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
     {
         private Wallet _wallet;
         private WalletsViewModel _wvm;
+        private Action _gotoTransactions;
 
         public Wallet Wallet
         {
@@ -32,6 +45,14 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 {
                     _wallet.Name = value;
                     RaisePropertyChanged(nameof(DisplayName));
+                    //if (String.IsNullOrWhiteSpace(Name) && (Name.Length < 2))
+                    //{
+                    //    MessageBox.Show("Please enter name of the wallet (more than 2 characters)!");
+                    //}
+                    //else
+                    //{
+                    //    RaisePropertyChanged(nameof(DisplayName));
+                    //}
                 }
                 catch (ArgumentException e)
                 {
@@ -63,6 +84,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 _wallet.InitialBalance = value;
                 RaisePropertyChanged(nameof(DisplayName));
                 RaisePropertyChanged(nameof(CurrentBalance));
+                //if (!String.IsNullOrWhiteSpace(_wallet.InitialBalance.ToString()))
+                //{
+                //    MessageBox.Show("Please enter initial balance!");
+                //}
+                //else
+                //{
+                //    RaisePropertyChanged(nameof(DisplayName));
+                //    RaisePropertyChanged(nameof(CurrentBalance));
+                //}
             }
         }
 
@@ -113,22 +143,29 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public WalletDetailsViewModel(Wallet wallet, WalletsViewModel wvm = null)
+        public WalletDetailsViewModel(Wallet wallet, Action gotoTransactions, WalletsViewModel wvm = null)
         {
-            _wallet = wallet;
-            _wvm = wvm;
+            //if (IsWalletEnabled())
+            //{
+                _wallet = wallet;
+                _wvm = wvm;
+            _gotoTransactions = gotoTransactions;
+            TransactionsCommand = new DelegateCommand(_gotoTransactions);
+            // }
         }
 
         private bool IsWalletEnabled()
         {
-            return !String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(Description) && !String.IsNullOrWhiteSpace(InitialBalance.ToString()) &&
-                   !String.IsNullOrWhiteSpace(CurrentBalance.ToString()) && (Name.Length > 2);
+            return !String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(InitialBalance.ToString()) &&
+                   !String.IsNullOrWhiteSpace(CurrentBalance.ToString()) && (Name.Length >= 2);
         }
 
         public void DeleteWallet()
         {
             _wvm.DeleteWallet();
         }
-        
+
+        public DelegateCommand TransactionsCommand { get; }
+
     }
 }

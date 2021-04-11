@@ -11,6 +11,7 @@ using LI.CSharp.Lab.Models.Categories;
 using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
 using Prism.Commands;
+using System.Windows;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
@@ -20,6 +21,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         private CategoryDetailsViewModel _currentCategory;
         private Action _gotoWallets;
         public ObservableCollection<CategoryDetailsViewModel> _categories;
+        private Category category;
 
         public ObservableCollection<CategoryDetailsViewModel> Categories
         {
@@ -87,7 +89,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         public void CreateCategory()
         {
-            Category category = new Category(_service.User);
+            category = new Category(_service.User);
             var goodName = false;
             while (!goodName)
             {
@@ -114,6 +116,10 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         }
 
         public DelegateCommand WalletsCommand { get; }
-        
+        private bool IsCategoryEnabled()
+        {
+            return !String.IsNullOrWhiteSpace(category.Name) && (category.Name.Length >= 2);
+        }
+
     }
 }

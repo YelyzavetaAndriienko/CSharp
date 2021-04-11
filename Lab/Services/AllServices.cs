@@ -6,17 +6,20 @@ namespace LI.CSharp.Lab.Services
     {
         public WalletService WalletService { get; }
         public CategoryService CategoryService { get; }
-        
+        public TransactionService TransactionService { get; }
+
         public AllServices(User user)
         {
             WalletService = new WalletService(user);
             CategoryService = new CategoryService(user);
+            TransactionService = new TransactionService(CurrentWallet);
         }
 
         public void SaveChanges()
         {
             WalletService.SaveChanges();
             CategoryService.SaveChanges();
+            TransactionService.SaveChanges();
         }
     }
 }

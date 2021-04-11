@@ -3,7 +3,8 @@
     public enum CheckNavigatableTypes
     {
         ShowWallets,
-        ShowCategories
+        ShowCategories,
+        ShowTransactions
     }
 
 

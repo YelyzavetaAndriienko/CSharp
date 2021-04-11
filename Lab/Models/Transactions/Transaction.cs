@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using LI.CSharp.Lab.Models.Categories;
+using LI.CSharp.Lab.Models.Users;
+using LI.CSharp.Lab.Models.Wallets;
 
 namespace LI.CSharp.Lab.Models.Transactions
 {
@@ -9,6 +11,7 @@ namespace LI.CSharp.Lab.Models.Transactions
     //You can also attach files (images or text) to the transaction.
     public class Transaction : Entity
     {
+        private Wallet _wallet;
         private Guid _id;
         private decimal _sum;
         private Currencies? _currency;
@@ -22,8 +25,9 @@ namespace LI.CSharp.Lab.Models.Transactions
             _files = new List<FileInfo>();
         }
 
-        public Transaction(Guid id, decimal sum, Currencies? currency, DateTimeOffset? date, Category category)
+        public Transaction(Wallet wallet, Guid id, decimal sum, Currencies? currency, DateTimeOffset? date, Category category)
         {
+            _wallet = wallet;
             _id = id;
             _sum = sum;
             _currency = currency;
@@ -34,6 +38,17 @@ namespace LI.CSharp.Lab.Models.Transactions
             {
                 throw new ArgumentException("Invalid argument in constructor of Transaction!");
             }
+        }
+
+        public Transaction(Wallet wallet)
+        {
+            _id = Guid.NewGuid();
+            _wallet = wallet;
+        }
+
+        public Wallet Wallet
+        {
+            get { return _wallet; }
         }
 
         public Guid Id

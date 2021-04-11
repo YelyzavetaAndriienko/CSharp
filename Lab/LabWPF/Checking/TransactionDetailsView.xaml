@@ -1,18 +1,18 @@
-﻿<UserControl x:Class="LI.CSharp.Lab.GUI.WPF.Checking.CategoryDetailsView"
+﻿<UserControl x:Class="LI.CSharp.Lab.GUI.WPF.Checking.TransactionDetailsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:LI.CSharp.Lab.GUI.WPF"
+             xmlns:local="clr-namespace:LI.CSharp.Lab.GUI.WPF.Checking"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="80"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -22,28 +22,31 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
-            <TextBlock Margin="10, 10, 10, 0">Name</TextBlock>
-            <TextBox MaxLength="50" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBlock Margin="10, 10, 10, 0">Sum</TextBlock>
+            <TextBox MaxLength="20" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+                     Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
-
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <TextBlock Margin="10, 10, 10, 0">Main currency</TextBlock>
+            <!--<TextBox Name="TbMainCurrency" Width="80" Margin="10" HorizontalAlignment="Left" Text="UAH"></TextBox>-->
+            <ComboBox Name="ComboBox0" Height="30" Width="70" Margin="10" HorizontalAlignment="Left" 
+                      SelectedItem="{Binding MainCurrency, UpdateSourceTrigger=PropertyChanged}">
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Description</TextBlock>
             <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
-
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
-            <TextBlock Margin="10, 10, 10, 0">Color</TextBlock>
-            <ComboBox Name="ComboBox0" MinWidth="100" Margin="10" HorizontalAlignment="Left" 
-                      SelectedItem="{Binding Color, UpdateSourceTrigger=PropertyChanged}">
-            </ComboBox>
-        </StackPanel>
-
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2">
-            <TextBlock Margin="10, 10, 10, 0">Icon</TextBlock>
+            <TextBlock Margin="10, 10, 10, 0">Date</TextBlock>
             <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Icon, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                     Text="{Binding Date, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2">
+            <TextBlock Margin="10, 10, 10, 0">Category</TextBlock>
+            <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+                     Text="{Binding Category, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
 
         <Button Grid.Row="5" Grid.Column="2" Click="Delete_Click" 
