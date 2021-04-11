@@ -12,29 +12,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
 
             InitializeComponent();
-            ComboBox0.ItemsSource = LoadComboBoxData();
-        }
-        public static string[] CURRENCIES =
-        {
-            Currencies.UAH.ToString(),
-            Currencies.EUR.ToString(),
-            Currencies.USD.ToString(),
-            Currencies.GBP.ToString(),
-            Currencies.PLN.ToString(),
-            Currencies.RUB.ToString()
-        };
-        private string[] LoadComboBoxData()
-        {
-            string[] strArray =
-            {
-            Currencies.UAH.ToString(),
-            Currencies.EUR.ToString(),
-            Currencies.USD.ToString(),
-            Currencies.GBP.ToString(),
-            Currencies.PLN.ToString(),
-            Currencies.RUB.ToString()
-            };
-            return strArray;
+            ComboBox0.ItemsSource = WalletDetailsView.CURRENCIES;
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)

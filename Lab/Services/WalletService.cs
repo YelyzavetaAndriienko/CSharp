@@ -16,6 +16,8 @@ namespace LI.CSharp.Lab.Services
         public bool WalletsLoaded { get; set; }
         public User User { get; }
 
+        private AllServices _allServices;
+
         public List<Wallet> Wallets
         {
             get
@@ -54,17 +56,23 @@ namespace LI.CSharp.Lab.Services
             await _storage.DeleteAllFiles(User.Id.ToString("N"));
             foreach (var wallet in Wallets)
             {
-                var dbWallet = new DBWallet(wallet.Name, wallet.Owner.Id.ToString("N"), 
-                    wallet.Description, wallet.InitialBalance, 
-                    wallet.CurrentBalance, wallet.MainCurrency, 
+                var dbWallet = new DBWallet(wallet.Name, wallet.Owner.Id.ToString("N"),
+                    wallet.Description, wallet.InitialBalance,
+                    wallet.CurrentBalance, wallet.MainCurrency,
                     wallet.Id, wallet.AvailabilityOfCategories);
                 await _storage.AddOrUpdateAsync(dbWallet);
             }
         }
 
-        public WalletService(User user)
+        public void SetCurrentWalletInTransactionService(Wallet wallet)
+        {
+            _allServices.TransactionService.CurrentWallet = wallet;
+        }
+
+        public WalletService(User user, AllServices allServices)
         {
             User = user;
+            _allServices = allServices;
             _wallets = new List<Wallet>();
             WalletsLoaded = false;
         }

@@ -19,7 +19,7 @@ using Prism.Commands;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
-    public class WalletDetailsViewModel : BindableBase
+    public class WalletDetailsViewModel : NavigationBase<CheckNavigatableTypes>
     {
         private Wallet _wallet;
         private WalletsViewModel _wvm;
@@ -112,10 +112,26 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
             set
             {
-                _wallet.MainCurrency = (Currencies?) Array.IndexOf(WalletDetailsView.CURRENCIES, value);
+                _wallet.MainCurrency = (Currencies?)Array.IndexOf(WalletDetailsView.CURRENCIES, value);
                 RaisePropertyChanged(nameof(DisplayName));
                 RaisePropertyChanged(nameof(CurrentBalance));
                 RaisePropertyChanged(nameof(InitialBalance));
+            }
+        }
+
+        public decimal GeneralSumOfIncomeForMonth
+        {
+            get
+            {
+                return Math.Round(_wallet.GeneralSumOfIncomeForMonth(), 2);
+            }
+        }
+
+        public decimal GeneralSumOfSpendingForMonth
+        {
+            get
+            {
+                return Math.Round(_wallet.GeneralSumOfSpendingsForMonth(), 2);
             }
         }
 
@@ -123,17 +139,17 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
             get
             {
-                return $"{_wallet.Name} {Math.Round(_wallet.CurrentBalance, 2)} {_wallet.MainCurrency}";       
+                return $"{_wallet.Name} {Math.Round(_wallet.CurrentBalance, 2)} {_wallet.MainCurrency}";
             }
         }
 
-        public WalletDetailsViewModel(Wallet wallet, Action gotoTransactions, WalletsViewModel wvm = null)
+        public WalletDetailsViewModel(Wallet wallet, WalletsViewModel wvm = null)
         {
             //if (IsWalletEnabled())
             //{
-                _wallet = wallet;
-                _wvm = wvm;
-            _gotoTransactions = gotoTransactions;
+            _wallet = wallet;
+            _wvm = wvm;
+            _gotoTransactions = () => Navigate(CheckNavigatableTypes.ShowTransactions);
             TransactionsCommand = new DelegateCommand(_gotoTransactions);
             // }
         }
@@ -150,6 +166,17 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         }
 
         public DelegateCommand TransactionsCommand { get; }
+
+        protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type, AllServices allServices)
+        {
+            if (type == CheckNavigatableTypes.ShowTransactions)
+            {
+                return new TransactionsViewModel(() => Navigate(CheckNavigatableTypes.ShowWallets, allServices),
+                                                 () => Navigate(CheckNavigatableTypes.ShowCategories, allServices),
+                                                 allServices.TransactionService);
+            }
+            else throw new ArgumentException("Unknown action");
+        }
 
     }
 }

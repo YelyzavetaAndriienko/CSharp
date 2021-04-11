@@ -128,7 +128,7 @@ namespace LI.CSharp.Lab.Models.Users
         {
             return _myWallets.Count;
         }
-        
+
         public int WalletNextNumber
         {
             get
@@ -138,7 +138,7 @@ namespace LI.CSharp.Lab.Models.Users
                 return res;
             }
         }
-        
+
         public int CategoryNextNumber
         {
             get
@@ -157,12 +157,12 @@ namespace LI.CSharp.Lab.Models.Users
                 wallet.AvailabilityOfCategories.Add(true);
             }
         }
-        
+
         public void RemoveCategory(Category category)
         {
             foreach (var wallet in _myWallets)
             {
-                wallet.AvailabilityOfCategories.Remove(wallet.AvailabilityOfCategories[Categories.IndexOf(category)]);
+                wallet.AvailabilityOfCategories.RemoveAt(Categories.IndexOf(category));
             }
             Categories.Remove(category);
         }

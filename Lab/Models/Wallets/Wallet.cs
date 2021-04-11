@@ -105,7 +105,8 @@ namespace LI.CSharp.Lab.Models.Wallets
             set { _transactions = value; }
         }
 
-        public List<bool> AvailabilityOfCategories {
+        public List<bool> AvailabilityOfCategories
+        {
             get { return _availabilityOfCategories; }
             set { _availabilityOfCategories = value; }
         }
