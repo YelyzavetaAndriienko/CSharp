@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Liza\\Documents\\CSharp\\Lab\\Services\\Services.csproj": {}
+    "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Services\\Services.csproj": {}
   },
   "projects": {
-    "D:\\Liza\\Documents\\CSharp\\Lab\\DataStorage\\DataStorage.csproj": {
+    "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\DataStorage\\DataStorage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Liza\\Documents\\CSharp\\Lab\\DataStorage\\DataStorage.csproj",
+        "projectUniqueName": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\DataStorage\\DataStorage.csproj",
         "projectName": "LI.CSharp.Lab.DataStorage",
-        "projectPath": "D:\\Liza\\Documents\\CSharp\\Lab\\DataStorage\\DataStorage.csproj",
-        "packagesPath": "C:\\Users\\Liza\\.nuget\\packages\\",
-        "outputPath": "D:\\Liza\\Documents\\CSharp\\Lab\\DataStorage\\obj\\",
+        "projectPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\DataStorage\\DataStorage.csproj",
+        "packagesPath": "C:\\Users\\Iryna\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\DataStorage\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Liza\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Iryna\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,28 +52,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Liza\\Documents\\CSharp\\Lab\\Lab\\Lab.csproj": {
+    "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Lab\\Lab.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Liza\\Documents\\CSharp\\Lab\\Lab\\Lab.csproj",
+        "projectUniqueName": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Lab\\Lab.csproj",
         "projectName": "Lab",
-        "projectPath": "D:\\Liza\\Documents\\CSharp\\Lab\\Lab\\Lab.csproj",
-        "packagesPath": "C:\\Users\\Liza\\.nuget\\packages\\",
-        "outputPath": "D:\\Liza\\Documents\\CSharp\\Lab\\Lab\\obj\\",
+        "projectPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Lab\\Lab.csproj",
+        "packagesPath": "C:\\Users\\Iryna\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Lab\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Liza\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Iryna\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -108,39 +104,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Liza\\Documents\\CSharp\\Lab\\Models\\Models.csproj": {
+    "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Liza\\Documents\\CSharp\\Lab\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Models\\Models.csproj",
         "projectName": "LI.CSharp.Lab.Models",
-        "projectPath": "D:\\Liza\\Documents\\CSharp\\Lab\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\Liza\\.nuget\\packages\\",
-        "outputPath": "D:\\Liza\\Documents\\CSharp\\Lab\\Models\\obj\\",
+        "projectPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\Iryna\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Liza\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Iryna\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Liza\\Documents\\CSharp\\Lab\\DataStorage\\DataStorage.csproj": {
-                "projectPath": "D:\\Liza\\Documents\\CSharp\\Lab\\DataStorage\\DataStorage.csproj"
+              "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\DataStorage\\DataStorage.csproj": {
+                "projectPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\DataStorage\\DataStorage.csproj"
               },
-              "D:\\Liza\\Documents\\CSharp\\Lab\\Lab\\Lab.csproj": {
-                "projectPath": "D:\\Liza\\Documents\\CSharp\\Lab\\Lab\\Lab.csproj"
+              "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Lab\\Lab.csproj": {
+                "projectPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Lab\\Lab.csproj"
               }
             }
           }
@@ -169,36 +163,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Liza\\Documents\\CSharp\\Lab\\Services\\Services.csproj": {
+    "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Liza\\Documents\\CSharp\\Lab\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Services\\Services.csproj",
         "projectName": "LI.CSharp.Lab.Services",
-        "projectPath": "D:\\Liza\\Documents\\CSharp\\Lab\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\Liza\\.nuget\\packages\\",
-        "outputPath": "D:\\Liza\\Documents\\CSharp\\Lab\\Services\\obj\\",
+        "projectPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\Iryna\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Liza\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Iryna\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Liza\\Documents\\CSharp\\Lab\\Models\\Models.csproj": {
-                "projectPath": "D:\\Liza\\Documents\\CSharp\\Lab\\Models\\Models.csproj"
+              "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\Iryna\\RiderProjects\\CSharp\\Lab\\Models\\Models.csproj"
               }
             }
           }
@@ -227,7 +219,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
