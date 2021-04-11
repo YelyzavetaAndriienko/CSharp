@@ -18,7 +18,7 @@ using Prism.Commands;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
-    public class WalletsViewModel : NavigationBase<CheckNavigatableTypes>, INavigatable<CheckNavigatableTypes>
+    public class WalletsViewModel : BindableBase, INavigatable<CheckNavigatableTypes>
     {
         private WalletService _service { get; }
         private WalletDetailsViewModel _currentWallet;
@@ -67,7 +67,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             var ws = new ObservableCollection<WalletDetailsViewModel>();
             foreach (var wallet in _service.Wallets)
             {
-                ws.Add(new WalletDetailsViewModel(wallet, () => Navigate(CheckNavigatableTypes.ShowTransactions), this));
+                ws.Add(new WalletDetailsViewModel(wallet, this));
             }
             Wallets = ws;
         }
@@ -79,7 +79,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             _gotoCategories = gotoCategories;
             CategoriesCommand = new DelegateCommand(_gotoCategories);
         }
-        
+
         //public DelegateCommand AddWallet { get; }
 
         public CheckNavigatableTypes Type
@@ -92,7 +92,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         public void ClearSensitiveData()
         {
-            
+
         }
 
         public void CreateWallet()
@@ -101,8 +101,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             var goodName = false;
             while (!goodName)
             {
-                try  
-                { 
+                try
+                {
                     wallet.Name = "new_wallet" + _service.User.WalletNextNumber;
                     goodName = true;
                 }
@@ -110,18 +110,18 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
             if (IsWalletEnabled())
             {
-            _service.Wallets.Add(wallet);
-            _service.User.MyWallets.Add(wallet);
-            WalletDetailsViewModel wdvm = new WalletDetailsViewModel(wallet, () => Navigate(CheckNavigatableTypes.ShowTransactions), this);
-            Wallets.Add(wdvm);
-            CurrentWallet = wdvm;
+                _service.Wallets.Add(wallet);
+                _service.User.MyWallets.Add(wallet);
+                WalletDetailsViewModel wdvm = new WalletDetailsViewModel(wallet, this);
+                Wallets.Add(wdvm);
+                CurrentWallet = wdvm;
             }
             else
             {
                 MessageBox.Show("Please enter name of the category (more than 2 characters)!");
             }
         }
-        
+
         public void DeleteWallet()
         {
             _service.Wallets.Remove(CurrentWallet.Wallet);
@@ -136,15 +136,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             return !String.IsNullOrWhiteSpace(wallet.Name) && !String.IsNullOrWhiteSpace(wallet.InitialBalance.ToString()) &&
                    !String.IsNullOrWhiteSpace(wallet.CurrentBalance.ToString()) && (wallet.Name.Length >= 2);
         }
-
-        protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type, AllServices allServices)
-        {
-            if (type == CheckNavigatableTypes.ShowTransactions)
-            {
-                return new TransactionsViewModel(() => Navigate(CheckNavigatableTypes.ShowWallets, allServices),
-                    () => Navigate(CheckNavigatableTypes.ShowCategories, allServices), allServices.TransactionService);
-            }
-            else throw new ArgumentException("Unknown action");
-        }
+        
     }
 }

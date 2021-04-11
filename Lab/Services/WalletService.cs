@@ -56,9 +56,9 @@ namespace LI.CSharp.Lab.Services
             await _storage.DeleteAllFiles(User.Id.ToString("N"));
             foreach (var wallet in Wallets)
             {
-                var dbWallet = new DBWallet(wallet.Name, wallet.Owner.Id.ToString("N"), 
-                    wallet.Description, wallet.InitialBalance, 
-                    wallet.CurrentBalance, wallet.MainCurrency, 
+                var dbWallet = new DBWallet(wallet.Name, wallet.Owner.Id.ToString("N"),
+                    wallet.Description, wallet.InitialBalance,
+                    wallet.CurrentBalance, wallet.MainCurrency,
                     wallet.Id, wallet.AvailabilityOfCategories);
                 await _storage.AddOrUpdateAsync(dbWallet);
             }
