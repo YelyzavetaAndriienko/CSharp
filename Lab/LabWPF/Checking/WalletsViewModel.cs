@@ -26,6 +26,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public ObservableCollection<WalletDetailsViewModel> _wallets;
         //?????
         private Wallet wallet;
+        public CheckViewModel Cwm { get; }
+
+        public WalletService Service
+        {
+            get
+            {
+                return _service;
+            }
+        }
 
         public ObservableCollection<WalletDetailsViewModel> Wallets
         {
@@ -72,9 +81,10 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             Wallets = ws;
         }
 
-        public WalletsViewModel(Action gotoCategories, WalletService service)
+        public WalletsViewModel(Action gotoCategories, WalletService service, CheckViewModel cwm)
         {
             _service = service;
+            Cwm = cwm;
             WaitForWalletsAsync();
             _gotoCategories = gotoCategories;
             CategoriesCommand = new DelegateCommand(_gotoCategories);

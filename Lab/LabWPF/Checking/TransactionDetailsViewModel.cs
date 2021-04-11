@@ -12,7 +12,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
     public class TransactionDetailsViewModel : BindableBase
     {
         private Transaction _transaction;
-        private TransactionsViewModel _wvm;
+        private TransactionsViewModel _tvm;
 
         public Transaction Transaction
         {
@@ -32,12 +32,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public Currencies? Currency
+        public string Currency
         {
-            get { return _transaction.Currency; }
+            get
+            {
+                return _transaction.Currency.ToString();
+            }
             set 
-            { 
-                _transaction.Currency = value; 
+            {
+                _transaction.Currency = (Currencies?)Array.IndexOf(WalletDetailsView.CURRENCIES, value); 
                 RaisePropertyChanged(nameof(DisplayName));
             }
         }
@@ -51,7 +54,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             set
             {
                 _transaction.Description = value;
-                RaisePropertyChanged(nameof(DisplayName));
             }
         }
 
@@ -61,8 +63,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             get { return _transaction.Date; }
             set 
             { 
-                _transaction.Date = value; 
-                RaisePropertyChanged(nameof(DisplayName));
+                _transaction.Date = value;
             }
         }
 
@@ -73,8 +74,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             {
                 if (value != null)
                 {
-                    _transaction.Category = value; 
-                    RaisePropertyChanged(nameof(DisplayName));
+                    _transaction.Category = value;
                 }
                 else
                 {
@@ -92,10 +92,10 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public TransactionDetailsViewModel(Transaction transaction, TransactionsViewModel wvm = null)
+        public TransactionDetailsViewModel(Transaction transaction, TransactionsViewModel tvm)
         {
             _transaction = transaction;
-            _wvm = wvm;
+            _tvm = tvm;
         }
 
         //private bool IsTransactionEnabled()
@@ -105,7 +105,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         public void DeleteTransaction()
         {
-            _wvm.DeleteTransaction();
+            _tvm.DeleteTransaction();
         }
     }
 }

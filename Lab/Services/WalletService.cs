@@ -27,6 +27,14 @@ namespace LI.CSharp.Lab.Services
             }
         }
 
+        public AllServices AllServices
+        {
+            get
+            {
+                return _allServices;
+            }
+        }
+
         /*public static User u = new User();
         private static List<Wallet> Wallets = new List<Wallet>()
         {

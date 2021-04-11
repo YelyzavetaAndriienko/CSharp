@@ -10,9 +10,11 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
     public class CheckViewModel : NavigationBase<CheckNavigatableTypes>, INavigatable<MainNavigatableTypes>
     {
+        public Action GotoTransactions { get; }
 
         public CheckViewModel(AllServices allServices)
         {
+            GotoTransactions = (() => Navigate(CheckNavigatableTypes.ShowTransactions, allServices));
             Navigate(CheckNavigatableTypes.ShowWallets, allServices);
         }
 
@@ -20,11 +22,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
             if (type == CheckNavigatableTypes.ShowWallets)
             {
-                return new WalletsViewModel(() => Navigate(CheckNavigatableTypes.ShowCategories, allServices), allServices.WalletService);
+                return new WalletsViewModel(() => Navigate(CheckNavigatableTypes.ShowCategories, allServices), allServices.WalletService, this);
             }
-            else 
+            else if (type == CheckNavigatableTypes.ShowCategories)
             {
                 return new CategoriesViewModel(() => Navigate(CheckNavigatableTypes.ShowWallets, allServices), allServices.CategoryService);
+            }
+            else
+            {
+                return new TransactionsViewModel(() => Navigate(CheckNavigatableTypes.ShowWallets), () => Navigate(CheckNavigatableTypes.ShowCategories, allServices), allServices.TransactionService);
             }
         }
 

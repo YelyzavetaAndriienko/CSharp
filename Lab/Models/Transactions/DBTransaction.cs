@@ -15,7 +15,7 @@ namespace LI.CSharp.Lab.Models.Transactions
         public DateTimeOffset? Date { get; }
         public Category Category { get; }
 
-        public DBTransaction(string walletGuid, decimal sum, Currencies? currency, string description, DateTimeOffset? date, Category category, Guid guid = default)
+        public DBTransaction(string walletGuid, decimal sum, Currencies? currency, string description, DateTimeOffset? date, Category category, Guid guid)
         {
             Guid = guid;
             Description = description;

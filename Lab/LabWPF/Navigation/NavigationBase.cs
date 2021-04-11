@@ -24,7 +24,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Navigation
         {
             if (CurrentViewModel!=null && CurrentViewModel.Type.Equals(type))
                 return;
-            INavigatable<TObject> viewModel = _viewModels.FirstOrDefault(authNavigatable => authNavigatable.Type.Equals(type));
+            INavigatable<TObject> viewModel = _viewModels.FirstOrDefault(someNavigatable => someNavigatable.Type.Equals(type));
 
             if (viewModel == null)
             {

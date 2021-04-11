@@ -29,8 +29,8 @@
        
 
         <!--Menu-->
-        <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" ItemsSource="{Binding Categories}" 
-                  DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentCategory}" MaxHeight="300" Margin="0,0,0,110"></ListView>
+        <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" ItemsSource="{Binding Transactions}" 
+                  DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentTransaction}" MaxHeight="300" Margin="0,0,0,110"></ListView>
 
         <GridSplitter Grid.Column="2" HorizontalAlignment="Stretch"></GridSplitter>
 

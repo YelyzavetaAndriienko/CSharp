@@ -34,10 +34,10 @@ namespace LI.CSharp.Lab.Models.Transactions
             _date = date;
             _category = category;
             _files = new List<FileInfo>();
-            if (!Validate())
-            {
-                throw new ArgumentException("Invalid argument in constructor of Transaction!");
-            }
+            //if (!Validate())
+            //{
+            //    throw new ArgumentException("Invalid argument in constructor of Transaction!");
+           // }
         }
 
         public Transaction(Wallet wallet)

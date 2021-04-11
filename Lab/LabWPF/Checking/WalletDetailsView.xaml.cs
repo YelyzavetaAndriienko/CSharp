@@ -68,5 +68,11 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 stackPanel.Children.Add(checkBox);
             }
         }
+
+        /*private void Transactions_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Pressed");
+            ((WalletDetailsViewModel)DataContext)._gotoTransactions.Invoke();
+        }*/
     }
 }

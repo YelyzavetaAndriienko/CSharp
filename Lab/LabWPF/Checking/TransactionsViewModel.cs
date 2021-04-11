@@ -24,6 +24,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public ObservableCollection<TransactionDetailsViewModel> _transactions;
         private Transaction transaction;
         private Wallet _wallet;
+        private Action _gotoCategories;
+        private Action _gotoWallets;
 
         public ObservableCollection<TransactionDetailsViewModel> Transactions
         {
@@ -69,6 +71,10 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             _service = service;
             _wallet = service.CurrentWallet;
             WaitForTransactionsAsync();
+            _gotoWallets = gotoWallets;
+            WalletsCommand = new DelegateCommand(_gotoWallets);
+            _gotoCategories = gotoCategories;
+            CategoriesCommand = new DelegateCommand(_gotoCategories);
         }
 
         public CheckNavigatableTypes Type
@@ -83,20 +89,16 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
 
         }
+        
+        public DelegateCommand WalletsCommand { get; }
+        public DelegateCommand CategoriesCommand { get; }
 
         public void CreateTransaction()
         {
             transaction = new Transaction(_service.CurrentWallet);
-            var goodName = false;
-            while (!goodName)
-            {
-                try
-                {
-                    transaction.Sum = 0;
-                    goodName = true;
-                }
-                catch (ArgumentException e) { }
-            }
+            transaction.Sum = 0;
+            transaction.Currency = _service.CurrentWallet.MainCurrency;
+            transaction.Category = _service.CurrentWallet.Owner.Categories.First();
             _service.TransactionsCurrentWallet().Add(transaction);
             _service.CurrentWallet.AddTransaction(transaction, _service.CurrentWallet.Owner.Id);
             TransactionDetailsViewModel wdvm = new TransactionDetailsViewModel(transaction, this);

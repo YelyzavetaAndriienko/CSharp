@@ -19,7 +19,7 @@ using Prism.Commands;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
-    public class WalletDetailsViewModel : NavigationBase<CheckNavigatableTypes>
+    public class WalletDetailsViewModel : BindableBase //NavigationBase<CheckNavigatableTypes>
     {
         private Wallet _wallet;
         private WalletsViewModel _wvm;
@@ -143,13 +143,14 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public WalletDetailsViewModel(Wallet wallet, WalletsViewModel wvm = null)
+        public WalletDetailsViewModel(Wallet wallet, WalletsViewModel wvm)
         {
             //if (IsWalletEnabled())
             //{
             _wallet = wallet;
             _wvm = wvm;
-            _gotoTransactions = () => Navigate(CheckNavigatableTypes.ShowTransactions);
+            //_gotoTransactions = () => Navigate(CheckNavigatableTypes.ShowTransactions, wvm.Service.AllServices);
+            _gotoTransactions = wvm.Cwm.GotoTransactions;
             TransactionsCommand = new DelegateCommand(_gotoTransactions);
             // }
         }
@@ -167,7 +168,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         public DelegateCommand TransactionsCommand { get; }
 
-        protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type, AllServices allServices)
+        /*protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type, AllServices allServices)
         {
             if (type == CheckNavigatableTypes.ShowTransactions)
             {
@@ -176,7 +177,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                                                  allServices.TransactionService);
             }
             else throw new ArgumentException("Unknown action");
-        }
+        }*/
 
     }
 }
