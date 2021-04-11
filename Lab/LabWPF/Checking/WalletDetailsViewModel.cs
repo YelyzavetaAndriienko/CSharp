@@ -3,7 +3,19 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using LI.CSharp.Lab.Models.Wallets;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using LI.CSharp.Lab.GUI.WPF.Navigation;
+using LI.CSharp.Lab.Models.Users;
+using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
+using Prism.Commands;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
@@ -11,6 +23,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
     {
         private Wallet _wallet;
         private WalletsViewModel _wvm;
+        private Action _gotoTransactions;
 
         public Wallet Wallet
         {
@@ -114,14 +127,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public WalletDetailsViewModel(Wallet wallet, WalletsViewModel wvm = null)
+        public WalletDetailsViewModel(Wallet wallet, Action gotoTransactions, WalletsViewModel wvm = null)
         {
             //if (IsWalletEnabled())
             //{
                 _wallet = wallet;
                 _wvm = wvm;
-                //ComboBox0
-           // }
+            _gotoTransactions = gotoTransactions;
+            TransactionsCommand = new DelegateCommand(_gotoTransactions);
+            // }
         }
 
         private bool IsWalletEnabled()
@@ -134,6 +148,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
             _wvm.DeleteWallet();
         }
-        
+
+        public DelegateCommand TransactionsCommand { get; }
+
     }
 }

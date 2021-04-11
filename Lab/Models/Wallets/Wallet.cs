@@ -159,7 +159,7 @@ namespace LI.CSharp.Lab.Models.Wallets
             var tr = FindTransaction(transactionId);
             if (tr != null)
             {
-                return new Transaction(tr.Id, tr.Sum, tr.Currency, tr.Date, tr.Category);
+                return new Transaction(tr.Wallet, tr.Id, tr.Sum, tr.Currency, tr.Date, tr.Category);
             }
             return null;
         }

@@ -22,7 +22,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             {
                 return new WalletsViewModel(() => Navigate(CheckNavigatableTypes.ShowCategories, allServices), allServices.WalletService);
             }
-            else
+            else 
             {
                 return new CategoriesViewModel(() => Navigate(CheckNavigatableTypes.ShowWallets, allServices), allServices.CategoryService);
             }

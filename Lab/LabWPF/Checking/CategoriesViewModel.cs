@@ -100,30 +100,22 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 }
                 catch (ArgumentException e) { }
             }
-            if (IsCategoryEnabled())
-            {
-                _service.Categories.Add(category);
-                _service.User.Categories.Add(category);
-                CategoryDetailsViewModel wdvm = new CategoryDetailsViewModel(category, this);
-                Categories.Add(wdvm);
-                CurrentCategory = wdvm;
-            }
-            else
-            {
-                MessageBox.Show("Please enter name of the category (more than 2 characters)!");
-            }
+            _service.Categories.Add(category);
+            _service.User.AddCategory(category);
+            CategoryDetailsViewModel wdvm = new CategoryDetailsViewModel(category, this);
+            Categories.Add(wdvm);
+            CurrentCategory = wdvm;
         }
 
         public void DeleteCategory()
         {
             _service.Categories.Remove(CurrentCategory.Category);
-            _service.User.Categories.Remove(CurrentCategory.Category);
+            _service.User.RemoveCategory(CurrentCategory.Category);
             Categories.Remove(CurrentCategory);
             CurrentCategory = null;
         }
 
         public DelegateCommand WalletsCommand { get; }
-
         private bool IsCategoryEnabled()
         {
             return !String.IsNullOrWhiteSpace(category.Name) && (category.Name.Length >= 2);

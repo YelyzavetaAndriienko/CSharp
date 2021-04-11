@@ -18,7 +18,7 @@ using Prism.Commands;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
-    public class WalletsViewModel : BindableBase, INavigatable<CheckNavigatableTypes>
+    public class WalletsViewModel : NavigationBase<CheckNavigatableTypes>, INavigatable<CheckNavigatableTypes>
     {
         private WalletService _service { get; }
         private WalletDetailsViewModel _currentWallet;
@@ -65,7 +65,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             var ws = new ObservableCollection<WalletDetailsViewModel>();
             foreach (var wallet in _service.Wallets)
             {
-                ws.Add(new WalletDetailsViewModel(wallet, this));
+                ws.Add(new WalletDetailsViewModel(wallet, () => Navigate(CheckNavigatableTypes.ShowTransactions), this));
             }
             Wallets = ws;
         }
@@ -110,7 +110,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             {
             _service.Wallets.Add(wallet);
             _service.User.MyWallets.Add(wallet);
-            WalletDetailsViewModel wdvm = new WalletDetailsViewModel(wallet, this);
+            WalletDetailsViewModel wdvm = new WalletDetailsViewModel(wallet, () => Navigate(CheckNavigatableTypes.ShowTransactions), this);
             Wallets.Add(wdvm);
             CurrentWallet = wdvm;
             }
@@ -133,6 +133,11 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
             return !String.IsNullOrWhiteSpace(wallet.Name) && !String.IsNullOrWhiteSpace(wallet.InitialBalance.ToString()) &&
                    !String.IsNullOrWhiteSpace(wallet.CurrentBalance.ToString()) && (wallet.Name.Length >= 2);
+        }
+
+        protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type, AllServices allServices = null)
+        {
+            throw new NotImplementedException();
         }
     }
 }
