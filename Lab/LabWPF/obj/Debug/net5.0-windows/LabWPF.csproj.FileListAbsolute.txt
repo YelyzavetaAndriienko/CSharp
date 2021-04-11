@@ -133,3 +133,7 @@ D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWP
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\ref\LI.CSharp.Lab.LabWPF.dll
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF.pdb
 D:\Liza\Documents\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.genruntimeconfig.cache
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\TransactionDetailsView.g.cs
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\TransactionsView.g.cs
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\TransactionDetailsView.baml
+C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Checking\TransactionsView.baml
