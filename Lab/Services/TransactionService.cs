@@ -14,50 +14,50 @@ namespace LI.CSharp.Lab.Services
 {
     public class TransactionService
     {
-        private FileDataStorage<DBTransaction> _storage = new FileDataStorage<DBTransaction>();
-        private List<Transaction> _transactions;
-        public bool TransactionsLoaded { get; set; }
-        // public User User { get; }
+        private List<TrService> _trServices;
+        public Wallet CurrentWallet { get; set; }
 
-        public Wallet Wallet { get; }
-
-        public List<Transaction> Transactions
+        public List<Transaction> TransactionsCurrentWallet()
         {
-            get
+            foreach (var trService in _trServices.Where(trService => trService.Wallet.Id == CurrentWallet.Id))
             {
-                _transactions.Sort();
-                return _transactions;
+                return trService.Transactions;
             }
+            var trSer = new TrService(CurrentWallet);
+            _trServices.Add(trSer);
+            return trSer.Transactions;
+            //throw new ArgumentException("Current wallet is null!");
         }
-
-        public async Task GetTransactionsAsync()
+        
+        public async Task GetTransactionsCurrentWalletAsync()
         {
-            var dbTransactions = await _storage.GetAllAsync(Wallet.Id.ToString("N"));
-            foreach (var dbTransaction in dbTransactions)
+            foreach (var trService in _trServices.Where(trService => trService.Wallet.Id == CurrentWallet.Id))
             {
-                var transaction = new Transaction(Wallet, dbTransaction.Guid, dbTransaction.Sum, dbTransaction.Currency, dbTransaction.Date, dbTransaction.Category);
-                _transactions.Add(transaction);
-              //  User.AddTransaction(transaction);
+                if (!trService.TransactionsLoaded)
+                {
+                    await trService.GetTransactionsAsync();
+                    trService.TransactionsLoaded = true;
+                }
+                return;
             }
-
-            //return true;
+            var trSer = new TrService(CurrentWallet);
+            _trServices.Add(trSer);
+            await trSer.GetTransactionsAsync();
+            trSer.TransactionsLoaded = true;
         }
-
+        
         public async Task SaveChanges()
         {
-            await _storage.DeleteAllFiles(Wallet.Id.ToString("N"));
-            foreach (var transaction in _transactions)
+            foreach (var trService in _trServices)
             {
-                var dbTransaction = new DBTransaction(transaction.Wallet.Id.ToString("N"), transaction.Sum, transaction.Currency, transaction.Description, transaction.Date, transaction.Category, transaction.Id);
-                await _storage.AddOrUpdateAsync(dbTransaction);
+                await trService.SaveChanges();
             }
         }
 
-        public TransactionService(Wallet wallet)
+        public TransactionService()
         {
-            Wallet = wallet;
-            _transactions = new List<Transaction>();
-            TransactionsLoaded = false;
+            CurrentWallet = null;
+            _trServices = new List<TrService>();
         }
     }
 }

@@ -10,10 +10,10 @@ namespace LI.CSharp.Lab.Services
 
         public AllServices(User user)
         {
-            WalletService = new WalletService(user);
+            WalletService = new WalletService(user, this);
             CategoryService = new CategoryService(user);
             //TransactionService = new TransactionService(CurrentWallet);
-            TransactionService = new TransactionService(null);
+            TransactionService = new TransactionService();
         }
 
         public void SaveChanges()

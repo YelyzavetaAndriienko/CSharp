@@ -24,6 +24,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         private WalletDetailsViewModel _currentWallet;
         private Action _gotoCategories;
         public ObservableCollection<WalletDetailsViewModel> _wallets;
+        //?????
         private Wallet wallet;
 
         public ObservableCollection<WalletDetailsViewModel> Wallets
@@ -49,6 +50,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             set
             {
                 _currentWallet = value;
+                _service.SetCurrentWalletInTransactionService(CurrentWallet.Wallet);
                 //RaisePropertyChanged(nameof(_currentWallet.MainCurrency));
                 RaisePropertyChanged();
                 //OnPropertyChanged();
@@ -135,9 +137,14 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                    !String.IsNullOrWhiteSpace(wallet.CurrentBalance.ToString()) && (wallet.Name.Length >= 2);
         }
 
-        protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type, AllServices allServices = null)
+        protected override INavigatable<CheckNavigatableTypes> CreateViewModel(CheckNavigatableTypes type, AllServices allServices)
         {
-            throw new NotImplementedException();
+            if (type == CheckNavigatableTypes.ShowTransactions)
+            {
+                return new TransactionsViewModel(() => Navigate(CheckNavigatableTypes.ShowWallets, allServices),
+                    () => Navigate(CheckNavigatableTypes.ShowCategories, allServices), allServices.TransactionService);
+            }
+            else throw new ArgumentException("Unknown action");
         }
     }
 }

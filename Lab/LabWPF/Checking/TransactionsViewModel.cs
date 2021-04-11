@@ -23,6 +23,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         private TransactionDetailsViewModel _currentTransaction;
         public ObservableCollection<TransactionDetailsViewModel> _transactions;
         private Transaction transaction;
+        private Wallet _wallet;
 
         public ObservableCollection<TransactionDetailsViewModel> Transactions
         {
@@ -54,13 +55,9 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         private async void WaitForTransactionsAsync()
         {
-            if (!_service.TransactionsLoaded)
-            {
-                await _service.GetTransactionsAsync();
-                _service.TransactionsLoaded = true;
-            }
+            await _service.GetTransactionsCurrentWalletAsync();
             var ws = new ObservableCollection<TransactionDetailsViewModel>();
-            foreach (var transaction in _service.Transactions)
+            foreach (var transaction in _service.TransactionsCurrentWallet())
             {
                 ws.Add(new TransactionDetailsViewModel(transaction, this));
             }
@@ -70,6 +67,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public TransactionsViewModel(Action gotoWallets, Action gotoCategories, TransactionService service)
         {
             _service = service;
+            _wallet = service.CurrentWallet;
             WaitForTransactionsAsync();
         }
 
@@ -88,7 +86,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         public void CreateTransaction()
         {
-            transaction = new Transaction(_service.Wallet);
+            transaction = new Transaction(_service.CurrentWallet);
             var goodName = false;
             while (!goodName)
             {
@@ -99,8 +97,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 }
                 catch (ArgumentException e) { }
             }
-            _service.Transactions.Add(transaction);
-            _service.Wallet.AddTransaction(transaction, _service.Wallet.Owner.Id);
+            _service.TransactionsCurrentWallet().Add(transaction);
+            _service.CurrentWallet.AddTransaction(transaction, _service.CurrentWallet.Owner.Id);
             TransactionDetailsViewModel wdvm = new TransactionDetailsViewModel(transaction, this);
             Transactions.Add(wdvm);
             CurrentTransaction = wdvm;
@@ -108,8 +106,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         public void DeleteTransaction()
         {
-            _service.Transactions.Remove(CurrentTransaction.Transaction);
-            _service.Wallet.DeleteTransaction(CurrentTransaction.Transaction.Id, _service.Wallet.Owner.Id);
+            _service.TransactionsCurrentWallet().Remove(CurrentTransaction.Transaction);
+            _service.CurrentWallet.DeleteTransaction(CurrentTransaction.Transaction.Id, _service.CurrentWallet.Owner.Id);
             Transactions.Remove(CurrentTransaction);
             CurrentTransaction = null;
         }
