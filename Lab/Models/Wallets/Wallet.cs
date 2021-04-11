@@ -105,6 +105,11 @@ namespace LI.CSharp.Lab.Models.Wallets
             set { _transactions = value; }
         }
 
+        public List<bool> AvailabilityOfCategories {
+            get { return _availabilityOfCategories; }
+            set { _availabilityOfCategories = value; }
+        }
+
         public List<Guid> UsersId
         {
             get { return _usersId; }
@@ -128,7 +133,7 @@ namespace LI.CSharp.Lab.Models.Wallets
             }
         }
 
-        public Wallet(User user, Guid id, string name, decimal initialBalance, Currencies? mainCurrency)
+        public Wallet(User user, Guid id, string name, decimal initialBalance, Currencies? mainCurrency, List<bool> availabilityOfCategories)
         {
             _owner = user;
             _id = id;
@@ -141,13 +146,7 @@ namespace LI.CSharp.Lab.Models.Wallets
             _availabilityOfCategories = new List<bool>();
             _usersId = new List<Guid>();
             _usersId.Add(_owner.Id);
-            if (_owner.Categories != null)
-            {
-                for (int i = 0; i < _owner.CategoriesAmount(); i++)
-                {
-                    _availabilityOfCategories.Add(true);
-                }
-            }
+            _availabilityOfCategories = availabilityOfCategories;
             if (!Validate())
             {
                 throw new ArgumentException("Invalid argument in constructor of Wallet!");

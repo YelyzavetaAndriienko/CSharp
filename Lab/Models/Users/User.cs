@@ -149,6 +149,24 @@ namespace LI.CSharp.Lab.Models.Users
             }
         }
 
+        public void AddCategory(Category category)
+        {
+            Categories.Add(category);
+            foreach (var wallet in _myWallets)
+            {
+                wallet.AvailabilityOfCategories.Add(true);
+            }
+        }
+        
+        public void RemoveCategory(Category category)
+        {
+            foreach (var wallet in _myWallets)
+            {
+                wallet.AvailabilityOfCategories.Remove(wallet.AvailabilityOfCategories[Categories.IndexOf(category)]);
+            }
+            Categories.Remove(category);
+        }
+
         public Wallet GetWallet(Guid walletId)
         {
             foreach (var wallet in MyWallets)
