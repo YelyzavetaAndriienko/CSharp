@@ -23,7 +23,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         private TransactionDetailsViewModel _currentTransaction;
         public ObservableCollection<TransactionDetailsViewModel> _transactions;
         private Transaction transaction;
-        private Wallet _wallet;
+        public Wallet Wallet { get; }
         private Action _gotoCategories;
         private Action _gotoWallets;
 
@@ -69,7 +69,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public TransactionsViewModel(Action gotoWallets, Action gotoCategories, TransactionService service)
         {
             _service = service;
-            _wallet = service.CurrentWallet;
+            Wallet = service.CurrentWallet;
             WaitForTransactionsAsync();
             _gotoWallets = gotoWallets;
             WalletsCommand = new DelegateCommand(_gotoWallets);
@@ -101,9 +101,9 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             transaction.Category = _service.CurrentWallet.Owner.Categories.First();
             _service.TransactionsCurrentWallet().Add(transaction);
             _service.CurrentWallet.AddTransaction(transaction, _service.CurrentWallet.Owner.Id);
-            TransactionDetailsViewModel wdvm = new TransactionDetailsViewModel(transaction, this);
-            Transactions.Add(wdvm);
-            CurrentTransaction = wdvm;
+            TransactionDetailsViewModel tdvm = new TransactionDetailsViewModel(transaction, this);
+            Transactions.Add(tdvm);
+            CurrentTransaction = tdvm;
         }
 
         public void DeleteTransaction()

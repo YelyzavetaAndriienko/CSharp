@@ -13,17 +13,17 @@ namespace LI.CSharp.Lab.Models.Transactions
         public Currencies? Currency { get; }
         public string Description { get; }
         public DateTimeOffset? Date { get; }
-        public Category Category { get; }
+        public string Category { get; }
 
-        public DBTransaction(string walletGuid, decimal sum, Currencies? currency, string description, DateTimeOffset? date, Category category, Guid guid)
+        public DBTransaction(string ownerGuid, decimal sum, Currencies? currency, string description, DateTimeOffset? date, string category, Guid guid)
         {
-            Guid = guid;
-            Description = description;
+            OwnerGuid = ownerGuid;
             Sum = sum;
             Currency = currency;
+            Description = description;
             Date = date;
             Category = category;
-            OwnerGuid = walletGuid;
+            Guid = guid;
         }
     }
 }

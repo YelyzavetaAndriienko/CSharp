@@ -9,7 +9,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="80"></RowDefinition>
@@ -27,9 +27,9 @@
                      Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
-            <TextBlock Margin="10, 10, 10, 0">Main currency</TextBlock>
+            <TextBlock Margin="10, 10, 10, 0">Currency</TextBlock>
             <!--<TextBox Name="TbMainCurrency" Width="80" Margin="10" HorizontalAlignment="Left" Text="UAH"></TextBox>-->
-            <ComboBox Name="ComboBox0" Height="30" Width="70" Margin="10" HorizontalAlignment="Left" 
+            <ComboBox Name="ComboBoxCurrency" Height="30" Width="70" Margin="10" HorizontalAlignment="Left" 
                       SelectedItem="{Binding Currency, UpdateSourceTrigger=PropertyChanged}">
             </ComboBox>
         </StackPanel>
@@ -38,16 +38,19 @@
             <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
-        <!--<StackPanel Grid.Row="3" Grid.ColumnSpan="2">
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Date</TextBlock>
             <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Date, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.ColumnSpan="2">
             <TextBlock Margin="10, 10, 10, 0">Category</TextBlock>
-            <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Category, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        </StackPanel>-->
+            <!--<TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+                     Text="{Binding Category, UpdateSourceTrigger=PropertyChanged}"></TextBox>-->
+            <ComboBox Name="ComboBoxCategory" Height="30" Width="70" Margin="10" HorizontalAlignment="Left" 
+                      SelectedItem="{Binding Category, UpdateSourceTrigger=PropertyChanged}" DropDownOpened="ComboBoxCategory_OnDropDownOpened">
+            </ComboBox>
+        </StackPanel>
 
         <Button Grid.Row="5" Grid.Column="2" Click="Delete_Click" 
                  VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="80" Height="30">Delete</Button>

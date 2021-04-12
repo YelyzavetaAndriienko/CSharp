@@ -453,16 +453,18 @@ namespace LI.CSharp.Lab.Models.Wallets
             }
         }
 
-        public void ShowAvailableCategories()
+        public string[] GetAvailableCategories()
         {
+            var result = new List<string>();
             foreach (var category in Owner.Categories)
             {
                 if (IsAvailable(category))
                 {
-                    Console.WriteLine(category);
-                    return;
+                    result.Add(category.Name);
                 }
             }
+
+            return result.ToArray();
         }
 
         public override bool Validate()

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
@@ -10,9 +11,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
     {
         public TransactionDetailsView()
         {
-
             InitializeComponent();
-            ComboBox0.ItemsSource = WalletDetailsView.CURRENCIES;
+            ComboBoxCurrency.ItemsSource = WalletDetailsView.CURRENCIES;
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -28,5 +28,10 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
+        private void ComboBoxCategory_OnDropDownOpened(object? sender, EventArgs e)
+        {
+            ComboBoxCategory.ItemsSource =
+                ((TransactionDetailsViewModel) DataContext).Tvm.Wallet.GetAvailableCategories();
+        }
     }
 }

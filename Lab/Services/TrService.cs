@@ -29,8 +29,10 @@ namespace LI.CSharp.Lab.Services
             var dbTransactions = await _storage.GetAllAsync(Wallet.Id.ToString("N"));
             foreach (var dbTransaction in dbTransactions)
             {
-                var transaction = new Transaction(Wallet, dbTransaction.Guid, dbTransaction.Sum, dbTransaction.Currency, dbTransaction.Date, dbTransaction.Category);
+                var transaction = new Transaction(Wallet, dbTransaction.Guid, dbTransaction.Sum, dbTransaction.Currency, dbTransaction.Date, Wallet.Owner.GetCategory(dbTransaction.Category));
+                transaction.Description = dbTransaction.Description;
                 _transactions.Add(transaction);
+                Wallet.AddTransaction(transaction, Wallet.Owner.Id);
             }
         }
 
@@ -39,7 +41,7 @@ namespace LI.CSharp.Lab.Services
             await _storage.DeleteAllFiles(Wallet.Id.ToString("N"));
             foreach (var transaction in _transactions)
             {
-                var dbTransaction = new DBTransaction(transaction.Wallet.Id.ToString("N"), transaction.Sum, transaction.Currency, transaction.Description, transaction.Date, transaction.Category, transaction.Id);
+                var dbTransaction = new DBTransaction(transaction.Wallet.Id.ToString("N"), transaction.Sum, transaction.Currency, transaction.Description, transaction.Date, transaction.Category.Name, transaction.Id);
                 await _storage.AddOrUpdateAsync(dbTransaction);
             }
         }

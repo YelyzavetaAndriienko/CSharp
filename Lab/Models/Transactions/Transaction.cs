@@ -9,7 +9,7 @@ namespace LI.CSharp.Lab.Models.Transactions
 {
     // Class Transaction keeps an amount, currency, category, description, date.
     //You can also attach files (images or text) to the transaction.
-    public class Transaction : Entity
+    public class Transaction : Entity, IComparable<Transaction>
     {
         private Wallet _wallet;
         private Guid _id;
@@ -123,6 +123,15 @@ namespace LI.CSharp.Lab.Models.Transactions
                 result = false;
 
             return result;
+        }
+
+        public int CompareTo(Transaction? other)
+        {
+            if (Date == null)
+                return 1;
+            if (other == null || other.Date == null) 
+                return -1;
+            return DateTimeOffset.Compare((DateTimeOffset) Date, (DateTimeOffset)other.Date);
         }
 
         public override string ToString()

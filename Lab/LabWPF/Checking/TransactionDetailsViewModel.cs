@@ -6,13 +6,14 @@ using LI.CSharp.Lab.Models.Transactions;
 using Prism.Mvvm;
 using System.IO;
 using System.Text.RegularExpressions;
+using LI.CSharp.Lab.Models.Wallets;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
     public class TransactionDetailsViewModel : BindableBase
     {
         private Transaction _transaction;
-        private TransactionsViewModel _tvm;
+        public TransactionsViewModel Tvm;
 
         public Transaction Transaction
         {
@@ -67,19 +68,12 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public Category Category
+        public string Category
         {
-            get { return _transaction.Category; }
+            get { return _transaction.Category.Name; }
             set
             {
-                if (value != null)
-                {
-                    _transaction.Category = value;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid value of Category!");
-                }
+                _transaction.Category = Tvm.Wallet.Owner.GetCategory(value);
             }
         }
 
@@ -95,7 +89,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public TransactionDetailsViewModel(Transaction transaction, TransactionsViewModel tvm)
         {
             _transaction = transaction;
-            _tvm = tvm;
+            Tvm = tvm;
         }
 
         //private bool IsTransactionEnabled()
@@ -105,7 +99,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         public void DeleteTransaction()
         {
-            _tvm.DeleteTransaction();
+            Tvm.DeleteTransaction();
         }
     }
 }

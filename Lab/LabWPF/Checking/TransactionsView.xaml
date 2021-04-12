@@ -7,8 +7,8 @@
              mc:Ignorable="d"
         d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <DataTemplate DataType="{ x:Type local:CategoryDetailsViewModel}">
-            <local:CategoryDetailsView></local:CategoryDetailsView>
+        <DataTemplate DataType="{ x:Type local:TransactionDetailsViewModel}">
+            <local:TransactionDetailsView></local:TransactionDetailsView>
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
@@ -41,6 +41,6 @@
         </Button>
 
         <!--Content-->
-        <ContentControl Grid.Column="3" Grid.RowSpan="2" Content="{Binding CurrentCategory}"></ContentControl>
+        <ContentControl Grid.Column="3" Grid.RowSpan="2" Content="{Binding CurrentTransaction}"></ContentControl>
     </Grid>
 </UserControl>

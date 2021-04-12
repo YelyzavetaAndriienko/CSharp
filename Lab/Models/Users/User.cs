@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using LI.CSharp.Lab;
 using LI.CSharp.Lab.Models.Wallets;
 using LI.CSharp.Lab.Models.Categories;
@@ -147,6 +148,11 @@ namespace LI.CSharp.Lab.Models.Users
                 _categoryNextNumber++;
                 return res;
             }
+        }
+
+        public Category GetCategory(string name)
+        {
+            return Categories.FirstOrDefault(category => category.Name == name);
         }
 
         public void AddCategory(Category category)
