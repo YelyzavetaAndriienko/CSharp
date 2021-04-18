@@ -24,16 +24,16 @@
         </Grid.RowDefinitions>
 
 
-        <Button Name="Wallets" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10,-370,10,10" Height="30">Wallets</Button>
-        <Button Name="Categories" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10,-220,10,70" Height="30" Command="{Binding CategoriesCommand}">Categories</Button>
+        <Button Name="Wallets" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" Margin="10,10,10,10" Height="30">Wallets</Button>
+        <Button Name="Categories" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" Margin="10,60,10,70" Height="30" Command="{Binding CategoriesCommand}">Categories</Button>
 
         <!--Menu-->
         <ListView Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" ItemsSource="{Binding Wallets}" 
-                  DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentWallet}" MaxHeight="300" Margin="0,0,0,110"></ListView>
+                  DisplayMemberPath="DisplayName" SelectedItem="{Binding CurrentWallet}" MaxHeight="300" VerticalAlignment="Top"></ListView>
 
-        <GridSplitter Grid.Column="2" HorizontalAlignment="Stretch"></GridSplitter>
+        <GridSplitter Grid.Column="2" HorizontalAlignment="Stretch" Background="LightSteelBlue"></GridSplitter>
 
-        <Button Grid.Column="1" Grid.Row="1" Margin="10,180,10,10" 
+        <Button Grid.Column="0" Grid.Row="1" Margin="10,182,10,10" 
                 Click="Button_Click" HorizontalAlignment="Center" Width="40" Height="40">
             <!--Command="{Binding AddWallet}">-->
             <Image Source="Images/plus3.png" Margin="5,5,5,5"/>

@@ -15,6 +15,10 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             InitializeComponent();
         }
 
+        private void Show_Click(object sender, RoutedEventArgs e)
+        {
+            ((TransactionsViewModel)DataContext).ShowTransactions();
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ((TransactionsViewModel)DataContext).CreateTransaction();

@@ -8,7 +8,7 @@
     <Border>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Image Source="Images/money.png" MinHeight="50" MaxHeight="70" Stretch="Uniform" Margin="5"></Image>
-            <TextBlock Text="Costs Control Application" Width="350" FontSize="30" FontStyle="Italic" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="Costs Control Application" Width="350" FontSize="30" FontStyle="Italic" Foreground="White" VerticalAlignment="Center"></TextBlock>
         </StackPanel>
     </Border>
 </UserControl>

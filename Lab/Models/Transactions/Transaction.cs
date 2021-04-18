@@ -77,7 +77,14 @@ namespace LI.CSharp.Lab.Models.Transactions
 
         public DateTimeOffset? Date
         {
-            get { return _date; }
+            get
+            {
+                if (_date == null)
+                {
+                    _date = DateTimeOffset.Now;
+                }
+                return _date;
+            }
             set { _date = value; }
         }
 
@@ -131,7 +138,7 @@ namespace LI.CSharp.Lab.Models.Transactions
                 return 1;
             if (other == null || other.Date == null) 
                 return -1;
-            return DateTimeOffset.Compare((DateTimeOffset) Date, (DateTimeOffset)other.Date);
+            return DateTimeOffset.Compare((DateTimeOffset)other.Date, (DateTimeOffset) Date);
         }
 
         public override string ToString()

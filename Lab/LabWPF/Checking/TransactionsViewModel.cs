@@ -14,6 +14,7 @@ using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
 using Prism.Commands;
 using System.Windows;
+using System.Text.RegularExpressions;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
@@ -21,12 +22,15 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
     {
         private TransactionService _service { get; }
         private TransactionDetailsViewModel _currentTransaction;
-        public ObservableCollection<TransactionDetailsViewModel> _transactions;
+        private ObservableCollection<TransactionDetailsViewModel> _transactions;
         //private Transaction transaction;
-        public Wallet _wallet;
+        private Wallet _wallet;
         private Action _gotoCategories;
         private Action _gotoWallets;
         private bool _showedFirstly;
+        private int _firstTransactionNumber = 2;
+        private int _lastTransactionNumber = 3;
+      //  private ObservableCollection<TransactionDetailsViewModel> ws;
 
         public ObservableCollection<TransactionDetailsViewModel> Transactions
         {
@@ -40,7 +44,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                         CurrentTransaction = null;
                         RaisePropertyChanged(nameof(CurrentTransaction));
                         _wallet = _service.CurrentWallet;
-                        WaitForTransactionsAsync();
+                        // WaitForTransactionsAsync();
+                        ShowTransactions();
                     }
                     else _showedFirstly = false;
                 }
@@ -75,6 +80,32 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
+        public int FirstTransactionNumber
+        {
+            get
+            {
+                return _firstTransactionNumber;
+            }
+            set
+            {
+                _firstTransactionNumber = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public int LastTransactionNumber
+        {
+            get
+            {
+                return _lastTransactionNumber;
+            }
+            set
+            {
+                _lastTransactionNumber = value;
+                RaisePropertyChanged();
+            }
+        }
+
         private async void WaitForTransactionsAsync()
         {
             var ws = new ObservableCollection<TransactionDetailsViewModel>();
@@ -92,7 +123,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             _service = service;
             _wallet = service.CurrentWallet;
             _showedFirstly = true;
-            WaitForTransactionsAsync();
+           // WaitForTransactionsAsync();
             _gotoWallets = gotoWallets;
             WalletsCommand = new DelegateCommand(_gotoWallets);
             _gotoCategories = gotoCategories;
@@ -111,7 +142,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
 
         }
-        
+
         public DelegateCommand WalletsCommand { get; }
         public DelegateCommand CategoriesCommand { get; }
 
@@ -120,8 +151,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             Transaction transaction = new Transaction(_service.CurrentWallet);
             transaction.Sum = 0;
             transaction.Currency = _service.CurrentWallet.MainCurrency;
-            transaction.Category = _service.CurrentWallet.AmountOfAvailableCategories == 0 ? 
-                _service.CurrentWallet.Owner.DefaultCategory : 
+            transaction.Category = _service.CurrentWallet.AmountOfAvailableCategories == 0 ?
+                _service.CurrentWallet.Owner.DefaultCategory :
                 _service.CurrentWallet.GetFirstAvailableCategory();
             _service.TransactionsCurrentWallet().Add(transaction);
             _service.CurrentWallet.AddTransaction(transaction, _service.CurrentWallet.Owner.Id);
@@ -137,12 +168,69 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             Transactions.Remove(CurrentTransaction);
             CurrentTransaction = null;
         }
+        
+        public async void ShowTransactions()
+        {
+            await _service.GetTransactionsCurrentWalletAsync();
+            var ws = new ObservableCollection<TransactionDetailsViewModel>();
+            if (IsNumbersEnabled())
+            {
+                if ((LastTransactionNumber - FirstTransactionNumber) <= 10 && (LastTransactionNumber - FirstTransactionNumber) >= 0)
+                {
+                    int i = 1;
+                    foreach (var transaction in _service.TransactionsCurrentWallet())
+                    {
+                        if (i <= LastTransactionNumber)
+                        {
+                            ws.Add(new TransactionDetailsViewModel(transaction, this));
+                            i++;
+                        }
+                    }
+                }
+                else
+                {
+                    int i = 1;
+                    foreach (var transaction in _service.TransactionsCurrentWallet())
+                    {
+                        if (i <= 10)
+                        {
+                            ws.Add(new TransactionDetailsViewModel(transaction, this));
+                            i++;
+                        }
+                    }
+                }
+
+                var wsNew = new ObservableCollection<TransactionDetailsViewModel>();
+                int first = FirstTransactionNumber - 1;
+                int last = LastTransactionNumber - 1;
+                if (last >= ws.Count())
+                {
+                    last = ws.Count() - 1;
+                }
+                for (int n = first; n <= last; n++)
+                {
+                    wsNew.Add(ws.ElementAt(n));
+                }
+
+                Transactions = wsNew;
+                RaisePropertyChanged(nameof(Transactions));
+            }
+            else
+            {
+                MessageBox.Show("Please enter correct numbers");
+            }
+        }
 
 
-        //private bool IsTransactionEnabled()
-        //{
-        //    return !String.IsNullOrWhiteSpace(category.Name) && (category.Name.Length >= 2);
-        //}
+        private bool IsNumbersEnabled()
+        {
+            return Regex.IsMatch(FirstTransactionNumber.ToString(), @"\d+") 
+                && Regex.IsMatch(LastTransactionNumber.ToString(), @"\d+")
+                && (FirstTransactionNumber > 0)
+                && (FirstTransactionNumber <= LastTransactionNumber)
+                && ((LastTransactionNumber - FirstTransactionNumber) <= 10);
+        }
+
 
     }
 }

@@ -13,7 +13,7 @@
             <RowDefinition Height="80"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="90"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -21,33 +21,40 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
-            <TextBlock Margin="10, 10, 10, 0">Name</TextBlock>
-            <TextBox MaxLength="50" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        </StackPanel>
+        <ScrollViewer Grid.RowSpan="5" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Auto">
+            <Border Background="AliceBlue" BorderBrush="Black" BorderThickness="1">
+            <StackPanel Grid.RowSpan="5" Grid.ColumnSpan="3" Background="AliceBlue">
+                <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+                    <TextBlock Margin="10, 10, 10, 0">Name</TextBlock>
+                    <TextBox MaxLength="50" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+                             Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
-            <TextBlock Margin="10, 10, 10, 0">Description</TextBlock>
-            <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        </StackPanel>
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+                    <TextBlock Margin="10, 10, 10, 0">Description</TextBlock>
+                    <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+                             Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
-            <TextBlock Margin="10, 10, 10, 0">Color</TextBlock>
-            <ComboBox Name="ComboBox0" MinWidth="100" Margin="10" HorizontalAlignment="Left" 
-                      SelectedItem="{Binding Color, UpdateSourceTrigger=PropertyChanged}">
-            </ComboBox>
-        </StackPanel>
+                <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
+                    <TextBlock Margin="10, 10, 10, 0">Color</TextBlock>
+                    <ComboBox Name="ComboBox0" MinWidth="100" Margin="10" HorizontalAlignment="Left" 
+                              SelectedItem="{Binding Color, UpdateSourceTrigger=PropertyChanged}">
+                    </ComboBox>
+                </StackPanel>
 
-        <StackPanel Grid.Row="3" Grid.ColumnSpan="2">
-            <TextBlock Margin="10, 10, 10, 0">Icon</TextBlock>
-            <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Icon, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        </StackPanel>
+                <StackPanel Grid.Row="3" Grid.ColumnSpan="2">
+                    <TextBlock Margin="10, 10, 10, 0">Icon</TextBlock>
+                    <TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
+                             Text="{Binding Icon, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </StackPanel>
 
-        <Button Grid.Row="5" Grid.Column="2" Click="Delete_Click" 
-                 VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="80" Height="30">Delete</Button>
+            </StackPanel>
+        </Border>
+        </ScrollViewer>
+
+        <Button Grid.Row="5" Grid.Column="2" Click="Delete_Click" Margin="10, 10, 10, 10" 
+                 VerticalAlignment="Center" HorizontalAlignment="Center" Width="80" Height="30">Delete</Button>
 
     </Grid>
 </UserControl>

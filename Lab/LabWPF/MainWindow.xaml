@@ -14,9 +14,9 @@
         </Grid.RowDefinitions>
 
         <!--Header-->
-        <wpf:Header Background="LightCoral"></wpf:Header>
+        <wpf:Header Background="LightSlateGray"></wpf:Header>
 
         <!--Main Control-->
-        <wpf:MainView Grid.Row="1" Background="Linen"></wpf:MainView>
+        <wpf:MainView Grid.Row="1" Background="LightSteelBlue"></wpf:MainView>
     </Grid>
 </Window>
