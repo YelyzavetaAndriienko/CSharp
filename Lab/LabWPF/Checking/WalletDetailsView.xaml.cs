@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using LI.CSharp.Lab.Models.Wallets;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
@@ -47,18 +48,22 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         private void checkBox_Unchecked(object sender, RoutedEventArgs e)
         {
             CheckBox chBox = (CheckBox)sender;
-            ((WalletDetailsViewModel)DataContext).Wallet.ChangeAvailabilityOfCategory(
+            Wallet wallet = ((WalletDetailsViewModel) DataContext).Wallet;
+            wallet.ChangeAvailabilityOfCategory(
                 chBox.Content.ToString(), false,
-                ((WalletDetailsViewModel)DataContext).Wallet.Owner.Id);
+                wallet.Owner.Id);
             /*MessageBox.Show("Are you sure you want to make category " 
                             + chBox.Content.ToString() + " unavailable in this wallet? " +
                             "All transactions of this category will change their category " +
                             "to default one");*/
-            MessageBox.Show("Category " + chBox.Content.ToString() + " is now unavailable in this wallet");
+            MessageBox.Show("Category " + chBox.Content.ToString() + 
+                            " is now unavailable in this wallet. All transactions of this " +
+                            "category will change their category to DEFAULT");
         }
 
         private void Expander_OnExpanded(object sender, RoutedEventArgs e)
         {
+            stackPanel.Children.Clear();
             foreach (var category in ((WalletDetailsViewModel)DataContext).Wallet.Owner.Categories)
             {
                 bool isChecked = ((WalletDetailsViewModel)DataContext).Wallet.IsAvailable(category);
@@ -74,5 +79,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             MessageBox.Show("Pressed");
             ((WalletDetailsViewModel)DataContext)._gotoTransactions.Invoke();
         }*/
+        
     }
 }

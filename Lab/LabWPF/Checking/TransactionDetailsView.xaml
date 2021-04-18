@@ -47,8 +47,8 @@
             <TextBlock Margin="10, 10, 10, 0">Category</TextBlock>
             <!--<TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
                      Text="{Binding Category, UpdateSourceTrigger=PropertyChanged}"></TextBox>-->
-            <ComboBox Name="ComboBoxCategory" Height="30" Width="70" Margin="10" HorizontalAlignment="Left" 
-                      SelectedItem="{Binding Category, UpdateSourceTrigger=PropertyChanged}" DropDownOpened="ComboBoxCategory_OnDropDownOpened">
+            <ComboBox Name="ComboBoxCategory" Height="30" Width="100" Margin="10" HorizontalAlignment="Left" 
+                      SelectedItem="{Binding Category, UpdateSourceTrigger=PropertyChanged}" IsVisibleChanged="ComboBoxCategory_OnIsVisibleChanged">
             </ComboBox>
         </StackPanel>
 

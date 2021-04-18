@@ -47,11 +47,23 @@ namespace LI.CSharp.Lab.Services
 
         public async Task GetWalletsAsync()
         {
+            if (!_allServices.CategoryService.CategoriesLoaded)
+            {
+                await _allServices.CategoryService.GetCategoriesAsync();
+                _allServices.CategoryService.CategoriesLoaded = true;
+            }
             var dbWallets = await _storage.GetAllAsync(User.Id.ToString("N"));
             foreach (var dbWallet in dbWallets)
             {
-                var wallet = new Wallet(User, dbWallet.Guid, dbWallet.Name, dbWallet.InitialBalance,
+                var wallet = new Wallet(User, dbWallet.Guid, dbWallet.Name, dbWallet.InitialBalance, dbWallet.CurrentBalance,
                     dbWallet.MainCurrency, dbWallet.AvailabilityOfCategories);
+                for (var i = 0; i < User.CategoriesAmount(); i++)
+                {
+                    if (dbWallet.AvailabilityOfCategories[i])
+                    {
+                        wallet.AmountOfAvailableCategories += 1;
+                    }
+                }
                 _wallets.Add(wallet);
                 User.MyWallets.Add(wallet);
             }
@@ -75,6 +87,7 @@ namespace LI.CSharp.Lab.Services
         public void SetCurrentWalletInTransactionService(Wallet wallet)
         {
             _allServices.TransactionService.CurrentWallet = wallet;
+            _allServices.TransactionService.ChangingCurrentWalletNeeded = true;
         }
 
         public WalletService(User user, AllServices allServices)

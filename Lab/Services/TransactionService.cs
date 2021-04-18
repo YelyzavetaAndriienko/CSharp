@@ -16,6 +16,7 @@ namespace LI.CSharp.Lab.Services
     {
         private List<TrService> _trServices;
         public Wallet CurrentWallet { get; set; }
+        public bool ChangingCurrentWalletNeeded { get; set; }
 
         public List<Transaction> TransactionsCurrentWallet()
         {
@@ -60,6 +61,7 @@ namespace LI.CSharp.Lab.Services
         {
             CurrentWallet = null;
             _trServices = new List<TrService>();
+            ChangingCurrentWalletNeeded = false;
         }
     }
 }

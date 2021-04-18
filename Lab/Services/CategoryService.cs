@@ -51,7 +51,7 @@ namespace LI.CSharp.Lab.Services
         {
             get
             {
-                _categories.Sort();
+                //_categories.Sort();
                 return _categories;
             }
         }

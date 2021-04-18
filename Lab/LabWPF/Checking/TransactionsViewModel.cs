@@ -22,15 +22,28 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         private TransactionService _service { get; }
         private TransactionDetailsViewModel _currentTransaction;
         public ObservableCollection<TransactionDetailsViewModel> _transactions;
-        private Transaction transaction;
-        public Wallet Wallet { get; }
+        //private Transaction transaction;
+        public Wallet _wallet;
         private Action _gotoCategories;
         private Action _gotoWallets;
+        private bool _showedFirstly;
 
         public ObservableCollection<TransactionDetailsViewModel> Transactions
         {
             get
             {
+                if (_service.ChangingCurrentWalletNeeded)
+                {
+                    _service.ChangingCurrentWalletNeeded = false;
+                    if (!_showedFirstly)
+                    {
+                        CurrentTransaction = null;
+                        RaisePropertyChanged(nameof(CurrentTransaction));
+                        _wallet = _service.CurrentWallet;
+                        WaitForTransactionsAsync();
+                    }
+                    else _showedFirstly = false;
+                }
                 return _transactions;
             }
             private set
@@ -40,6 +53,13 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
+        public Wallet Wallet
+        {
+            get
+            {
+                return _wallet;
+            }
+        }
 
         public TransactionDetailsViewModel CurrentTransaction
         {
@@ -57,19 +77,21 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         private async void WaitForTransactionsAsync()
         {
-            await _service.GetTransactionsCurrentWalletAsync();
             var ws = new ObservableCollection<TransactionDetailsViewModel>();
-            foreach (var transaction in _service.TransactionsCurrentWallet())
+            await _service.GetTransactionsCurrentWalletAsync();
+            foreach (var tr in _service.TransactionsCurrentWallet())
             {
-                ws.Add(new TransactionDetailsViewModel(transaction, this));
+                ws.Add(new TransactionDetailsViewModel(tr, this));
             }
-            Transactions = ws;
+            _transactions = ws;
+            RaisePropertyChanged(nameof(Transactions));
         }
 
         public TransactionsViewModel(Action gotoWallets, Action gotoCategories, TransactionService service)
         {
             _service = service;
-            Wallet = service.CurrentWallet;
+            _wallet = service.CurrentWallet;
+            _showedFirstly = true;
             WaitForTransactionsAsync();
             _gotoWallets = gotoWallets;
             WalletsCommand = new DelegateCommand(_gotoWallets);
@@ -95,10 +117,12 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 
         public void CreateTransaction()
         {
-            transaction = new Transaction(_service.CurrentWallet);
+            Transaction transaction = new Transaction(_service.CurrentWallet);
             transaction.Sum = 0;
             transaction.Currency = _service.CurrentWallet.MainCurrency;
-            transaction.Category = _service.CurrentWallet.Owner.Categories.First();
+            transaction.Category = _service.CurrentWallet.AmountOfAvailableCategories == 0 ? 
+                _service.CurrentWallet.Owner.DefaultCategory : 
+                _service.CurrentWallet.GetFirstAvailableCategory();
             _service.TransactionsCurrentWallet().Add(transaction);
             _service.CurrentWallet.AddTransaction(transaction, _service.CurrentWallet.Owner.Id);
             TransactionDetailsViewModel tdvm = new TransactionDetailsViewModel(transaction, this);

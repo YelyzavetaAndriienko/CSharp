@@ -27,6 +27,10 @@ namespace LI.CSharp.Lab.Models.Categories
             {
                 if (!String.IsNullOrWhiteSpace(value))
                 {
+                    if (value.Equals("DEFAULT"))
+                    {
+                        throw new ArgumentException("You already have DEFAULT category!");
+                    }
                     if (Owner.Categories.Any(category => category.Name == value))
                     {
                         throw new ArgumentException("Category with this name already exists!");

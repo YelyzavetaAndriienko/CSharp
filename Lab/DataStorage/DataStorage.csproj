@@ -10,6 +10,8 @@
 
     <ItemGroup>
       <Compile Remove="FillDataStorage.cs" />
+      <Compile Remove="FileDataStorageCategory.cs" />
+      <Compile Remove="IStorableCategory.cs" />
     </ItemGroup>
 
 </Project>

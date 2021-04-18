@@ -19,12 +19,14 @@ namespace LI.CSharp.Lab.Models.Users
         private List<Category> _categories;
         private static int _walletNextNumber = 0;
         private static int _categoryNextNumber = 0;
+        public Category DefaultCategory { get; }
 
         public User()
         {
             _myWallets = new List<Wallet>();
             _otherWallets = new List<Wallet>();
             _categories = new List<Category>();
+            DefaultCategory = new Category(this, "DEFAULT", null, null, Guid.Empty);
         }
 
         public User(Guid id, string name, string surname, string email)
@@ -36,6 +38,9 @@ namespace LI.CSharp.Lab.Models.Users
             _myWallets = new List<Wallet>();
             _otherWallets = new List<Wallet>();
             _categories = new List<Category>();
+            DefaultCategory = new Category(this, "DEFAULT", null, null, Guid.Empty);
+            //_categories.Add(DefaultCategory);
+            //AddCategory(DefaultCategory);
             if (!Validate())
             {
                 throw new ArgumentException("Invalid argument in constructor of User!");
@@ -152,6 +157,8 @@ namespace LI.CSharp.Lab.Models.Users
 
         public Category GetCategory(string name)
         {
+            if (name.Equals("DEFAULT"))
+                return DefaultCategory;
             return Categories.FirstOrDefault(category => category.Name == name);
         }
 
@@ -169,6 +176,7 @@ namespace LI.CSharp.Lab.Models.Users
             foreach (var wallet in _myWallets)
             {
                 wallet.AvailabilityOfCategories.RemoveAt(Categories.IndexOf(category));
+                wallet.ChangeCategoryInTransactionsToDefault(category.Name);
             }
             Categories.Remove(category);
         }

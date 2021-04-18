@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using LI.CSharp.Lab.GUI.WPF.Checking;
+using LI.CSharp.Lab.Models.Wallets;
 using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
 
@@ -24,7 +26,35 @@ namespace LI.CSharp.Lab.GUI.WPF.Navigation
         {
             if (CurrentViewModel!=null && CurrentViewModel.Type.Equals(type))
                 return;
-            INavigatable<TObject> viewModel = _viewModels.FirstOrDefault(someNavigatable => someNavigatable.Type.Equals(type));
+            INavigatable<TObject> viewModel;
+            /*bool foundTrans = false;
+            foreach (var someNavigatable in _viewModels)
+            {
+                try
+                { 
+                    viewModel = ((TransactionsViewModel) someNavigatable);
+                    
+                }
+                catch (Exception e)
+                {
+                
+                }
+            }
+            
+            //(Currencies?)Array.IndexOf(WalletDetailsView.CURRENCIES, value)
+            //Array.IndexOf(type, CheckNavigatableTypes.ShowTransactions);
+            if (type.Equals(CheckNavigatableTypes.ShowTransactions))
+            {
+                Wallet curW = allServices.TransactionService.CurrentWallet;
+                viewModel = _viewModels.
+                    FirstOrDefault(someNavigatable => ((TransactionsViewModel) someNavigatable).Wallet.
+                                                      Equals(allServices.TransactionService.CurrentWallet));
+            }
+            else
+            {*/
+                viewModel = _viewModels
+                    .FirstOrDefault(someNavigatable => someNavigatable.Type.Equals(type));
+            //}
 
             if (viewModel == null)
             {

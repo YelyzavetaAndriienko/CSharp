@@ -69,7 +69,13 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public CategoriesViewModel(Action gotoWallets, CategoryService service)
         {
             _service = service;
-            WaitForCategoriesAsync();
+            //WaitForCategoriesAsync();
+            var ws = new ObservableCollection<CategoryDetailsViewModel>();
+            foreach (var category in _service.Categories)
+            {
+                ws.Add(new CategoryDetailsViewModel(category, this));
+            }
+            Categories = ws;
             _gotoWallets = gotoWallets;
             WalletsCommand = new DelegateCommand(_gotoWallets);
         }

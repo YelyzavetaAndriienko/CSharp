@@ -92,7 +92,7 @@ namespace LI.CSharp.Lab.Models.Transactions
                 }
                 else
                 {
-                    Console.WriteLine("Invalid value of Category!");
+                    Console.WriteLine("Null in setter of Category!");
                 }
             }
         }

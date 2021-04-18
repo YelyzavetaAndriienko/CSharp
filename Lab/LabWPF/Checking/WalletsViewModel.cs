@@ -59,7 +59,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             set
             {
                 _currentWallet = value;
-                _service.SetCurrentWalletInTransactionService(CurrentWallet.Wallet);
+                _service.SetCurrentWalletInTransactionService(_currentWallet != null ? 
+                    CurrentWallet.Wallet : null);
                 //RaisePropertyChanged(nameof(_currentWallet.MainCurrency));
                 RaisePropertyChanged();
                 //OnPropertyChanged();

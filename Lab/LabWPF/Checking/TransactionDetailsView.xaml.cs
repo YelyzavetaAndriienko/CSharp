@@ -28,10 +28,14 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        private void ComboBoxCategory_OnDropDownOpened(object? sender, EventArgs e)
+        private void ComboBoxCategory_OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            ComboBoxCategory.ItemsSource =
-                ((TransactionDetailsViewModel) DataContext).Tvm.Wallet.GetAvailableCategories();
+            if ((TransactionDetailsViewModel) DataContext != null)
+            {
+                bool categoryIsDefault = ((TransactionDetailsViewModel) DataContext).Category.Equals("DEFAULT");
+                ComboBoxCategory.ItemsSource =
+                    ((TransactionDetailsViewModel) DataContext).Tvm.Wallet.GetAvailableCategories(categoryIsDefault);
+            }
         }
     }
 }

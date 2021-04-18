@@ -24,6 +24,7 @@ namespace LI.CSharp.Lab.Models.Wallets
         private List<Transaction> _transactions;
         private List<bool> _availabilityOfCategories;
         private List<Guid> _usersId;
+        private int _amountOfAvailableCategories;
 
         public User Owner
         {
@@ -111,6 +112,18 @@ namespace LI.CSharp.Lab.Models.Wallets
             set { _availabilityOfCategories = value; }
         }
 
+        public int AmountOfAvailableCategories
+        {
+            get
+            { 
+                return _amountOfAvailableCategories;
+            } 
+            set
+            { 
+                _amountOfAvailableCategories = value;
+            } 
+        }
+
         public List<Guid> UsersId
         {
             get { return _usersId; }
@@ -125,26 +138,29 @@ namespace LI.CSharp.Lab.Models.Wallets
             _availabilityOfCategories = new List<bool>();
             _usersId = new List<Guid>();
             _usersId.Add(_owner.Id);
+            AmountOfAvailableCategories = 0;
             if (_owner.Categories != null)
             {
                 for (int i = 0; i < _owner.CategoriesAmount(); i++)
                 {
                     _availabilityOfCategories.Add(true);
+                    AmountOfAvailableCategories += 1;
                 }
             }
         }
 
-        public Wallet(User user, Guid id, string name, decimal initialBalance, Currencies? mainCurrency, List<bool> availabilityOfCategories)
+        public Wallet(User user, Guid id, string name, decimal initialBalance, decimal currentBalance, Currencies? mainCurrency, List<bool> availabilityOfCategories)
         {
             _owner = user;
             _id = id;
             _name = name;
             _description = "";
             _initialBalance = initialBalance;
-            _currentBalance = _initialBalance;
+            _currentBalance = currentBalance;
             _mainCurrency = mainCurrency;
             _transactions = new List<Transaction>();
             _availabilityOfCategories = new List<bool>();
+            AmountOfAvailableCategories = 0;
             _usersId = new List<Guid>();
             _usersId.Add(_owner.Id);
             _availabilityOfCategories = availabilityOfCategories;
@@ -212,16 +228,20 @@ namespace LI.CSharp.Lab.Models.Wallets
                             return;
                         }
                     }
-                    if (!(_owner.Categories.Contains(transaction.Category)))
+                    
+                    if (!transaction.Category.Name.Equals("DEFAULT"))
                     {
-                        Console.WriteLine("Transaction with unknown Category can't be added!");
-                        return;
-                    }
-                    if (!IsAvailable(transaction.Category))
-                    {
-                        Console.WriteLine("Category of the transaction is unavailable. "
-                                          + "Transaction can't be added!");
-                        return;
+                        if (!(_owner.Categories.Contains(transaction.Category)))
+                        {
+                            Console.WriteLine("Transaction with unknown Category can't be added!");
+                            return;
+                        }
+                        if (!IsAvailable(transaction.Category))
+                        {
+                            Console.WriteLine("Category of the transaction is unavailable. "
+                                              + "Transaction can't be added!");
+                            return;
+                        }
                     }
 
                     _transactions.Add(transaction);
@@ -260,7 +280,7 @@ namespace LI.CSharp.Lab.Models.Wallets
             }
         }
 
-        public void EditCurrencyOfTransaction(Guid transactionId, Currencies newCurrency, Guid userId)
+        public void EditCurrencyOfTransaction(Guid transactionId, Currencies? newCurrency, Guid userId)
         {
             if (UserIsOwner(userId))
             {
@@ -288,7 +308,7 @@ namespace LI.CSharp.Lab.Models.Wallets
             }
         }
 
-        public void EditDateOfTransaction(Guid transactionId, DateTimeOffset newDate, Guid userId)
+        public void EditDateOfTransaction(Guid transactionId, DateTimeOffset? newDate, Guid userId)
         {
             if (UserIsOwner(userId))
             {
@@ -305,16 +325,19 @@ namespace LI.CSharp.Lab.Models.Wallets
         {
             if (UserIsOwner(userId))
             {
-                if (!(Owner.Categories.Contains(newCategory)))
+                if (!newCategory.Name.Equals("DEFAULT"))
                 {
-                    Console.WriteLine("Category of the Transaction can't be changed to unknown Category!");
-                    return;
-                }
-                if (!IsAvailable(newCategory))
-                {
-                    Console.WriteLine("New category of the transaction is unavailable. "
-                                      + "Category of the Transaction can't be changed!");
-                    return;
+                    if (!Owner.Categories.Contains(newCategory))
+                    {
+                        Console.WriteLine("Category of the Transaction can't be changed to unknown Category!");
+                        return;
+                    }
+                    if (!IsAvailable(newCategory))
+                    {
+                        Console.WriteLine("New category of the transaction is unavailable. "
+                                          + "Category of the Transaction can't be changed!");
+                        return;
+                    }
                 }
                 var transaction = FindTransaction(transactionId);
                 if (transaction != null)
@@ -323,6 +346,11 @@ namespace LI.CSharp.Lab.Models.Wallets
                     Console.WriteLine("Category of the transaction was edited successfully");
                 }
             }
+        }
+
+        public Category GetFirstAvailableCategory()
+        {
+            return Owner.Categories.FirstOrDefault(category => IsAvailable(category));
         }
 
         public void EditFilesOfTransaction(Guid transactionId, List<FileInfo> newFiles, Guid userId)
@@ -367,6 +395,18 @@ namespace LI.CSharp.Lab.Models.Wallets
             return false;
         }
 
+        public void ChangeCategoryInTransactionsToDefault(string categoryName)
+        {
+            foreach (var transaction in Transactions)
+            {
+                if (transaction.Category.Name.Equals(categoryName))
+                {
+                    transaction.Category = Owner.DefaultCategory;
+                }
+            }
+            AmountOfAvailableCategories -= 1;
+        }
+
         public void ChangeAvailabilityOfCategory(string categoryName, bool availability, Guid userId)
         {
             if (UserIsOwner(userId))
@@ -376,14 +416,39 @@ namespace LI.CSharp.Lab.Models.Wallets
                 {
                     if (category.Name.Equals(categoryName))
                     {
-                        _availabilityOfCategories[index] = availability;
-                        Console.WriteLine("Availability of the category was changed successfully");
+                        if (_availabilityOfCategories[index] != availability)
+                        {
+                            _availabilityOfCategories[index] = availability;
+                            if (!availability)
+                            {
+                                ChangeCategoryInTransactionsToDefault(categoryName);
+                            }
+                            else AmountOfAvailableCategories += 1;
+                            Console.WriteLine("Availability of the category was changed successfully");
+                        }
                         return;
                     }
                     index++;
                 }
                 Console.WriteLine("The category is not found");
             }
+        }
+        
+        public string[] GetAvailableCategories(bool categoryIsDefault)
+        {
+            var result = new List<string>();
+            foreach (var category in Owner.Categories)
+            {
+                if (IsAvailable(category))
+                {
+                    result.Add(category.Name);
+                }
+            }
+            //if (result.Count == 0 || categoryIsDefault)
+            //{
+            result.Insert(0, "DEFAULT");
+            //}
+            return result.ToArray();
         }
 
         public decimal GeneralSumOfIncomeForMonth()
@@ -453,20 +518,6 @@ namespace LI.CSharp.Lab.Models.Wallets
             }
         }
 
-        public string[] GetAvailableCategories()
-        {
-            var result = new List<string>();
-            foreach (var category in Owner.Categories)
-            {
-                if (IsAvailable(category))
-                {
-                    result.Add(category.Name);
-                }
-            }
-
-            return result.ToArray();
-        }
-
         public override bool Validate()
         {
             var result = true;
@@ -488,6 +539,18 @@ namespace LI.CSharp.Lab.Models.Wallets
                 return -1;
             return String.Compare(Name, other.Name, StringComparison.Ordinal);
         }
+        
+        /*public override bool Equals(Object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType())
+            {
+                return false;
+            }
+            else {
+                var w = (Wallet) obj;
+                return Id.Equals(w.Id);
+            }
+        }*/
 
         public override string ToString()
         {

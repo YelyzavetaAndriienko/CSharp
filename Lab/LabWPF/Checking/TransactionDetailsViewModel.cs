@@ -28,7 +28,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             get { return _transaction.Sum; }
             set 
             {
-                _transaction.Sum = value;
+                Tvm.Wallet.EditSumOfTransaction(_transaction.Id, value, Tvm.Wallet.Owner.Id);
                 RaisePropertyChanged(nameof(DisplayName));
             }
         }
@@ -41,7 +41,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
             set 
             {
-                _transaction.Currency = (Currencies?)Array.IndexOf(WalletDetailsView.CURRENCIES, value); 
+                Tvm.Wallet.EditCurrencyOfTransaction(_transaction.Id, (Currencies?)Array.IndexOf(WalletDetailsView.CURRENCIES, value), Tvm.Wallet.Owner.Id);
                 RaisePropertyChanged(nameof(DisplayName));
             }
         }
@@ -54,7 +54,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
             set
             {
-                _transaction.Description = value;
+                Tvm.Wallet.EditDescriptionOfTransaction(_transaction.Id, value, Tvm.Wallet.Owner.Id);
             }
         }
 
@@ -63,8 +63,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
             get { return _transaction.Date; }
             set 
-            { 
-                _transaction.Date = value;
+            {
+                Tvm.Wallet.EditDateOfTransaction(_transaction.Id, value, Tvm.Wallet.Owner.Id);
             }
         }
 
@@ -73,7 +73,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             get { return _transaction.Category.Name; }
             set
             {
-                _transaction.Category = Tvm.Wallet.Owner.GetCategory(value);
+                Tvm.Wallet.EditCategoryOfTransaction(_transaction.Id, Tvm.Wallet.Owner.GetCategory(value), Tvm.Wallet.Owner.Id);
             }
         }
 
