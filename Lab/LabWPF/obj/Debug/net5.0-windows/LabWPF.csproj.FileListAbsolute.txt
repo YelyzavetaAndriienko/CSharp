@@ -33,16 +33,12 @@ C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CShar
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.Services.pdb
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\bin\Debug\net5.0-windows\LI.CSharp.Lab.DataStorage.pdb
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LabWPF.csprojAssemblyReference.cache
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\CategoryView.baml
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\WalletView.baml
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Authentication\AuthView.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Authentication\SignInView.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Authentication\SignUpView.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\Header.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainView.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\MainWindow.g.cs
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\CategoryView.g.cs
-C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\NewViews\WalletView.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Iryna\RiderProjects\CSharp\Lab\LabWPF\obj\Debug\net5.0-windows\LI.CSharp.Lab.LabWPF_MarkupCompile.cache

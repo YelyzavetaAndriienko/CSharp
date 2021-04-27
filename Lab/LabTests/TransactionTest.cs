@@ -3,6 +3,7 @@ using System.IO;
 using Xunit;
 using LI.CSharp.Lab.Models.Categories;
 using LI.CSharp.Lab.Models.Transactions;
+using LI.CSharp.Lab.Models.Users;
 
 namespace LI.CSharp.Lab.LabTests
 {
@@ -13,7 +14,8 @@ namespace LI.CSharp.Lab.LabTests
         public void ValidateTest()
         {
             //Arrange
-            var category = new Category()
+            var user = new User() { Id = Guid.NewGuid(), Name = "Ira", Surname = "Matviienko", Email = "ira123.sa@gmail.com" };
+            var category = new Category(user)
             {
                 Name = "food",
                 Description = "new category food",
@@ -41,7 +43,8 @@ namespace LI.CSharp.Lab.LabTests
         public void ValidateNoIdTest()
         {
             //Arrange
-            var category = new Category()
+            var user = new User() { Id = Guid.NewGuid(), Name = "Ira", Surname = "Matviienko", Email = "ira123.sa@gmail.com" };
+            var category = new Category(user)
             {
                 Name = "food",
                 Description = "new category food",
@@ -68,7 +71,8 @@ namespace LI.CSharp.Lab.LabTests
         public void ValidateNoCurrencyTest()
         {
             //Arrange
-            var category = new Category()
+            var user = new User() { Id = Guid.NewGuid(), Name = "Ira", Surname = "Matviienko", Email = "ira123.sa@gmail.com" };
+            var category = new Category(user)
             {
                 Name = "food",
                 Description = "new category food",
@@ -95,7 +99,8 @@ namespace LI.CSharp.Lab.LabTests
         public void ValidateNoDateTest()
         {
             //Arrange
-            var category = new Category()
+            var user = new User() { Id = Guid.NewGuid(), Name = "Ira", Surname = "Matviienko", Email = "ira123.sa@gmail.com" };
+            var category = new Category(user)
             {
                 Name = "food",
                 Description = "new category food",
@@ -115,7 +120,7 @@ namespace LI.CSharp.Lab.LabTests
             var actual = transaction.Validate();
 
             //Assert
-            Assert.False(actual);
+            Assert.True(actual);
         }
 
         [Fact]

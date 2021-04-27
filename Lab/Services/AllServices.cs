@@ -12,7 +12,6 @@ namespace LI.CSharp.Lab.Services
         {
             WalletService = new WalletService(user, this);
             CategoryService = new CategoryService(user);
-            //TransactionService = new TransactionService(CurrentWallet);
             TransactionService = new TransactionService();
         }
 

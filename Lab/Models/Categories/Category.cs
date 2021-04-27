@@ -88,8 +88,6 @@ namespace LI.CSharp.Lab.Models.Categories
             set { _id = value; }
         }
 
-        public Category() { }
-
         public Category(User user)
         {
             _id = Guid.NewGuid();
@@ -115,8 +113,6 @@ namespace LI.CSharp.Lab.Models.Categories
 
             if (String.IsNullOrWhiteSpace(Name))
                 result = false;
-            //if (Icon == null)
-                //result = false;
             if (Owner == null)
                 result = false;
 

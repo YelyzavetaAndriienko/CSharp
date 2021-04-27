@@ -24,7 +24,7 @@ namespace LI.CSharp.Lab.LabTests
             //Arrange
             var user1 = new User() { Id = id1, Name = "Liza", Surname = "Andriienko", Email = "liza123.sa@gmail.com" };
             var user2 = new User() { Id = id2, Name = "Ira", Surname = "Matviienko", Email = "ira123.sa@gmail.com" };
-            var category = new Category()
+            var category = new Category(user1)
             {
                 Name = "food",
                 Description = "new category food",

@@ -35,7 +35,6 @@
 
         <Button Grid.Column="0" Grid.Row="1" Margin="10,182,10,10" 
                 Click="Button_Click" HorizontalAlignment="Center" Width="40" Height="40">
-            <!--Command="{Binding AddWallet}">-->
             <Image Source="Images/plus3.png" Margin="5,5,5,5"/>
         </Button>
 

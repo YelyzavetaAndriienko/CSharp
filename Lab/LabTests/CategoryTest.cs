@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using Xunit;
 using LI.CSharp.Lab.Models.Categories;
+using LI.CSharp.Lab.Models.Users;
 
 namespace LI.CSharp.Lab.LabTests
 {
@@ -11,7 +12,8 @@ namespace LI.CSharp.Lab.LabTests
         public void ValidateTest()
         {
             //Arrange
-            var category = new Category()
+            var user = new User() { Id = Guid.NewGuid(), Name = "Ira", Surname = "Matviienko", Email = "ira123.sa@gmail.com" };
+            var category = new Category(user)
             {
                 Name = "food",
                 Description = "new category food",
@@ -30,7 +32,8 @@ namespace LI.CSharp.Lab.LabTests
         public void ValidateNoNameTest()
         {
             //Arrange
-            var category = new Category()
+            var user = new User() { Id = Guid.NewGuid(), Name = "Ira", Surname = "Matviienko", Email = "ira123.sa@gmail.com" };
+            var category = new Category(user)
             {
                 Description = "new category food",
                 Color = Colors.Red,
@@ -48,7 +51,8 @@ namespace LI.CSharp.Lab.LabTests
         public void ValidateNoColorTest()
         {
             //Arrange
-            var category = new Category()
+            var user = new User() { Id = Guid.NewGuid(), Name = "Ira", Surname = "Matviienko", Email = "ira123.sa@gmail.com" };
+            var category = new Category(user)
             {
                 Name = "food",
                 Description = "new category food",
@@ -59,14 +63,15 @@ namespace LI.CSharp.Lab.LabTests
             var actual = category.Validate();
 
             //Assert
-            Assert.False(actual);
+            Assert.True(actual);
         }
 
         [Fact]
         public void ValidateNoIconTest()
         {
             //Arrange
-            var category = new Category()
+            var user = new User() { Id = Guid.NewGuid(), Name = "Ira", Surname = "Matviienko", Email = "ira123.sa@gmail.com" };
+            var category = new Category(user)
             {
                 Name = "food",
                 Description = "new category food",
@@ -77,7 +82,7 @@ namespace LI.CSharp.Lab.LabTests
             var actual = category.Validate();
 
             //Assert
-            Assert.False(actual);
+            Assert.True(actual);
         }
     }
 }

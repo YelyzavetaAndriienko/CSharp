@@ -65,6 +65,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             set 
             {
                 Tvm.Wallet.EditDateOfTransaction(_transaction.Id, value, Tvm.Wallet.Owner.Id);
+                RaisePropertyChanged(nameof(DisplayName));
             }
         }
 
@@ -82,7 +83,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         {
             get
             {
-                return $"{_transaction.Sum} {_transaction.Currency}";
+                return $"{_transaction.Sum} {_transaction.Currency} {_transaction.Date}";
             }
         }
 

@@ -17,6 +17,9 @@
     <None Remove="Images\Plus.png" />
     <None Remove="MainView.xaml~" />
     <None Remove="Images\Cat0.jpg" />
+    <None Remove="Checking\Categories\**" />
+    <None Remove="Checking\Wallets\**" />
+    <None Remove="Wallets\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,6 +59,10 @@
     <Compile Remove="Authentication\SignUpViewModel.xaml.cs" />
     <Compile Remove="Authentication\AuthViewModel.xaml.cs" />
     <Compile Remove="Wallets\WalletDetailsView.xaml.cs" />
+    <Compile Remove="Checking\Categories\**" />
+    <Compile Remove="Checking\Wallets\**" />
+    <Compile Remove="NewViews\CategoryView.xaml.cs" />
+    <Compile Remove="Wallets\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -64,9 +71,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Checking\Categories\" />
-    <Folder Include="Checking\Wallets\" />
-    <Folder Include="Wallets" />
+    <EmbeddedResource Remove="Checking\Categories\**" />
+    <EmbeddedResource Remove="Checking\Wallets\**" />
+    <EmbeddedResource Remove="Wallets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Checking\Categories\**" />
+    <Page Remove="Checking\Wallets\**" />
+    <Page Remove="NewViews\CategoryView.xaml" />
+    <Page Remove="Wallets\**" />
   </ItemGroup>
 
 </Project>

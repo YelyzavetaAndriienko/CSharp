@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
 using LI.CSharp.Lab.GUI.WPF.Navigation;
-using LI.CSharp.Lab.Models.Users;
 using LI.CSharp.Lab.Models.Wallets;
 using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
@@ -20,12 +10,10 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
     public class WalletsViewModel : BindableBase, INavigatable<CheckNavigatableTypes>
     {
-        private WalletService _service { get; }
+        private WalletService _service;
         private WalletDetailsViewModel _currentWallet;
         private Action _gotoCategories;
-        public ObservableCollection<WalletDetailsViewModel> _wallets;
-        //?????
-        private Wallet wallet;
+        private ObservableCollection<WalletDetailsViewModel> _wallets;
         public CheckViewModel Cwm { get; }
 
         public WalletService Service
@@ -46,7 +34,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             {
                 _wallets = value;
                 RaisePropertyChanged();
-                //OnPropertyChanged();
             }
         }
 
@@ -61,9 +48,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 _currentWallet = value;
                 _service.SetCurrentWalletInTransactionService(_currentWallet != null ? 
                     CurrentWallet.Wallet : null);
-                //RaisePropertyChanged(nameof(_currentWallet.MainCurrency));
                 RaisePropertyChanged();
-                //OnPropertyChanged();
             }
         }
 
@@ -91,8 +76,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             CategoriesCommand = new DelegateCommand(_gotoCategories);
         }
 
-        //public DelegateCommand AddWallet { get; }
-
         public CheckNavigatableTypes Type
         {
             get
@@ -101,14 +84,11 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public void ClearSensitiveData()
-        {
-
-        }
+        public void ClearSensitiveData() { }
 
         public void CreateWallet()
         {
-            wallet = new Wallet(_service.User);
+            Wallet wallet = new Wallet(_service.User);
             var goodName = false;
             while (!goodName)
             {
@@ -119,18 +99,11 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 }
                 catch (ArgumentException e) { }
             }
-            if (IsWalletEnabled())
-            {
-                _service.Wallets.Add(wallet);
-                _service.User.MyWallets.Add(wallet);
-                WalletDetailsViewModel wdvm = new WalletDetailsViewModel(wallet, this);
-                Wallets.Add(wdvm);
-                CurrentWallet = wdvm;
-            }
-            else
-            {
-                MessageBox.Show("Please enter name of the category (more than 2 characters)!");
-            }
+            _service.Wallets.Add(wallet);
+            _service.User.MyWallets.Add(wallet);
+            WalletDetailsViewModel wdvm = new WalletDetailsViewModel(wallet, this);
+            Wallets.Add(wdvm);
+            CurrentWallet = wdvm;
         }
 
         public void DeleteWallet()
@@ -142,11 +115,11 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         }
         public DelegateCommand CategoriesCommand { get; }
 
-        private bool IsWalletEnabled()
+        /*private bool IsWalletEnabled()
         {
             return !String.IsNullOrWhiteSpace(wallet.Name) && !String.IsNullOrWhiteSpace(wallet.InitialBalance.ToString()) &&
                    !String.IsNullOrWhiteSpace(wallet.CurrentBalance.ToString()) && (wallet.Name.Length >= 2);
-        }
+        }*/
         
     }
 }

@@ -214,7 +214,7 @@ namespace LI.CSharp.Lab.Models.Wallets
             return null;
         }
 
-        public void AddTransaction(Transaction transaction, Guid userId)
+        public void AddTransaction(Transaction transaction, Guid userId, bool fromFile)
         {
             foreach (var u in _usersId)
             {
@@ -245,7 +245,8 @@ namespace LI.CSharp.Lab.Models.Wallets
                     }
 
                     _transactions.Add(transaction);
-                    _currentBalance += TransformCurrency(transaction.Currency, MainCurrency, transaction.Sum);
+                    if (!fromFile) 
+                        _currentBalance += TransformCurrency(transaction.Currency, MainCurrency, transaction.Sum);
                     Console.WriteLine("The transaction was added successfully");
                     return;
                 }
@@ -444,10 +445,7 @@ namespace LI.CSharp.Lab.Models.Wallets
                     result.Add(category.Name);
                 }
             }
-            //if (result.Count == 0 || categoryIsDefault)
-            //{
             result.Insert(0, "DEFAULT");
-            //}
             return result.ToArray();
         }
 
@@ -539,18 +537,6 @@ namespace LI.CSharp.Lab.Models.Wallets
                 return -1;
             return String.Compare(Name, other.Name, StringComparison.Ordinal);
         }
-        
-        /*public override bool Equals(Object obj)
-        {
-            if (obj == null || this.GetType() != obj.GetType())
-            {
-                return false;
-            }
-            else {
-                var w = (Wallet) obj;
-                return Id.Equals(w.Id);
-            }
-        }*/
 
         public override string ToString()
         {

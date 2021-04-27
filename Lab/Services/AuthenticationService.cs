@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using LI.CSharp.Lab.DataStorage;
@@ -23,20 +24,33 @@ namespace LI.CSharp.Lab.Services
             var dbUser = users.FirstOrDefault(user => user.Login == authUser.Login && user.Password == Encrypt(authUser.Password, encryptingIndex));
             if (dbUser == null)
                 throw new Exception("Wrong Login or Password");
-            //return new User(dbUser.Guid, dbUser.FirstName, dbUser.LastName, dbUser.Email, dbUser.Login);
+            if ((dbUser.Login.Length < 2))
+                throw new ArgumentException("Login must consist at least of 2 symbols");
+            if ((dbUser.Password.Length < 3))
+                throw new ArgumentException("Password must consist at least of 3 symbols");
+
             return new User(dbUser.Guid, dbUser.FirstName, dbUser.LastName, dbUser.Login);
         }
 
         public async Task<bool> RegisterUserAsync(RegistrationUser regUser)
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             var users = await _storage.GetAllAsync(DBUser.FOLDER);
             var dbUser = users.FirstOrDefault(user => user.Login == regUser.Login);
             if (dbUser != null)
                 throw new Exception("User already exists");
-            if (String.IsNullOrWhiteSpace(regUser.Login) || String.IsNullOrWhiteSpace(regUser.Password) || String.IsNullOrWhiteSpace(regUser.LastName))
-                throw new ArgumentException("Login, Password or Last Name is Empty");
-           
+            if (String.IsNullOrWhiteSpace(regUser.Name) || String.IsNullOrWhiteSpace(regUser.LastName) || String.IsNullOrWhiteSpace(regUser.Email) ||
+                String.IsNullOrWhiteSpace(regUser.Login) || String.IsNullOrWhiteSpace(regUser.Password))
+                throw new ArgumentException("At least one field is empty");
+            if ((regUser.Name.Length < 2) ||
+            (regUser.LastName.Length < 2) || (regUser.Login.Length < 2) || (regUser.Name.Length > 50) ||
+            (regUser.LastName.Length > 50) || (regUser.Login.Length > 50))
+                throw new ArgumentException("First name, last name and login must consist at least of 2 symbols. Max 50");
+            if (!Regex.IsMatch(regUser.Email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                throw new ArgumentException("Incorrect email");
+            if ((regUser.Password.Length < 3))
+               throw new ArgumentException("Password must consist at least of 3 symbols");
+
             string encryptedPassword = Encrypt(regUser.Password, encryptingIndex);
             dbUser = new DBUser(regUser.Name, regUser.LastName, regUser.Login + "@gmail.com", regUser.Login, encryptedPassword);
             await _storage.AddOrUpdateAsync(dbUser);

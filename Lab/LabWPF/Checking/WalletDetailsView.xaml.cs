@@ -52,10 +52,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             wallet.ChangeAvailabilityOfCategory(
                 chBox.Content.ToString(), false,
                 wallet.Owner.Id);
-            /*MessageBox.Show("Are you sure you want to make category " 
-                            + chBox.Content.ToString() + " unavailable in this wallet? " +
-                            "All transactions of this category will change their category " +
-                            "to default one");*/
             MessageBox.Show("Category " + chBox.Content.ToString() + 
                             " is now unavailable in this wallet. All transactions of this " +
                             "category will change their category to DEFAULT");
@@ -74,11 +70,5 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        /*private void Transactions_OnClick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Pressed");
-            ((WalletDetailsViewModel)DataContext)._gotoTransactions.Invoke();
-        }*/
-        
     }
 }

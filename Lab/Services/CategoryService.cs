@@ -13,35 +13,6 @@ namespace LI.CSharp.Lab.Services
 {
     public class CategoryService
     {
-        //  private static User u;
-        //private static List<Category> c = new List<Category>()
-        //{
-        //    new Category() {
-        //        Name = "food1",
-        //        Description = "new category food",
-        //        Color = Colors.Red,
-        //        Icon = new FileInfo("apple")
-        //    },
-        //    new Category() {
-        //        Name = "food2",
-        //        Description = "new category food",
-        //        Color = Colors.Green,
-        //        Icon = new FileInfo("apple")
-        //    },
-        //    new Category() {
-        //        Name = "food3",
-        //        Description = "new category food",
-        //        Color = Colors.Yellow,
-        //        Icon = new FileInfo("apple")
-        //    },
-        //};
-
-        //public List<Category> GetCategories()
-        //{
-        //    //u.Categories = c;
-        //    return c.ToList();
-        //}
-
         private FileDataStorage<DBCategory> _storage = new FileDataStorage<DBCategory>();
         private List<Category> _categories;
         public bool CategoriesLoaded { get; set; }
@@ -65,8 +36,6 @@ namespace LI.CSharp.Lab.Services
                 _categories.Add(category);
                 User.AddCategory(category);
             }
-
-            //return true;
         }
 
         public async Task SaveChanges()

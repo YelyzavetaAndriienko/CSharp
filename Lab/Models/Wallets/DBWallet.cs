@@ -24,7 +24,6 @@ namespace LI.CSharp.Lab.Models.Wallets
             decimal initialBalance, decimal currentBalance, Currencies? mainCurrency, 
             Guid guid, List<bool> availabilityOfCategories)
         {
-            //Guid = Guid.NewGuid();
             Name = name;
             OwnerGuid = ownerGuid;
             Description = description;

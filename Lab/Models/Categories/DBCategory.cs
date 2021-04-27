@@ -16,7 +16,6 @@ namespace LI.CSharp.Lab.Models.Categories
         public DBCategory(string name, string ownerGuid, string description,
             Colors? color, FileInfo icon, Guid guid)
         {
-            //Guid = Guid.NewGuid();
             Name = name;
             Description = description;
             Color = color;

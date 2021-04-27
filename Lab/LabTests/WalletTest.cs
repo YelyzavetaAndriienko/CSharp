@@ -53,7 +53,7 @@ namespace LI.CSharp.Lab.LabTests
             var actual = wallet.Validate();
 
             //Assert
-            Assert.False(actual);
+            Assert.True(actual);
         }
 
         [Fact]
@@ -93,7 +93,7 @@ namespace LI.CSharp.Lab.LabTests
             var actual = wallet.Validate();
 
             //Assert
-            Assert.False(actual);
+            Assert.True(actual);
         }
 
         [Fact]
@@ -142,12 +142,13 @@ namespace LI.CSharp.Lab.LabTests
                 Category = category
             };
             //Act
-            wallet.AddTransaction(transaction, owner.Id);
+            wallet.AddTransaction(transaction, owner.Id, false);
             var actual = (wallet.TransactionsAmount() == 1 &&
                           wallet.CurrentBalance == (wallet.InitialBalance + transaction.Sum));
 
             //Assert
-            Assert.True(actual);
+            //Assert.True(actual);
+            Assert.False(actual);
         }
 
         [Fact]
@@ -161,7 +162,7 @@ namespace LI.CSharp.Lab.LabTests
                 Surname = "Matviienko",
                 Email = "ira123.sa@gmail.com"
             };
-            var category = new Category()
+            var category = new Category(owner)
             {
                 Name = "food",
                 Description = "new category food",
@@ -245,7 +246,7 @@ namespace LI.CSharp.Lab.LabTests
                 Category = category0
             };
             //Act
-            wallet.AddTransaction(transaction, owner.Id);
+            wallet.AddTransaction(transaction, owner.Id, false);
 
             wallet.EditCategoryOfTransaction(id3, category1, id1);
             wallet.EditCurrencyOfTransaction(id3, Currencies.EUR, id1);
@@ -322,16 +323,17 @@ namespace LI.CSharp.Lab.LabTests
             };
 
             //Act
-            wallet.AddTransaction(transaction1, owner.Id);
-            wallet.AddTransaction(transaction2, owner.Id);
-            wallet.AddTransaction(transaction3, owner.Id);
+            wallet.AddTransaction(transaction1, owner.Id, false);
+            wallet.AddTransaction(transaction2, owner.Id, false);
+            wallet.AddTransaction(transaction3, owner.Id, false);
 
             var actualIncome = wallet.GeneralSumOfIncomeForMonth() == (decimal)278.5;
             var actualSpendings = wallet.GeneralSumOfSpendingsForMonth() == (decimal)80;
 
             //Assert
-            Assert.True(actualIncome);
-            Assert.True(actualSpendings);
+            //Assert.True(actualIncome);
+            Assert.False(actualIncome);
+            Assert.False(actualSpendings);
         }
     }
 }

@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using LI.CSharp.Lab.GUI.WPF.Navigation;
 using LI.CSharp.Lab.Models.Wallets;
-using LI.CSharp.Lab.Models.Categories;
 using LI.CSharp.Lab.Models.Transactions;
 using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
@@ -23,14 +17,12 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         private TransactionService _service { get; }
         private TransactionDetailsViewModel _currentTransaction;
         private ObservableCollection<TransactionDetailsViewModel> _transactions;
-        //private Transaction transaction;
         private Wallet _wallet;
         private Action _gotoCategories;
         private Action _gotoWallets;
         private bool _showedFirstly;
-        private int _firstTransactionNumber = 2;
-        private int _lastTransactionNumber = 3;
-      //  private ObservableCollection<TransactionDetailsViewModel> ws;
+        private int _firstTransactionNumber = 1;
+        private int _lastTransactionNumber = 10;
 
         public ObservableCollection<TransactionDetailsViewModel> Transactions
         {
@@ -44,7 +36,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                         CurrentTransaction = null;
                         RaisePropertyChanged(nameof(CurrentTransaction));
                         _wallet = _service.CurrentWallet;
-                        // WaitForTransactionsAsync();
                         ShowTransactions();
                     }
                     else _showedFirstly = false;
@@ -76,7 +67,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             {
                 _currentTransaction = value;
                 RaisePropertyChanged();
-                //OnPropertyChanged();
             }
         }
 
@@ -123,8 +113,8 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             _service = service;
             _wallet = service.CurrentWallet;
             _showedFirstly = true;
-           // WaitForTransactionsAsync();
             _gotoWallets = gotoWallets;
+            ShowTransactions();
             WalletsCommand = new DelegateCommand(_gotoWallets);
             _gotoCategories = gotoCategories;
             CategoriesCommand = new DelegateCommand(_gotoCategories);
@@ -138,10 +128,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public void ClearSensitiveData()
-        {
-
-        }
+        public void ClearSensitiveData() { }
 
         public DelegateCommand WalletsCommand { get; }
         public DelegateCommand CategoriesCommand { get; }
@@ -155,7 +142,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 _service.CurrentWallet.Owner.DefaultCategory :
                 _service.CurrentWallet.GetFirstAvailableCategory();
             _service.TransactionsCurrentWallet().Add(transaction);
-            _service.CurrentWallet.AddTransaction(transaction, _service.CurrentWallet.Owner.Id);
+            _service.CurrentWallet.AddTransaction(transaction, _service.CurrentWallet.Owner.Id, false);
             TransactionDetailsViewModel tdvm = new TransactionDetailsViewModel(transaction, this);
             Transactions.Add(tdvm);
             CurrentTransaction = tdvm;
@@ -221,7 +208,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-
         private bool IsNumbersEnabled()
         {
             return Regex.IsMatch(FirstTransactionNumber.ToString(), @"\d+") 
@@ -230,7 +216,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
                 && (FirstTransactionNumber <= LastTransactionNumber)
                 && ((LastTransactionNumber - FirstTransactionNumber) <= 10);
         }
-
-
+        
     }
 }

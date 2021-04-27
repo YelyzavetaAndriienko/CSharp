@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using LI.CSharp.Lab.GUI.WPF.Navigation;
 using LI.CSharp.Lab.Models.Categories;
 using LI.CSharp.Lab.Services;
 using Prism.Mvvm;
 using Prism.Commands;
-using System.Windows;
 
 namespace LI.CSharp.Lab.GUI.WPF.Checking
 {
@@ -47,7 +40,6 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             {
                 _currentCategory = value;
                 RaisePropertyChanged();
-                //OnPropertyChanged();
             }
         }
 
@@ -69,11 +61,10 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
         public CategoriesViewModel(Action gotoWallets, CategoryService service)
         {
             _service = service;
-            //WaitForCategoriesAsync();
             var ws = new ObservableCollection<CategoryDetailsViewModel>();
-            foreach (var category in _service.Categories)
+            foreach (var categ in _service.Categories)
             {
-                ws.Add(new CategoryDetailsViewModel(category, this));
+                ws.Add(new CategoryDetailsViewModel(categ, this));
             }
             Categories = ws;
             _gotoWallets = gotoWallets;
@@ -88,10 +79,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Checking
             }
         }
 
-        public void ClearSensitiveData()
-        {
-
-        }
+        public void ClearSensitiveData() { }
 
         public void CreateCategory()
         {

@@ -8,17 +8,7 @@
         {
             get { return Validate(); }
         }
-
-        //public bool IsValidId(Guid id)
-        //{
-        //    bool result = id.CompareTo(0) >= 0;
-        //    if (!result)
-        //    {
-        //        Console.WriteLine("Invalid id!");
-        //    }
-        //    return result;
-        //}
-
+        
         public static decimal TransformCurrencyToUSD(Currencies? from, decimal sum)
         {
             switch (from)

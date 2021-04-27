@@ -130,7 +130,7 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Sign In failed: {ex.Message}");
+                MessageBox.Show($"Sign Up failed: {ex.Message}");
                 return;
             }
 
@@ -140,9 +140,10 @@ namespace LI.CSharp.Lab.GUI.WPF.Authentication
 
         private bool IsSignUpEnabled()
         {
-            return !String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(LastName) && !String.IsNullOrWhiteSpace(Email) && 
-                   !String.IsNullOrWhiteSpace(Login) && !String.IsNullOrWhiteSpace(Password) && (Name.Length > 2) &&
-                   (LastName.Length > 2) && (Login.Length > 2) && (Password.Length > 3) && Regex.IsMatch(Email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            var res = !String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(LastName) &&
+                      !String.IsNullOrWhiteSpace(Email) &&
+                      !String.IsNullOrWhiteSpace(Login) && !String.IsNullOrWhiteSpace(Password);
+            return res;
         }
 
         public void ClearSensitiveData()

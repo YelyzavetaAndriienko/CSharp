@@ -27,7 +27,6 @@ namespace LI.CSharp.Lab.Services
             var trSer = new TrService(CurrentWallet);
             _trServices.Add(trSer);
             return trSer.Transactions;
-            //throw new ArgumentException("Current wallet is null!");
         }
         
         public async Task GetTransactionsCurrentWalletAsync()
@@ -42,8 +41,6 @@ namespace LI.CSharp.Lab.Services
                 return;
             }
             var trSer = new TrService(CurrentWallet);
-            //Category category = new Category()
-            //trSer.Transactions.Add(new Transaction(CurrentWallet, Guid.NewGuid(), 125, Currencies.EUR, DateTimeOffset.Now, null));
             _trServices.Add(trSer);
             await trSer.GetTransactionsAsync();
             trSer.TransactionsLoaded = true;

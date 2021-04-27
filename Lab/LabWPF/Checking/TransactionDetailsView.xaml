@@ -31,7 +31,6 @@
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
                         <TextBlock Margin="10, 10, 10, 0">Currency</TextBlock>
-                        <!--<TextBox Name="TbMainCurrency" Width="80" Margin="10" HorizontalAlignment="Left" Text="UAH"></TextBox>-->
                         <ComboBox Name="ComboBoxCurrency" Height="30" Width="70" Margin="10" HorizontalAlignment="Left" 
                                   SelectedItem="{Binding Currency, UpdateSourceTrigger=PropertyChanged}">
                         </ComboBox>
@@ -48,9 +47,7 @@
                     </StackPanel>
                     <StackPanel Grid.Row="4" Grid.ColumnSpan="2">
                         <TextBlock Margin="10, 10, 10, 0">Category</TextBlock>
-                        <!--<TextBox MaxLength="300" MinWidth="300" Margin="10" HorizontalAlignment="Stretch" 
-                     Text="{Binding Category, UpdateSourceTrigger=PropertyChanged}"></TextBox>-->
-                        <ComboBox Name="ComboBoxCategory" Height="30" Width="100" Margin="10" HorizontalAlignment="Left" 
+                        <ComboBox Name="ComboBoxCategory" Height="30" Width="150" Margin="10" HorizontalAlignment="Left" 
                                   SelectedItem="{Binding Category, UpdateSourceTrigger=PropertyChanged}" IsVisibleChanged="ComboBoxCategory_OnIsVisibleChanged">
                         </ComboBox>
                     </StackPanel>

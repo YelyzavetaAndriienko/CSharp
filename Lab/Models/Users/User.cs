@@ -39,8 +39,6 @@ namespace LI.CSharp.Lab.Models.Users
             _otherWallets = new List<Wallet>();
             _categories = new List<Category>();
             DefaultCategory = new Category(this, "DEFAULT", null, null, Guid.Empty);
-            //_categories.Add(DefaultCategory);
-            //AddCategory(DefaultCategory);
             if (!Validate())
             {
                 throw new ArgumentException("Invalid argument in constructor of User!");

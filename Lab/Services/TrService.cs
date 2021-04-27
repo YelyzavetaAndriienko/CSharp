@@ -32,7 +32,7 @@ namespace LI.CSharp.Lab.Services
                 var transaction = new Transaction(Wallet, dbTransaction.Guid, dbTransaction.Sum, dbTransaction.Currency, dbTransaction.Date, Wallet.Owner.GetCategory(dbTransaction.Category));
                 transaction.Description = dbTransaction.Description;
                 _transactions.Add(transaction);
-                Wallet.AddTransaction(transaction, Wallet.Owner.Id);
+                Wallet.AddTransaction(transaction, Wallet.Owner.Id, true);
             }
         }
 
